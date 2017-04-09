@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+@import Firebase;
 
 static NSString *const fromLoginToPupilViewControllerSegueIdentifier = @"fromLoginToPupilViewControllerSegueIdentifier";
 
@@ -15,8 +16,12 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
 @interface LoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *loginTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+
+@property (strong, nonatomic) FIRAuth *handle;
 
 - (IBAction)loginAction:(UIButton *)sender;
+- (IBAction)registrationAction:(UIButton *)sender;
 
 @end
 
@@ -24,7 +29,17 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.handle = [[FIRAuth auth]
+                   addAuthStateDidChangeListener:^(FIRAuth *_Nonnull auth, FIRUser *_Nullable user) {
+                   }];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [[FIRAuth auth] removeAuthStateDidChangeListener:self.handle];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,27 +48,50 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 #pragma mark - Actions
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
 
 - (IBAction)loginAction:(UIButton *)sender {
     
     NSString *inputText = self.loginTextField.text;
     
-    if([inputText isEqualToString:@""]) {
-        
-    } else if([inputText isEqualToString:@"pupil"]) {
-        [self performSegueWithIdentifier:fromLoginToPupilViewControllerSegueIdentifier sender:self];
-    } else {
-        [self performSegueWithIdentifier:fromLoginToTeacherViewControllerSegueIdentifier sender:self];
+    if(![inputText isEqualToString:@""]) {
+        [[FIRAuth auth] signInWithEmail:self.loginTextField.text
+                               password:self.passwordTextField.text
+                             completion:^(FIRUser *user, NSError *error) {
+                                 if(!error) {
+                                     [self performSegueWithIdentifier:fromLoginToPupilViewControllerSegueIdentifier sender:self];
+                                 } else {
+                                     NSLog(@"Stop");
+                                 }
+                             }];
     }
+    //    } else if([inputText isEqualToString:@"pupil"]) {
+    //    }
+    //    } else {
+    //        [self performSegueWithIdentifier:fromLoginToTeacherViewControllerSegueIdentifier sender:self];
+    //    }
 }
+
+- (IBAction)registrationAction:(UIButton *)sender {
+    [[FIRAuth auth]
+     createUserWithEmail:self.loginTextField.text
+     password:self.passwordTextField.text
+     completion:^(FIRUser *_Nullable user,
+                  NSError *_Nullable error) {
+     }];
+}
+
 @end

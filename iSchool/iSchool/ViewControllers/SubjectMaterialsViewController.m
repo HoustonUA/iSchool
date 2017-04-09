@@ -11,16 +11,25 @@
 
 @interface SubjectMaterialsViewController () <UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UINavigationItem *navItem;
+
 @end
 
 @implementation SubjectMaterialsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupUI];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Private
+
+- (void)setupUI {
+    self.navItem.title = [NSString stringWithFormat:@"%@ Materials", self.navigationItemTitle];
 }
 
 #pragma mark - UITableViewDelegate

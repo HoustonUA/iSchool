@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+@import Firebase;
 
 @interface AppDelegate ()
 
@@ -16,6 +17,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [FIRApp configure];
     [self setupUI];
     return YES;
 }
@@ -53,6 +55,7 @@
 
 - (void)setupUI {
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:39.0/255.0 green:206.0/255.0 blue:47.0/255.0 alpha:1.0]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 }
 
 #pragma mark - Core Data stack

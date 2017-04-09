@@ -29,7 +29,7 @@
 #pragma mark - Private
 
 - (void)setupUI {
-    self.navigationItem.title = self.navigationItemTitle;
+    self.navigationItem.title = [NSString stringWithFormat:@"%@ Journal", self.navigationItemTitle];
 }
 
 @end

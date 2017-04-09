@@ -10,8 +10,20 @@
 #import "SectionCollectionViewCell.h"
 #import "JournalViewController.h"
 
+typedef enum {
+    Journal = 0,
+    Schedule,
+    Materials,
+    Notices,
+    News,
+    MyClass,
+    Parents,
+    Settings
+}SectionName;
+
 static NSString *const fromMainPupilToJournalSegueUdentifier = @"fromMainPupilToJournalSegueUdentifier";
 static NSString *const fromMainPupilToScheduleSegueIdentifier = @"fromMainPupilToScheduleSegueIdentifier";
+static NSString *const fromPupilMainPanelToNitocesSegueIdentifier = @"fromPupilMainPanelToNitocesSegueIdentifier";
 
 @interface PupilPanelViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
@@ -53,17 +65,27 @@ static NSString *const fromMainPupilToScheduleSegueIdentifier = @"fromMainPupilT
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
     switch (indexPath.row) {
-        case 0:
+        case Journal:
             self.lActionType = toSubjectViewController;
             [self performSegueWithIdentifier:fromMainPupilToJournalSegueUdentifier sender:self];
             break;
-        case 1:
+        case Schedule:
             [self performSegueWithIdentifier:fromMainPupilToScheduleSegueIdentifier sender:self];
-        case 2:
+            break;
+        case Materials:
             self.lActionType = toSchoolMaterialsViewController;
             [self performSegueWithIdentifier:fromMainPupilToJournalSegueUdentifier sender:self];
             break;
-        case 3:
+        case Notices:
+            [self performSegueWithIdentifier:fromPupilMainPanelToNitocesSegueIdentifier sender:self];
+            break;
+        case News:
+            break;
+        case MyClass:
+            break;
+        case Parents:
+            break;
+        case Settings:
             break;
         default:
             break;

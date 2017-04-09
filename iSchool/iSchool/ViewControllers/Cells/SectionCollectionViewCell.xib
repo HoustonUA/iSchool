@@ -27,6 +27,9 @@
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fMF-yO-xKF">
                     <rect key="frame" x="20" y="20" width="335" height="183"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="183" id="KtP-Xc-lVA"/>
+                    </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Section" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyt-YR-iZC">
                     <rect key="frame" x="10" y="211" width="355" height="21"/>
@@ -40,8 +43,10 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="yyt-YR-iZC" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8pW-fB-w2z"/>
                 <constraint firstAttribute="trailing" secondItem="Lyg-1r-0wk" secondAttribute="trailing" id="DRe-cN-MSD"/>
                 <constraint firstAttribute="trailing" secondItem="yyt-YR-iZC" secondAttribute="trailing" constant="10" id="K6Q-81-mjf"/>
+                <constraint firstItem="fMF-yO-xKF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="O7G-VA-gjP"/>
                 <constraint firstItem="Lyg-1r-0wk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="QgR-kL-TOh"/>
                 <constraint firstAttribute="trailing" secondItem="fMF-yO-xKF" secondAttribute="trailing" constant="20" id="V2q-69-cta"/>
                 <constraint firstItem="yyt-YR-iZC" firstAttribute="top" secondItem="fMF-yO-xKF" secondAttribute="bottom" constant="8" id="bV8-cV-UPS"/>
