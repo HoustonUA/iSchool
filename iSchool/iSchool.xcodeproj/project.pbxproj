@@ -9,11 +9,22 @@
 /* Begin PBXBuildFile section */
 		F143A6DD1E9A4E27003B11D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F143A6DC1E9A4E27003B11D1 /* main.m */; };
 		F143A6E01E9A4E27003B11D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F143A6DF1E9A4E27003B11D1 /* AppDelegate.m */; };
-		F143A6E31E9A4E27003B11D1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F143A6E21E9A4E27003B11D1 /* ViewController.m */; };
 		F143A6E61E9A4E27003B11D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F143A6E41E9A4E27003B11D1 /* Main.storyboard */; };
 		F143A6E91E9A4E27003B11D1 /* iSchool.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F143A6E71E9A4E27003B11D1 /* iSchool.xcdatamodeld */; };
 		F143A6EB1E9A4E27003B11D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F143A6EA1E9A4E27003B11D1 /* Assets.xcassets */; };
 		F143A6EE1E9A4E27003B11D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F143A6EC1E9A4E27003B11D1 /* LaunchScreen.storyboard */; };
+		F143A6F81E9A4F77003B11D1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F143A6F71E9A4F77003B11D1 /* LoginViewController.m */; };
+		F143A6FB1E9A4FDE003B11D1 /* PupilPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F143A6FA1E9A4FDE003B11D1 /* PupilPanelViewController.m */; };
+		F143A6FE1E9A4FEE003B11D1 /* TeacherPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F143A6FD1E9A4FEE003B11D1 /* TeacherPanelViewController.m */; };
+		F143A7021E9A5AAB003B11D1 /* SectionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F143A7011E9A5AAB003B11D1 /* SectionCollectionViewCell.m */; };
+		F143A7041E9A5B6B003B11D1 /* SectionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F143A7031E9A5B6B003B11D1 /* SectionCollectionViewCell.xib */; };
+		F143A70E1E9A667C003B11D1 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = F143A70D1E9A667C003B11D1 /* Constants.m */; };
+		F143A7111E9A70D3003B11D1 /* JournalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F143A7101E9A70D3003B11D1 /* JournalViewController.m */; };
+		F143A7141E9A71E6003B11D1 /* SubjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F143A7131E9A71E6003B11D1 /* SubjectTableViewCell.m */; };
+		F143A7181E9A79F1003B11D1 /* SubjectJournalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F143A7171E9A79F1003B11D1 /* SubjectJournalViewController.m */; };
+		F143A71B1E9A81F9003B11D1 /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F143A71A1E9A81F9003B11D1 /* ScheduleViewController.m */; };
+		F143A7211E9A8FEB003B11D1 /* SubjectMaterialsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F143A7201E9A8FEB003B11D1 /* SubjectMaterialsViewController.m */; };
+		F143A7241E9A96AD003B11D1 /* SubjectMaterialTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F143A7231E9A96AD003B11D1 /* SubjectMaterialTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,13 +32,34 @@
 		F143A6DC1E9A4E27003B11D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F143A6DE1E9A4E27003B11D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F143A6DF1E9A4E27003B11D1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F143A6E11E9A4E27003B11D1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F143A6E21E9A4E27003B11D1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F143A6E51E9A4E27003B11D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F143A6E81E9A4E27003B11D1 /* iSchool.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iSchool.xcdatamodel; sourceTree = "<group>"; };
 		F143A6EA1E9A4E27003B11D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F143A6ED1E9A4E27003B11D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F143A6EF1E9A4E27003B11D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F143A6F61E9A4F77003B11D1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ViewControllers/LoginViewController.h; sourceTree = "<group>"; };
+		F143A6F71E9A4F77003B11D1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ViewControllers/LoginViewController.m; sourceTree = "<group>"; };
+		F143A6F91E9A4FDE003B11D1 /* PupilPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PupilPanelViewController.h; path = ViewControllers/PupilPanelViewController.h; sourceTree = "<group>"; };
+		F143A6FA1E9A4FDE003B11D1 /* PupilPanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PupilPanelViewController.m; path = ViewControllers/PupilPanelViewController.m; sourceTree = "<group>"; };
+		F143A6FC1E9A4FEE003B11D1 /* TeacherPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeacherPanelViewController.h; path = ViewControllers/TeacherPanelViewController.h; sourceTree = "<group>"; };
+		F143A6FD1E9A4FEE003B11D1 /* TeacherPanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TeacherPanelViewController.m; path = ViewControllers/TeacherPanelViewController.m; sourceTree = "<group>"; };
+		F143A7001E9A5AAB003B11D1 /* SectionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SectionCollectionViewCell.h; path = ViewControllers/Cells/SectionCollectionViewCell.h; sourceTree = "<group>"; };
+		F143A7011E9A5AAB003B11D1 /* SectionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SectionCollectionViewCell.m; path = ViewControllers/Cells/SectionCollectionViewCell.m; sourceTree = "<group>"; };
+		F143A7031E9A5B6B003B11D1 /* SectionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SectionCollectionViewCell.xib; path = ViewControllers/Cells/SectionCollectionViewCell.xib; sourceTree = "<group>"; };
+		F143A70C1E9A667C003B11D1 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		F143A70D1E9A667C003B11D1 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		F143A70F1E9A70D3003B11D1 /* JournalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JournalViewController.h; path = ViewControllers/JournalViewController.h; sourceTree = "<group>"; };
+		F143A7101E9A70D3003B11D1 /* JournalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JournalViewController.m; path = ViewControllers/JournalViewController.m; sourceTree = "<group>"; };
+		F143A7121E9A71E6003B11D1 /* SubjectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectTableViewCell.h; path = ViewControllers/Cells/SubjectTableViewCell.h; sourceTree = "<group>"; };
+		F143A7131E9A71E6003B11D1 /* SubjectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectTableViewCell.m; path = ViewControllers/Cells/SubjectTableViewCell.m; sourceTree = "<group>"; };
+		F143A7161E9A79F1003B11D1 /* SubjectJournalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectJournalViewController.h; path = ViewControllers/SubjectJournalViewController.h; sourceTree = "<group>"; };
+		F143A7171E9A79F1003B11D1 /* SubjectJournalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectJournalViewController.m; path = ViewControllers/SubjectJournalViewController.m; sourceTree = "<group>"; };
+		F143A7191E9A81F9003B11D1 /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScheduleViewController.h; path = ViewControllers/ScheduleViewController.h; sourceTree = "<group>"; };
+		F143A71A1E9A81F9003B11D1 /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleViewController.m; path = ViewControllers/ScheduleViewController.m; sourceTree = "<group>"; };
+		F143A71F1E9A8FEB003B11D1 /* SubjectMaterialsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectMaterialsViewController.h; path = ViewControllers/SubjectMaterialsViewController.h; sourceTree = "<group>"; };
+		F143A7201E9A8FEB003B11D1 /* SubjectMaterialsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectMaterialsViewController.m; path = ViewControllers/SubjectMaterialsViewController.m; sourceTree = "<group>"; };
+		F143A7221E9A96AD003B11D1 /* SubjectMaterialTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectMaterialTableViewCell.h; path = ViewControllers/Cells/SubjectMaterialTableViewCell.h; sourceTree = "<group>"; };
+		F143A7231E9A96AD003B11D1 /* SubjectMaterialTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectMaterialTableViewCell.m; path = ViewControllers/Cells/SubjectMaterialTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +92,11 @@
 		F143A6DA1E9A4E27003B11D1 /* iSchool */ = {
 			isa = PBXGroup;
 			children = (
+				F143A6F51E9A4F61003B11D1 /* ViewControllers */,
 				F143A6DE1E9A4E27003B11D1 /* AppDelegate.h */,
 				F143A6DF1E9A4E27003B11D1 /* AppDelegate.m */,
-				F143A6E11E9A4E27003B11D1 /* ViewController.h */,
-				F143A6E21E9A4E27003B11D1 /* ViewController.m */,
+				F143A70C1E9A667C003B11D1 /* Constants.h */,
+				F143A70D1E9A667C003B11D1 /* Constants.m */,
 				F143A6E41E9A4E27003B11D1 /* Main.storyboard */,
 				F143A6EA1E9A4E27003B11D1 /* Assets.xcassets */,
 				F143A6EC1E9A4E27003B11D1 /* LaunchScreen.storyboard */,
@@ -80,6 +113,42 @@
 				F143A6DC1E9A4E27003B11D1 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F143A6F51E9A4F61003B11D1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F143A6FF1E9A5508003B11D1 /* Cells */,
+				F143A70F1E9A70D3003B11D1 /* JournalViewController.h */,
+				F143A7101E9A70D3003B11D1 /* JournalViewController.m */,
+				F143A6F61E9A4F77003B11D1 /* LoginViewController.h */,
+				F143A6F71E9A4F77003B11D1 /* LoginViewController.m */,
+				F143A6F91E9A4FDE003B11D1 /* PupilPanelViewController.h */,
+				F143A6FA1E9A4FDE003B11D1 /* PupilPanelViewController.m */,
+				F143A7191E9A81F9003B11D1 /* ScheduleViewController.h */,
+				F143A71A1E9A81F9003B11D1 /* ScheduleViewController.m */,
+				F143A7161E9A79F1003B11D1 /* SubjectJournalViewController.h */,
+				F143A7171E9A79F1003B11D1 /* SubjectJournalViewController.m */,
+				F143A71F1E9A8FEB003B11D1 /* SubjectMaterialsViewController.h */,
+				F143A7201E9A8FEB003B11D1 /* SubjectMaterialsViewController.m */,
+				F143A6FC1E9A4FEE003B11D1 /* TeacherPanelViewController.h */,
+				F143A6FD1E9A4FEE003B11D1 /* TeacherPanelViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F143A6FF1E9A5508003B11D1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F143A7001E9A5AAB003B11D1 /* SectionCollectionViewCell.h */,
+				F143A7011E9A5AAB003B11D1 /* SectionCollectionViewCell.m */,
+				F143A7031E9A5B6B003B11D1 /* SectionCollectionViewCell.xib */,
+				F143A7221E9A96AD003B11D1 /* SubjectMaterialTableViewCell.h */,
+				F143A7231E9A96AD003B11D1 /* SubjectMaterialTableViewCell.m */,
+				F143A7121E9A71E6003B11D1 /* SubjectTableViewCell.h */,
+				F143A7131E9A71E6003B11D1 /* SubjectTableViewCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +212,7 @@
 			files = (
 				F143A6EE1E9A4E27003B11D1 /* LaunchScreen.storyboard in Resources */,
 				F143A6EB1E9A4E27003B11D1 /* Assets.xcassets in Resources */,
+				F143A7041E9A5B6B003B11D1 /* SectionCollectionViewCell.xib in Resources */,
 				F143A6E61E9A4E27003B11D1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,9 +224,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F143A6E31E9A4E27003B11D1 /* ViewController.m in Sources */,
+				F143A6F81E9A4F77003B11D1 /* LoginViewController.m in Sources */,
+				F143A7211E9A8FEB003B11D1 /* SubjectMaterialsViewController.m in Sources */,
+				F143A7021E9A5AAB003B11D1 /* SectionCollectionViewCell.m in Sources */,
+				F143A6FB1E9A4FDE003B11D1 /* PupilPanelViewController.m in Sources */,
+				F143A70E1E9A667C003B11D1 /* Constants.m in Sources */,
 				F143A6E91E9A4E27003B11D1 /* iSchool.xcdatamodeld in Sources */,
 				F143A6E01E9A4E27003B11D1 /* AppDelegate.m in Sources */,
+				F143A7241E9A96AD003B11D1 /* SubjectMaterialTableViewCell.m in Sources */,
+				F143A7141E9A71E6003B11D1 /* SubjectTableViewCell.m in Sources */,
+				F143A71B1E9A81F9003B11D1 /* ScheduleViewController.m in Sources */,
+				F143A7181E9A79F1003B11D1 /* SubjectJournalViewController.m in Sources */,
+				F143A7111E9A70D3003B11D1 /* JournalViewController.m in Sources */,
+				F143A6FE1E9A4FEE003B11D1 /* TeacherPanelViewController.m in Sources */,
 				F143A6DD1E9A4E27003B11D1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

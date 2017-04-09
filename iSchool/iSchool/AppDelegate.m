@@ -16,7 +16,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [self setupUI];
     return YES;
 }
 
@@ -49,6 +49,11 @@
     [self saveContext];
 }
 
+#pragma mark - Private
+
+- (void)setupUI {
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:39.0/255.0 green:206.0/255.0 blue:47.0/255.0 alpha:1.0]];
+}
 
 #pragma mark - Core Data stack
 
