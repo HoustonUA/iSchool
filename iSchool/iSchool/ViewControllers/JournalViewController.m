@@ -19,7 +19,7 @@ static NSString *const fromSubjectsToSubjectMaterialsSegueIdentifier = @"fromSub
 @interface JournalViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) FIRDatabaseReference *ref;
+//@property (strong, nonatomic) FIRDatabaseReference *ref;
 @property (strong, nonatomic) NSArray *subjects;
 @property (strong, nonatomic) NSString *nameOfSubject;
 
