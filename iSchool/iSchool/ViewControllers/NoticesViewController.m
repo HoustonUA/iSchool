@@ -31,6 +31,7 @@ static NSString *const fromNoticesListToNoticeDetailsSegueIdentitifer = @"fromNo
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([NoticesViewController class]) forIndexPath:indexPath];
     
     cell.textLabel.text = @"Hi allseuqwhejkhqwkjehlksjhdlkajshdlakjshdasdasdasdasdasdasl";

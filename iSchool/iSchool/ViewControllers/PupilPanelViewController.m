@@ -24,11 +24,15 @@ typedef enum {
 static NSString *const fromMainPupilToJournalSegueUdentifier = @"fromMainPupilToJournalSegueUdentifier";
 static NSString *const fromMainPupilToScheduleSegueIdentifier = @"fromMainPupilToScheduleSegueIdentifier";
 static NSString *const fromPupilMainPanelToNitocesSegueIdentifier = @"fromPupilMainPanelToNitocesSegueIdentifier";
+static NSString *const fromPupilMainPanelToProfileSegueIdentifier = @"fromPupilMainPanelToProfileSegueIdentifier";
 
 @interface PupilPanelViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) NSArray *sectionsNamesArray;
 @property (assign, nonatomic) cellActionType lActionType;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+- (IBAction)profileBarButtonItem:(UIBarButtonItem *)sender;
 
 @end
 
@@ -40,6 +44,8 @@ static NSString *const fromPupilMainPanelToNitocesSegueIdentifier = @"fromPupilM
                                 @"Journal", @"Schedule", @"Materials", @"Notices",
                                 @"News", @"My Class", @"Settings", @"Parents"
                                 ];
+    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] valueForKey:@"userId"]);
+    self.collectionView.backgroundColor = [UIColor primaryColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -96,7 +102,7 @@ static NSString *const fromPupilMainPanelToNitocesSegueIdentifier = @"fromPupilM
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    CGFloat width = self.view.bounds.size.width / 2 - 20;
+    CGFloat width = self.view.bounds.size.width / 2 - 40;
     CGFloat height = (width * 3) / 4;
     
     return CGSizeMake(width, height);
@@ -104,7 +110,7 @@ static NSString *const fromPupilMainPanelToNitocesSegueIdentifier = @"fromPupilM
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     
-    return UIEdgeInsetsMake(25, 15, 10, 15);
+    return UIEdgeInsetsMake(25, 20, 10, 20);
 }
 
 #pragma mark - Navigation
@@ -114,7 +120,14 @@ static NSString *const fromPupilMainPanelToNitocesSegueIdentifier = @"fromPupilM
     if([segue.identifier isEqualToString:fromMainPupilToJournalSegueUdentifier]) {
         JournalViewController *vc = (JournalViewController *)segue.destinationViewController;
         vc.actionType = self.lActionType;
+    } else if ([segue.identifier isEqualToString:fromPupilMainPanelToProfileSegueIdentifier]) {
+        
     }
 }
 
+#pragma mark - Actions
+
+- (IBAction)profileBarButtonItem:(UIBarButtonItem *)sender {
+    [self performSegueWithIdentifier:fromPupilMainPanelToProfileSegueIdentifier sender:self];
+}
 @end

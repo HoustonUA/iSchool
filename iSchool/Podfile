@@ -8,6 +8,7 @@ pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
 pod 'FirebaseUI'
+pod 'EasyMapping', '~> 0.15.0'
   # Pods for iSchool
 
 end

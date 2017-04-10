@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		ED7A4E5226B4277A5C72BE1A /* Pods_iSchool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF58956B18DDF396405A49D /* Pods_iSchool.framework */; };
+		F11ECD7B1E9B798300EC0126 /* SubjectInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11ECD7A1E9B798300EC0126 /* SubjectInfoViewController.m */; };
+		F11ECD7E1E9B9D9400EC0126 /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = F11ECD7D1E9B9D9400EC0126 /* UserService.m */; };
+		F11ECD821E9B9E4600EC0126 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F11ECD811E9B9E4600EC0126 /* UserModel.m */; };
+		F11ECD861E9BB4F800EC0126 /* UIColor+CustomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = F11ECD851E9BB4F800EC0126 /* UIColor+CustomColors.m */; };
+		F11ECD8A1E9BB8D000EC0126 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11ECD891E9BB8D000EC0126 /* ProfileViewController.m */; };
 		F143A6DD1E9A4E27003B11D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F143A6DC1E9A4E27003B11D1 /* main.m */; };
 		F143A6E01E9A4E27003B11D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F143A6DF1E9A4E27003B11D1 /* AppDelegate.m */; };
 		F143A6E61E9A4E27003B11D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F143A6E41E9A4E27003B11D1 /* Main.storyboard */; };
@@ -31,12 +36,26 @@
 		F143A72C1E9AA996003B11D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F143A72B1E9AA996003B11D1 /* GoogleService-Info.plist */; };
 		F15032751E9AC11D00BEB7F8 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F15032741E9AC11D00BEB7F8 /* NetworkManager.m */; };
 		F15032791E9AC25A00BEB7F8 /* SubjectsService.m in Sources */ = {isa = PBXBuildFile; fileRef = F15032781E9AC25A00BEB7F8 /* SubjectsService.m */; };
+		F1FBF1DC1E9C02C600B9D49D /* MarkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FBF1DB1E9C02C600B9D49D /* MarkTableViewCell.m */; };
+		F1FBF1DF1E9C154500B9D49D /* ClassService.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FBF1DE1E9C154500B9D49D /* ClassService.m */; };
+		F1FBF1E21E9C1F7C00B9D49D /* MarkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FBF1E11E9C1F7C00B9D49D /* MarkModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6396329339242E404DBBDE89 /* Pods-iSchool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iSchool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iSchool/Pods-iSchool.debug.xcconfig"; sourceTree = "<group>"; };
 		6ED6ECCE59737AB82A5D5080 /* Pods-iSchool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iSchool.release.xcconfig"; path = "Pods/Target Support Files/Pods-iSchool/Pods-iSchool.release.xcconfig"; sourceTree = "<group>"; };
 		9FF58956B18DDF396405A49D /* Pods_iSchool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iSchool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F11ECD791E9B798300EC0126 /* SubjectInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectInfoViewController.h; path = ViewControllers/SubjectInfoViewController.h; sourceTree = "<group>"; };
+		F11ECD7A1E9B798300EC0126 /* SubjectInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectInfoViewController.m; path = ViewControllers/SubjectInfoViewController.m; sourceTree = "<group>"; };
+		F11ECD7C1E9B9D9400EC0126 /* UserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserService.h; path = Networking/Services/UserService.h; sourceTree = "<group>"; };
+		F11ECD7D1E9B9D9400EC0126 /* UserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserService.m; path = Networking/Services/UserService.m; sourceTree = "<group>"; };
+		F11ECD801E9B9E4600EC0126 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserModel.h; path = Models/UserModel.h; sourceTree = "<group>"; };
+		F11ECD811E9B9E4600EC0126 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserModel.m; path = Models/UserModel.m; sourceTree = "<group>"; };
+		F11ECD841E9BB4F800EC0126 /* UIColor+CustomColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+CustomColors.h"; path = "Categories/UIColor+CustomColors.h"; sourceTree = "<group>"; };
+		F11ECD851E9BB4F800EC0126 /* UIColor+CustomColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+CustomColors.m"; path = "Categories/UIColor+CustomColors.m"; sourceTree = "<group>"; };
+		F11ECD871E9BB5AA00EC0126 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		F11ECD881E9BB8D000EC0126 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = ViewControllers/ProfileViewController.h; sourceTree = "<group>"; };
+		F11ECD891E9BB8D000EC0126 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = ViewControllers/ProfileViewController.m; sourceTree = "<group>"; };
 		F143A6D81E9A4E27003B11D1 /* iSchool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSchool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F143A6DC1E9A4E27003B11D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F143A6DE1E9A4E27003B11D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -78,6 +97,12 @@
 		F15032741E9AC11D00BEB7F8 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkManager.m; path = Networking/NetworkManager.m; sourceTree = "<group>"; };
 		F15032771E9AC25A00BEB7F8 /* SubjectsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectsService.h; path = Networking/Services/SubjectsService.h; sourceTree = "<group>"; };
 		F15032781E9AC25A00BEB7F8 /* SubjectsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectsService.m; path = Networking/Services/SubjectsService.m; sourceTree = "<group>"; };
+		F1FBF1DA1E9C02C600B9D49D /* MarkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkTableViewCell.h; path = ViewControllers/Cells/MarkTableViewCell.h; sourceTree = "<group>"; };
+		F1FBF1DB1E9C02C600B9D49D /* MarkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MarkTableViewCell.m; path = ViewControllers/Cells/MarkTableViewCell.m; sourceTree = "<group>"; };
+		F1FBF1DD1E9C154500B9D49D /* ClassService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassService.h; path = Networking/Services/ClassService.h; sourceTree = "<group>"; };
+		F1FBF1DE1E9C154500B9D49D /* ClassService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassService.m; path = Networking/Services/ClassService.m; sourceTree = "<group>"; };
+		F1FBF1E01E9C1F7C00B9D49D /* MarkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkModel.h; path = Models/MarkModel.h; sourceTree = "<group>"; };
+		F1FBF1E11E9C1F7C00B9D49D /* MarkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MarkModel.m; path = Models/MarkModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +134,26 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F11ECD7F1E9B9E3400EC0126 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F1FBF1E01E9C1F7C00B9D49D /* MarkModel.h */,
+				F1FBF1E11E9C1F7C00B9D49D /* MarkModel.m */,
+				F11ECD801E9B9E4600EC0126 /* UserModel.h */,
+				F11ECD811E9B9E4600EC0126 /* UserModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		F11ECD831E9BB4D000EC0126 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				F11ECD841E9BB4F800EC0126 /* UIColor+CustomColors.h */,
+				F11ECD851E9BB4F800EC0126 /* UIColor+CustomColors.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		F143A6CF1E9A4E27003B11D1 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +175,8 @@
 		F143A6DA1E9A4E27003B11D1 /* iSchool */ = {
 			isa = PBXGroup;
 			children = (
+				F11ECD831E9BB4D000EC0126 /* Categories */,
+				F11ECD7F1E9B9E3400EC0126 /* Models */,
 				F15032721E9AC0E700BEB7F8 /* Networking */,
 				F143A6F51E9A4F61003B11D1 /* ViewControllers */,
 				F143A6DE1E9A4E27003B11D1 /* AppDelegate.h */,
@@ -137,6 +184,7 @@
 				F143A70C1E9A667C003B11D1 /* Constants.h */,
 				F143A70D1E9A667C003B11D1 /* Constants.m */,
 				F143A6E41E9A4E27003B11D1 /* Main.storyboard */,
+				F11ECD871E9BB5AA00EC0126 /* PrefixHeader.pch */,
 				F143A6EA1E9A4E27003B11D1 /* Assets.xcassets */,
 				F143A6EC1E9A4E27003B11D1 /* LaunchScreen.storyboard */,
 				F143A72B1E9AA996003B11D1 /* GoogleService-Info.plist */,
@@ -167,10 +215,14 @@
 				F143A7291E9AA674003B11D1 /* NoticeDetailedViewController.m */,
 				F143A7251E9A9B67003B11D1 /* NoticesViewController.h */,
 				F143A7261E9A9B67003B11D1 /* NoticesViewController.m */,
+				F11ECD881E9BB8D000EC0126 /* ProfileViewController.h */,
+				F11ECD891E9BB8D000EC0126 /* ProfileViewController.m */,
 				F143A6F91E9A4FDE003B11D1 /* PupilPanelViewController.h */,
 				F143A6FA1E9A4FDE003B11D1 /* PupilPanelViewController.m */,
 				F143A7191E9A81F9003B11D1 /* ScheduleViewController.h */,
 				F143A71A1E9A81F9003B11D1 /* ScheduleViewController.m */,
+				F11ECD791E9B798300EC0126 /* SubjectInfoViewController.h */,
+				F11ECD7A1E9B798300EC0126 /* SubjectInfoViewController.m */,
 				F143A7161E9A79F1003B11D1 /* SubjectJournalViewController.h */,
 				F143A7171E9A79F1003B11D1 /* SubjectJournalViewController.m */,
 				F143A71F1E9A8FEB003B11D1 /* SubjectMaterialsViewController.h */,
@@ -184,6 +236,8 @@
 		F143A6FF1E9A5508003B11D1 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				F1FBF1DA1E9C02C600B9D49D /* MarkTableViewCell.h */,
+				F1FBF1DB1E9C02C600B9D49D /* MarkTableViewCell.m */,
 				F143A7001E9A5AAB003B11D1 /* SectionCollectionViewCell.h */,
 				F143A7011E9A5AAB003B11D1 /* SectionCollectionViewCell.m */,
 				F143A7031E9A5B6B003B11D1 /* SectionCollectionViewCell.xib */,
@@ -208,8 +262,12 @@
 		F15032761E9AC21600BEB7F8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F1FBF1DD1E9C154500B9D49D /* ClassService.h */,
+				F1FBF1DE1E9C154500B9D49D /* ClassService.m */,
 				F15032771E9AC25A00BEB7F8 /* SubjectsService.h */,
 				F15032781E9AC25A00BEB7F8 /* SubjectsService.m */,
+				F11ECD7C1E9B9D9400EC0126 /* UserService.h */,
+				F11ECD7D1E9B9D9400EC0126 /* UserService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -339,23 +397,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F11ECD7B1E9B798300EC0126 /* SubjectInfoViewController.m in Sources */,
 				F143A6F81E9A4F77003B11D1 /* LoginViewController.m in Sources */,
+				F11ECD821E9B9E4600EC0126 /* UserModel.m in Sources */,
 				F143A7211E9A8FEB003B11D1 /* SubjectMaterialsViewController.m in Sources */,
 				F143A7021E9A5AAB003B11D1 /* SectionCollectionViewCell.m in Sources */,
 				F143A6FB1E9A4FDE003B11D1 /* PupilPanelViewController.m in Sources */,
 				F143A70E1E9A667C003B11D1 /* Constants.m in Sources */,
+				F11ECD8A1E9BB8D000EC0126 /* ProfileViewController.m in Sources */,
 				F143A6E91E9A4E27003B11D1 /* iSchool.xcdatamodeld in Sources */,
 				F143A72A1E9AA674003B11D1 /* NoticeDetailedViewController.m in Sources */,
+				F11ECD7E1E9B9D9400EC0126 /* UserService.m in Sources */,
 				F143A7271E9A9B67003B11D1 /* NoticesViewController.m in Sources */,
 				F15032791E9AC25A00BEB7F8 /* SubjectsService.m in Sources */,
 				F143A6E01E9A4E27003B11D1 /* AppDelegate.m in Sources */,
+				F1FBF1E21E9C1F7C00B9D49D /* MarkModel.m in Sources */,
 				F143A7241E9A96AD003B11D1 /* SubjectMaterialTableViewCell.m in Sources */,
 				F143A7141E9A71E6003B11D1 /* SubjectTableViewCell.m in Sources */,
+				F1FBF1DF1E9C154500B9D49D /* ClassService.m in Sources */,
 				F143A71B1E9A81F9003B11D1 /* ScheduleViewController.m in Sources */,
 				F15032751E9AC11D00BEB7F8 /* NetworkManager.m in Sources */,
 				F143A7181E9A79F1003B11D1 /* SubjectJournalViewController.m in Sources */,
 				F143A7111E9A70D3003B11D1 /* JournalViewController.m in Sources */,
+				F1FBF1DC1E9C02C600B9D49D /* MarkTableViewCell.m in Sources */,
 				F143A6FE1E9A4FEE003B11D1 /* TeacherPanelViewController.m in Sources */,
+				F11ECD861E9BB4F800EC0126 /* UIColor+CustomColors.m in Sources */,
 				F143A6DD1E9A4E27003B11D1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,8 +564,9 @@
 					"\"${PODS_ROOT}/TwitterCore/iOS\"",
 					"\"${PODS_ROOT}/TwitterKit/iOS\"",
 				);
+				GCC_PREFIX_HEADER = /Users/Houston/Developer/iSchool/iSchool/iSchool/PrefixHeader.pch;
 				INFOPLIST_FILE = iSchool/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PI.iSchool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -513,8 +580,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = QL67B5CVGR;
 				ENABLE_BITCODE = YES;
+				GCC_PREFIX_HEADER = /Users/Houston/Developer/iSchool/iSchool/iSchool/PrefixHeader.pch;
 				INFOPLIST_FILE = iSchool/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PI.iSchool;
 				PRODUCT_NAME = "$(TARGET_NAME)";

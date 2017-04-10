@@ -10,8 +10,10 @@
 #import "JournalViewController.h"
 #import "SubjectTableViewCell.h"
 #import "SubjectsService.h"
-#import "SubjectJournalViewController.h"
+#import "SubjectInfoViewController.h"
 #import "SubjectMaterialsViewController.h"
+#import "UserService.h"
+#import "UserModel.h"
 
 static NSString *const fromSubjectsListToSubjectJournalSegueIdentifier = @"fromSubjectsListToSubjectJournalSegueIdentifier";
 static NSString *const fromSubjectsToSubjectMaterialsSegueIdentifier = @"fromSubjectsToSubjectMaterialsSegueIdentifier";
@@ -19,9 +21,9 @@ static NSString *const fromSubjectsToSubjectMaterialsSegueIdentifier = @"fromSub
 @interface JournalViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-//@property (strong, nonatomic) FIRDatabaseReference *ref;
-@property (strong, nonatomic) NSArray *subjects;
+@property (strong, nonatomic) NSDictionary *subjects;
 @property (strong, nonatomic) NSString *nameOfSubject;
+@property (strong, nonatomic) NSString *selectedSubjectKey;
 
 @end
 
@@ -42,7 +44,7 @@ static NSString *const fromSubjectsToSubjectMaterialsSegueIdentifier = @"fromSub
 
 - (void)getSubjectsWithCompletion:(void(^)()) completion {
     SubjectsService *service = [SubjectsService new];
-    [service getSubjectsOnSuccess:^(NSArray *subjects) {
+    [service getSubjectsOnSuccess:^(NSDictionary *subjects) {
         self.subjects = subjects;
         if(completion) {
             completion();
@@ -53,8 +55,9 @@ static NSString *const fromSubjectsToSubjectMaterialsSegueIdentifier = @"fromSub
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.nameOfSubject = [self.subjects objectAtIndex:indexPath.row];
+    self.nameOfSubject = [self.subjects.allValues objectAtIndex:indexPath.row];
     if(self.actionType == toSubjectViewController) {
+        self.selectedSubjectKey = [self.subjects.allKeys objectAtIndex:indexPath.row];
         [self performSegueWithIdentifier:fromSubjectsListToSubjectJournalSegueIdentifier sender:self];
     } else if(self.actionType == toSchoolMaterialsViewController) {
         [self performSegueWithIdentifier:fromSubjectsToSubjectMaterialsSegueIdentifier sender:self];
@@ -71,7 +74,7 @@ static NSString *const fromSubjectsToSubjectMaterialsSegueIdentifier = @"fromSub
     
     SubjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([JournalViewController class]) forIndexPath:indexPath];
     
-    [cell fillCellWithSubjectName:[self.subjects objectAtIndex:indexPath.row]];
+    [cell fillCellWithSubjectName:[self.subjects.allValues objectAtIndex:indexPath.row]];
     
     return cell;
 }
@@ -81,8 +84,9 @@ static NSString *const fromSubjectsToSubjectMaterialsSegueIdentifier = @"fromSub
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if([segue.identifier isEqualToString:fromSubjectsListToSubjectJournalSegueIdentifier]) {
-        SubjectJournalViewController *vc = (SubjectJournalViewController *)segue.destinationViewController;
+        SubjectInfoViewController *vc = (SubjectInfoViewController *)segue.destinationViewController;
         vc.navigationItemTitle = self.nameOfSubject;
+        vc.selectedSubject = self.selectedSubjectKey;
     } else if([segue.identifier isEqualToString:fromSubjectsToSubjectMaterialsSegueIdentifier]) {
         SubjectMaterialsViewController *vc = (SubjectMaterialsViewController *)segue.destinationViewController;
         vc.navigationItemTitle = self.nameOfSubject;

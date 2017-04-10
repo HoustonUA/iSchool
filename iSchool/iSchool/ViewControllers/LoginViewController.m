@@ -33,8 +33,10 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self setupUI];
     self.handle = [[FIRAuth auth]
                    addAuthStateDidChangeListener:^(FIRAuth *_Nonnull auth, FIRUser *_Nullable user) {
+                       [[NSUserDefaults standardUserDefaults] setObject:user.uid forKey:@"userId"];
                    }];
 }
 
@@ -45,6 +47,12 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma  mark - Private
+
+- (void)setupUI {
+    self.view.backgroundColor = [UIColor primaryColor];
 }
 
 /*
@@ -67,6 +75,13 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
     
     NSString *inputText = self.loginTextField.text;
     
+    UIAlertController *alertViewController = [UIAlertController alertControllerWithTitle:@"Error" message:@"Invalid email or password" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okButtonAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alertViewController addAction:okButtonAction];
+    
     if(![inputText isEqualToString:@""]) {
         [[FIRAuth auth] signInWithEmail:self.loginTextField.text
                                password:self.passwordTextField.text
@@ -74,24 +89,24 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
                                  if(!error) {
                                      [self performSegueWithIdentifier:fromLoginToPupilViewControllerSegueIdentifier sender:self];
                                  } else {
-                                     NSLog(@"Stop");
+                                     [self presentViewController:alertViewController animated:YES completion:nil];
                                  }
                              }];
+    } else if([inputText isEqualToString:@"pupil"]) {
+        
     }
-    //    } else if([inputText isEqualToString:@"pupil"]) {
-    //    }
-    //    } else {
-    //        [self performSegueWithIdentifier:fromLoginToTeacherViewControllerSegueIdentifier sender:self];
-    //    }
+    else {
+        [self performSegueWithIdentifier:fromLoginToTeacherViewControllerSegueIdentifier sender:self];
+    }
 }
-
-- (IBAction)registrationAction:(UIButton *)sender {
-    [[FIRAuth auth]
-     createUserWithEmail:self.loginTextField.text
-     password:self.passwordTextField.text
-     completion:^(FIRUser *_Nullable user,
-                  NSError *_Nullable error) {
-     }];
-}
-
-@end
+    
+    - (IBAction)registrationAction:(UIButton *)sender {
+        [[FIRAuth auth]
+         createUserWithEmail:self.loginTextField.text
+         password:self.passwordTextField.text
+         completion:^(FIRUser *_Nullable user,
+                      NSError *_Nullable error) {
+         }];
+    }
+    
+    @end

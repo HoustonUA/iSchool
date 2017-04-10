@@ -54,7 +54,7 @@
 #pragma mark - Private
 
 - (void)setupUI {
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:39.0/255.0 green:206.0/255.0 blue:47.0/255.0 alpha:1.0]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor mainColor]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 }
 
