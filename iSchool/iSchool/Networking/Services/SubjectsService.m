@@ -17,11 +17,9 @@
 @implementation SubjectsService
 
 - (void)getSubjectsOnSuccess:(void (^)(NSDictionary *))success {
-    __block NSArray *subjects;
     self.ref = [[FIRDatabase database] reference];
     [[self.ref child:@"subjects"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         NSDictionary *response = snapshot.value;
-        //subjects = [[NSArray alloc] initWithArray:response.allValues];
         success(response);
     }];
 }

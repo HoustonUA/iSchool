@@ -20,12 +20,14 @@
                            onSuccess:(void(^)(UserModel *userModel)) success {
     
     self.ref = [[FIRDatabase database] reference];
-    [[[self.ref child:@"users"] child:[NSString stringWithFormat:@"%@", userId]] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-        UserModel *userModel = [EKMapper objectFromExternalRepresentation:snapshot.value withMapping:[UserModel objectMapping]];
-        success(userModel);
-    } withCancelBlock:^(NSError * _Nonnull error) {
-        NSLog(@"ERROR: %@", error);
-    }];
+    [[[self.ref child:@"users"] child:userId] observeSingleEventOfType:FIRDataEventTypeValue
+                                                             withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+                                                                 UserModel *userModel = [EKMapper objectFromExternalRepresentation:snapshot.value withMapping:[UserModel objectMapping]];
+                                                                 success(userModel);
+                                                             }
+                                                       withCancelBlock:^(NSError * _Nonnull error) {
+                                                           NSLog(@"ERROR: %@", error);
+                                                       }];
     
 }
 

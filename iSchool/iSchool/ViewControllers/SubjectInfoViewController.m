@@ -25,11 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
-    [self getProfileDetailInfoWithCompletion:^(UserModel *userModel) {
-        [self getMarkOfUser:userModel withCompletion:^{
-            [self.tableView reloadData];
-        }];
-    }];
+    [self getMarks];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,13 +52,28 @@
 
 #pragma mark - Networking
 
-- (void)getProfileDetailInfoWithCompletion:(void(^)(UserModel *userModel)) completion {
+- (void)getMarks {
+    
+    dispatch_group_t serviceGroup = dispatch_group_create();
+    dispatch_group_enter(serviceGroup);
+    [self getProfileInfoWithCompletion:^{
+        dispatch_group_leave(serviceGroup);
+    }];
+    
+    dispatch_group_notify(serviceGroup, dispatch_get_main_queue(), ^{
+        [self getMarkOfUser:self.userModel withCompletion:^{
+            [self.tableView reloadData];
+        }];
+    });
+}
+
+- (void)getProfileInfoWithCompletion:(void(^)()) completion {
     UserService *service = [UserService new];
     NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
     [service getUserProfileInfoWithUserId:userId onSuccess:^(UserModel *userModel) {
         self.userModel = userModel;
         if(completion) {
-            completion(userModel);
+            completion();
         }
     }];
 }

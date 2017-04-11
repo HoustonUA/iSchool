@@ -326,6 +326,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Schedule" id="Yqc-Vd-Caf"/>
                     <connections>
+                        <outlet property="tableView" destination="qW6-TV-nUl" id="Tft-vv-iTA"/>
                         <segue destination="9YK-j5-xOv" kind="show" identifier="fromScheduleToSubjectInfoSegueIdentifier" id="cPe-yG-GcT"/>
                     </connections>
                 </viewController>

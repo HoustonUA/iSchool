@@ -8,6 +8,8 @@
 
 #import "ScheduleViewController.h"
 #import "SubjectJournalViewController.h"
+#import "ScheduleService.h"
+#import "SubjectsService.h"
 
 static NSString *const fromScheduleToSubjectInfoSegueIdentifier = @"fromScheduleToSubjectInfoSegueIdentifier";
 
@@ -15,6 +17,9 @@ static NSString *const fromScheduleToSubjectInfoSegueIdentifier = @"fromSchedule
 
 @property (strong, nonatomic) NSArray *daysInWeek;
 @property (strong, nonatomic) NSString *selectedDay;
+@property (strong, nonatomic) NSDictionary *scheduleDict;
+@property (strong, nonatomic) NSDictionary *subjects;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -23,17 +28,53 @@ static NSString *const fromScheduleToSubjectInfoSegueIdentifier = @"fromSchedule
 - (void)viewDidLoad {
     [super viewDidLoad];
         self.daysInWeek = @[@"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday"];
+    [self getSchedule];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark - Networking
+
+- (void)getSchedule {
+    dispatch_group_t serviceGroup = dispatch_group_create();
+    dispatch_group_enter(serviceGroup);
+    [self getScheduleOfClass:@"cid01" withCompletion:^{
+        dispatch_group_leave(serviceGroup);
+    }];
+    dispatch_group_notify(serviceGroup, dispatch_get_main_queue(), ^{
+        [self getSubjectsWithCompletion:^{
+            [self.tableView reloadData];
+        }];
+    });
+}
+
+- (void)getScheduleOfClass:(NSString *) classId withCompletion:(void(^)()) completion {
+    ScheduleService *service = [ScheduleService new];
+    [service getPupilScheduleWithClassIs:classId onSuccess:^(NSDictionary *schedule) {
+        self.scheduleDict = [[NSDictionary alloc] initWithDictionary:schedule];
+        if(completion) {
+            completion();
+        }
+    }];
+}
+
+- (void)getSubjectsWithCompletion:(void(^)()) completion {
+    SubjectsService *service = [SubjectsService new];
+    [service getSubjectsOnSuccess:^(NSDictionary *subjects) {
+        self.subjects = [[NSDictionary alloc] initWithDictionary:subjects];
+        if(completion) {
+            completion();
+        }
+    }];
+}
+
 #pragma mark - UITableViewDataSource
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return [[self.scheduleDict objectForKey:[[self.daysInWeek objectAtIndex:section] lowercaseString]] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -54,7 +95,9 @@ static NSString *const fromScheduleToSubjectInfoSegueIdentifier = @"fromSchedule
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    cell.textLabel.text = [NSString stringWithFormat:@"Row %ld", indexPath.row];
+    NSString *dayKey = [[self.daysInWeek objectAtIndex:indexPath.section] lowercaseString];
+    NSString *subjectKey = [[self.scheduleDict objectForKey:dayKey] objectAtIndex:indexPath.row];
+    cell.textLabel.text = [self.subjects objectForKey:subjectKey];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
