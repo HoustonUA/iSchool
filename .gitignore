@@ -1071,3 +1071,42 @@ iSchool/Pods/TwitterKit/iOS/TwitterKit.framework/Versions/A/Resources/TwitterKit
 iSchool/Pods/TwitterKit/iOS/TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle/vi.lproj/Localizable.strings
 iSchool/Pods/TwitterKit/iOS/TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle/zh-Hans.lproj/Localizable.strings
 iSchool/Pods/TwitterKit/iOS/TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle/zh-Hant.lproj/Localizable.strings
+iSchool/Pods/EasyMapping/LICENSE
+iSchool/Pods/EasyMapping/README.md
+iSchool/Pods/EasyMapping/EasyMapping/EasyMapping.h
+iSchool/Pods/EasyMapping/EasyMapping/EKCoreDataImporter.h
+iSchool/Pods/EasyMapping/EasyMapping/EKCoreDataImporter.m
+iSchool/Pods/EasyMapping/EasyMapping/EKManagedObjectMapper.h
+iSchool/Pods/EasyMapping/EasyMapping/EKManagedObjectMapper.m
+iSchool/Pods/EasyMapping/EasyMapping/EKManagedObjectMapping.h
+iSchool/Pods/EasyMapping/EasyMapping/EKManagedObjectMapping.m
+iSchool/Pods/EasyMapping/EasyMapping/EKManagedObjectModel.h
+iSchool/Pods/EasyMapping/EasyMapping/EKManagedObjectModel.m
+iSchool/Pods/EasyMapping/EasyMapping/EKMapper.h
+iSchool/Pods/EasyMapping/EasyMapping/EKMapper.m
+iSchool/Pods/EasyMapping/EasyMapping/EKMappingBlocks.h
+iSchool/Pods/EasyMapping/EasyMapping/EKMappingBlocks.m
+iSchool/Pods/EasyMapping/EasyMapping/EKMappingProtocol.h
+iSchool/Pods/EasyMapping/EasyMapping/EKObjectMapping.h
+iSchool/Pods/EasyMapping/EasyMapping/EKObjectMapping.m
+iSchool/Pods/EasyMapping/EasyMapping/EKObjectModel.h
+iSchool/Pods/EasyMapping/EasyMapping/EKObjectModel.m
+iSchool/Pods/EasyMapping/EasyMapping/EKPropertyHelper.h
+iSchool/Pods/EasyMapping/EasyMapping/EKPropertyHelper.m
+iSchool/Pods/EasyMapping/EasyMapping/EKPropertyMapping.h
+iSchool/Pods/EasyMapping/EasyMapping/EKPropertyMapping.m
+iSchool/Pods/EasyMapping/EasyMapping/EKRelationshipMapping.h
+iSchool/Pods/EasyMapping/EasyMapping/EKRelationshipMapping.m
+iSchool/Pods/EasyMapping/EasyMapping/EKSerializer.h
+iSchool/Pods/EasyMapping/EasyMapping/EKSerializer.m
+iSchool/Pods/EasyMapping/EasyMapping/NSArray+FlattenArray.h
+iSchool/Pods/EasyMapping/EasyMapping/NSArray+FlattenArray.m
+iSchool/Pods/EasyMapping/EasyMapping/NSDateFormatter+EasyMappingAdditions.h
+iSchool/Pods/EasyMapping/EasyMapping/NSDateFormatter+EasyMappingAdditions.m
+iSchool/Pods/Pods.xcodeproj/xcuserdata/Houston.xcuserdatad/xcschemes/EasyMapping.xcscheme
+iSchool/Pods/Target Support Files/EasyMapping/EasyMapping-dummy.m
+iSchool/Pods/Target Support Files/EasyMapping/EasyMapping-prefix.pch
+iSchool/Pods/Target Support Files/EasyMapping/EasyMapping-umbrella.h
+iSchool/Pods/Target Support Files/EasyMapping/EasyMapping.modulemap
+iSchool/Pods/Target Support Files/EasyMapping/EasyMapping.xcconfig
+iSchool/Pods/Target Support Files/EasyMapping/Info.plist
