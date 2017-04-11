@@ -37,7 +37,7 @@
     
     self.dateLabel.text = [model.date stringValue];
     self.markLabel.text = [model.mark stringValue];
-    self.teacherNameLabel.text = model.teacher;
+    self.teacherNameLabel.text = model.teacherId;
 }
 
 #pragma mark - Private

@@ -13,6 +13,6 @@
 
 @property (strong, nonatomic) NSNumber *date;
 @property (strong, nonatomic) NSNumber *mark;
-@property (strong, nonatomic) NSString *teacher;
+@property (strong, nonatomic) NSString *teacherId;
 
 @end

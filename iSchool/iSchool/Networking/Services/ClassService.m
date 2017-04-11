@@ -25,7 +25,7 @@
     
     self.databaseReference = [[FIRDatabase database] reference];
     
-    [[[[[[self.databaseReference child:@"classes"] child:classId] child:@"journal"] child:subjectId] child:userId] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+    [[[[[[self.databaseReference child:@"classes"] child:classId] child:@"journal"] child:userId] child:subjectId] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         if(snapshot.value != [NSNull null]) {
             NSMutableArray *marks = [NSMutableArray array];
             for (NSDictionary *item in snapshot.value) {

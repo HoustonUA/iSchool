@@ -12,7 +12,7 @@
 
 + (EKObjectMapping *)objectMapping {
     return [EKObjectMapping mappingForClass:self withBlock:^(EKObjectMapping *mapping) {
-        [mapping mapPropertiesFromArray:@[@"date", @"mark", @"teacher"]];
+        [mapping mapPropertiesFromArray:@[@"date", @"mark", @"teacherId"]];
     }];
 }
 

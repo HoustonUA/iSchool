@@ -347,8 +347,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="155" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0M5-Qb-dja">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MarkTableViewCell" rowHeight="153" id="VnJ-zf-sVP" customClass="MarkTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="153"/>
@@ -374,10 +373,8 @@
                                                             <constraints>
                                                                 <constraint firstItem="qmZ-VT-Dfs" firstAttribute="leading" secondItem="VyZ-mp-Qlr" secondAttribute="leading" constant="10" id="1rb-zA-w5v"/>
                                                                 <constraint firstItem="qmZ-VT-Dfs" firstAttribute="top" secondItem="VyZ-mp-Qlr" secondAttribute="top" constant="5" id="LSM-we-kEv"/>
-                                                                <constraint firstItem="qmZ-VT-Dfs" firstAttribute="centerX" secondItem="VyZ-mp-Qlr" secondAttribute="centerX" id="MQi-R4-i8N"/>
                                                                 <constraint firstItem="qmZ-VT-Dfs" firstAttribute="centerY" secondItem="VyZ-mp-Qlr" secondAttribute="centerY" id="VTW-bb-4a8"/>
                                                                 <constraint firstAttribute="trailing" secondItem="qmZ-VT-Dfs" secondAttribute="trailing" constant="10" id="XyJ-uR-fR0"/>
-                                                                <constraint firstAttribute="height" constant="50" id="uuE-Z7-7Sd"/>
                                                                 <constraint firstAttribute="bottom" secondItem="qmZ-VT-Dfs" secondAttribute="bottom" constant="5" id="xae-Le-pId"/>
                                                             </constraints>
                                                         </view>
@@ -423,17 +420,17 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="6uO-o7-9Ni" firstAttribute="leading" secondItem="ex1-fg-dyq" secondAttribute="leading" id="7d4-1B-gMc"/>
                                                         <constraint firstItem="VyZ-mp-Qlr" firstAttribute="centerX" secondItem="vRS-5B-ppw" secondAttribute="centerX" id="8P7-qb-JCT"/>
                                                         <constraint firstItem="ex1-fg-dyq" firstAttribute="leading" secondItem="OW0-pd-RsN" secondAttribute="trailing" constant="8" id="8pS-Uc-a6m"/>
                                                         <constraint firstAttribute="trailing" secondItem="jHg-JD-7kF" secondAttribute="trailing" id="9wV-gQ-OyF"/>
                                                         <constraint firstAttribute="bottom" secondItem="OW0-pd-RsN" secondAttribute="bottom" constant="7.5" id="FCk-9V-8gU"/>
-                                                        <constraint firstItem="ex1-fg-dyq" firstAttribute="top" secondItem="jHg-JD-7kF" secondAttribute="bottom" constant="7" id="LH0-1k-pus"/>
                                                         <constraint firstItem="OW0-pd-RsN" firstAttribute="leading" secondItem="vRS-5B-ppw" secondAttribute="leading" constant="8" id="SmF-Ej-3Oh"/>
                                                         <constraint firstItem="VyZ-mp-Qlr" firstAttribute="top" secondItem="vRS-5B-ppw" secondAttribute="top" id="WZk-xt-o33"/>
                                                         <constraint firstItem="jHg-JD-7kF" firstAttribute="top" secondItem="VyZ-mp-Qlr" secondAttribute="bottom" id="XYk-sH-jaX"/>
+                                                        <constraint firstItem="ex1-fg-dyq" firstAttribute="top" secondItem="OW0-pd-RsN" secondAttribute="top" id="ZRf-Gf-nPp"/>
                                                         <constraint firstItem="jHg-JD-7kF" firstAttribute="leading" secondItem="vRS-5B-ppw" secondAttribute="leading" id="i4R-Rw-5iu"/>
                                                         <constraint firstAttribute="trailing" secondItem="ex1-fg-dyq" secondAttribute="trailing" constant="8" id="nka-20-65O"/>
                                                         <constraint firstItem="6uO-o7-9Ni" firstAttribute="trailing" secondItem="ex1-fg-dyq" secondAttribute="trailing" id="v6E-F7-Cf5"/>
@@ -450,7 +447,6 @@
                                                 <constraint firstItem="vRS-5B-ppw" firstAttribute="top" secondItem="VfN-DD-cRb" secondAttribute="top" id="ZZ8-b8-mdF"/>
                                                 <constraint firstAttribute="trailing" secondItem="vRS-5B-ppw" secondAttribute="trailing" constant="5" id="dvv-Qu-4Md"/>
                                                 <constraint firstItem="vRS-5B-ppw" firstAttribute="leading" secondItem="VfN-DD-cRb" secondAttribute="leading" constant="5" id="lxv-jX-fWz"/>
-                                                <constraint firstItem="vRS-5B-ppw" firstAttribute="centerX" secondItem="VfN-DD-cRb" secondAttribute="centerX" id="ubQ-1f-akB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
