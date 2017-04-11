@@ -41,29 +41,29 @@ PODS:
   - FirebaseStorage (1.1.0):
     - FirebaseAnalytics (~> 3.7)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseUI (3.1.1):
-    - FirebaseUI/All (= 3.1.1)
-  - FirebaseUI/All (3.1.1):
+  - FirebaseUI (2.0.0):
+    - FirebaseUI/All (= 2.0.0)
+  - FirebaseUI/All (2.0.0):
     - FirebaseUI/Auth
     - FirebaseUI/Database
     - FirebaseUI/Facebook
     - FirebaseUI/Google
     - FirebaseUI/Storage
     - FirebaseUI/Twitter
-  - FirebaseUI/Auth (3.1.1):
+  - FirebaseUI/Auth (2.0.0):
     - Firebase/Auth
-  - FirebaseUI/Database (3.1.1):
+  - FirebaseUI/Database (2.0.0):
     - Firebase/Database
-  - FirebaseUI/Facebook (3.1.1):
+  - FirebaseUI/Facebook (2.0.0):
     - FBSDKLoginKit (~> 4.0)
     - FirebaseUI/Auth
-  - FirebaseUI/Google (3.1.1):
+  - FirebaseUI/Google (2.0.0):
     - FirebaseUI/Auth
     - GoogleSignIn (~> 4.0)
-  - FirebaseUI/Storage (3.1.1):
+  - FirebaseUI/Storage (2.0.0):
     - Firebase/Storage
-    - SDWebImage (~> 4.0)
-  - FirebaseUI/Twitter (3.1.1):
+    - SDWebImage
+  - FirebaseUI/Twitter (2.0.0):
     - FirebaseUI/Auth
     - TwitterKit (~> 2.4)
   - GoogleSignIn (4.0.2):
@@ -88,9 +88,9 @@ PODS:
   - GTMSessionFetcher/Core (1.1.9)
   - GTMSessionFetcher/Full (1.1.9):
     - GTMSessionFetcher/Core (= 1.1.9)
-  - SDWebImage (4.0.0):
-    - SDWebImage/Core (= 4.0.0)
-  - SDWebImage/Core (4.0.0)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
   - TwitterCore (2.8.0):
     - Fabric
   - TwitterKit (2.8.1):
@@ -102,6 +102,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - FirebaseUI
+  - SDWebImage (~> 3.8)
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -116,15 +117,15 @@ SPEC CHECKSUMS:
   FirebaseDatabase: 05c96d7b43a7368dc91c07791adb49683e1738d1
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
   FirebaseStorage: a5c55b23741a49a72af8f30f95b3bb5ddbeda12d
-  FirebaseUI: 6e99ff95e369f5858232e4f65bff215458fe8469
+  FirebaseUI: beda8ada3b190e960e25713266eda0b4776e7a97
   GoogleSignIn: d7ad83f13480e1f30453471d00d19b5293ac46af
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
-  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
   TwitterKit: 3b6044a7320340326a4098f3e37aa1dbaeb94942
 
-PODFILE CHECKSUM: abdb819c86717af01344bdb33cb09cb29180155b
+PODFILE CHECKSUM: fd6b16af6bb55a1fa5121b0af870dfa27c9e8502
 
 COCOAPODS: 1.2.0

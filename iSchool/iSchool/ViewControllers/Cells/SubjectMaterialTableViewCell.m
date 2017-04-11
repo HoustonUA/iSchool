@@ -7,6 +7,7 @@
 //
 
 #import "SubjectMaterialTableViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 @import Firebase;
 
 @interface SubjectMaterialTableViewCell ()
@@ -39,10 +40,8 @@
     self.bookUrlString = model.downloadUrl;
     self.bookAuthorLabel.text = model.author;
     self.bookNameLabel.text = model.bookName;
-//    NSURL *imageUrl = [NSURL URLWithString:model.imageUrl];
-//    NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
-//    UIImage *bookImage = [UIImage imageWithData:imageData];
-//    self.materialImageView.image = bookImage;
+    NSURL *imageUrl = [NSURL URLWithString:model.imageUrl];
+    [self.materialImageView sd_setImageWithURL:imageUrl placeholderImage:[UIImage imageNamed:@"Section0"]];
     self.downloadButton.layer.cornerRadius = 5.f;
     self.downloadButton.layer.borderWidth = 3.f;
     self.downloadButton.layer.borderColor = [UIColor mainColor].CGColor;
