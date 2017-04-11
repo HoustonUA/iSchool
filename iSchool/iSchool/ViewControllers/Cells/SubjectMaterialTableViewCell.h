@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MaterialModel.h"
 
 @interface SubjectMaterialTableViewCell : UITableViewCell
 
-- (void)fillCellWithModel:(NSString *) tempVar;
+- (void)fillCellWithModel:(MaterialModel *) model;
 
 @end

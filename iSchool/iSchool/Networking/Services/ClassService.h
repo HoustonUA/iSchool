@@ -15,4 +15,8 @@
             forSubject:(NSString *) subjectId
              onSuccess:(void(^)(NSMutableArray *markModel)) success;
 
+- (void)getHomeworkForSubject:(NSString *) subjectId
+                     forClass:(NSString *) classId
+                    onSuccess:(void(^)(NSString *teacherName, NSString *homework)) success;
+
 @end

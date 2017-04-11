@@ -11,5 +11,6 @@
 @interface SubjectJournalViewController : UIViewController
 
 @property (strong, nonatomic) NSString *navigationItemTitle;
+@property (strong, nonatomic) NSString *classId;
 
 @end

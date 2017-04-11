@@ -11,5 +11,6 @@
 @interface SubjectMaterialsViewController : UIViewController
 
 @property (strong, nonatomic) NSString *navigationItemTitle;
+@property (strong, nonatomic) NSString *subjectId;
 
 @end

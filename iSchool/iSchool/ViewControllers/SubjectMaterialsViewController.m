@@ -8,10 +8,13 @@
 
 #import "SubjectMaterialsViewController.h"
 #import "SubjectMaterialTableViewCell.h"
+#import "MaterialsService.h"
 
 @interface SubjectMaterialsViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *navItem;
+@property (strong, nonatomic) NSArray *materialModels;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -20,6 +23,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
+    [self getMaterialsOfSubjectWithCompletion:^{
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,19 +38,33 @@
     self.navItem.title = [NSString stringWithFormat:@"%@ Materials", self.navigationItemTitle];
 }
 
+#pragma mark - Networking
+
+- (void)getMaterialsOfSubjectWithCompletion:(void(^)()) completion {
+    
+    MaterialsService *service = [MaterialsService new];
+    [service getMAterialsOfSubject:[self.navigationItemTitle lowercaseString] onSuccess:^(NSArray *materials) {
+        self.materialModels = [[NSArray alloc] initWithArray:materials];
+        if(completion) {
+            completion();
+        }
+    }];
+}
+
 #pragma mark - UITableViewDelegate
 
-
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [(SubjectMaterialTableViewCell *)cell fillCellWithModel:[self.materialModels objectAtIndex:indexPath.row]];
+}
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return self.materialModels.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SubjectMaterialTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([SubjectMaterialsViewController class]) forIndexPath:indexPath];
-    [cell fillCellWithModel:nil];
     
     return cell;
 }

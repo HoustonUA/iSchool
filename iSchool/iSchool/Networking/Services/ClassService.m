@@ -39,4 +39,20 @@
     }];
 }
 
+- (void)getHomeworkForSubject:(NSString *) subjectId
+                     forClass:(NSString *) classId
+                    onSuccess:(void(^)(NSString *teacherName, NSString *homework)) success {
+    
+    self.databaseReference = [[FIRDatabase database] reference];
+    
+    [[[[[self.databaseReference child:@"classes"] child:classId] child:@"subjects"] child:subjectId] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSString *teacherName = [snapshot.value valueForKey:@"teacher"];
+        NSString *homework = [snapshot.value valueForKey:@"homework"];
+        success(teacherName, homework);
+    } withCancelBlock:^(NSError * _Nonnull error) {
+        
+    }];
+}
+
+
 @end

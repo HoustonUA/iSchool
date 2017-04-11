@@ -16,10 +16,11 @@ static NSString *const fromScheduleToSubjectInfoSegueIdentifier = @"fromSchedule
 @interface ScheduleViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSArray *daysInWeek;
-@property (strong, nonatomic) NSString *selectedDay;
+@property (strong, nonatomic) NSString *selectedSubject;
 @property (strong, nonatomic) NSDictionary *scheduleDict;
 @property (strong, nonatomic) NSDictionary *subjects;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *subjectsKeys;
 
 @end
 
@@ -27,7 +28,8 @@ static NSString *const fromScheduleToSubjectInfoSegueIdentifier = @"fromSchedule
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        self.daysInWeek = @[@"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday"];
+    self.subjectsKeys = [NSMutableArray array];
+    self.daysInWeek = @[@"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday"];
     [self getSchedule];
 }
 
@@ -94,14 +96,15 @@ static NSString *const fromScheduleToSubjectInfoSegueIdentifier = @"fromSchedule
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     NSString *dayKey = [[self.daysInWeek objectAtIndex:indexPath.section] lowercaseString];
     NSString *subjectKey = [[self.scheduleDict objectForKey:dayKey] objectAtIndex:indexPath.row];
     cell.textLabel.text = [self.subjects objectForKey:subjectKey];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.selectedDay = [self.daysInWeek objectAtIndex:indexPath.section];
+    NSString *dayKey = [[self.daysInWeek objectAtIndex:indexPath.section] lowercaseString];
+    NSString *subjectKey = [[self.scheduleDict objectForKey:dayKey] objectAtIndex:indexPath.row];
+    self.selectedSubject = [self.subjects objectForKey:subjectKey];
     [self performSegueWithIdentifier:fromScheduleToSubjectInfoSegueIdentifier sender:self];
 }
 
@@ -110,7 +113,8 @@ static NSString *const fromScheduleToSubjectInfoSegueIdentifier = @"fromSchedule
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:fromScheduleToSubjectInfoSegueIdentifier]) {
         SubjectJournalViewController *vc = (SubjectJournalViewController *)segue.destinationViewController;
-        vc.navigationItemTitle = self.selectedDay;
+        vc.navigationItemTitle = self.selectedSubject;
+        vc.classId = @"cid01";
     }
 }
 

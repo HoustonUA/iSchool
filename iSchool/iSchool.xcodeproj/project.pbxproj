@@ -41,6 +41,8 @@
 		F1FBF1E21E9C1F7C00B9D49D /* MarkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FBF1E11E9C1F7C00B9D49D /* MarkModel.m */; };
 		F1FBF1E51E9CDF6300B9D49D /* ScheduleService.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FBF1E41E9CDF6300B9D49D /* ScheduleService.m */; };
 		F1FBF1E81E9CFA3400B9D49D /* ScheduleDayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FBF1E71E9CFA3400B9D49D /* ScheduleDayModel.m */; };
+		F1FBF1EB1E9D154000B9D49D /* MaterialModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FBF1EA1E9D154000B9D49D /* MaterialModel.m */; };
+		F1FBF1EE1E9D161400B9D49D /* MaterialsService.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FBF1ED1E9D161400B9D49D /* MaterialsService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +111,10 @@
 		F1FBF1E41E9CDF6300B9D49D /* ScheduleService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleService.m; path = Networking/Services/ScheduleService.m; sourceTree = "<group>"; };
 		F1FBF1E61E9CFA3400B9D49D /* ScheduleDayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScheduleDayModel.h; path = Models/ScheduleDayModel.h; sourceTree = "<group>"; };
 		F1FBF1E71E9CFA3400B9D49D /* ScheduleDayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleDayModel.m; path = Models/ScheduleDayModel.m; sourceTree = "<group>"; };
+		F1FBF1E91E9D154000B9D49D /* MaterialModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MaterialModel.h; path = Models/MaterialModel.h; sourceTree = "<group>"; };
+		F1FBF1EA1E9D154000B9D49D /* MaterialModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MaterialModel.m; path = Models/MaterialModel.m; sourceTree = "<group>"; };
+		F1FBF1EC1E9D161400B9D49D /* MaterialsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MaterialsService.h; path = Networking/Services/MaterialsService.h; sourceTree = "<group>"; };
+		F1FBF1ED1E9D161400B9D49D /* MaterialsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MaterialsService.m; path = Networking/Services/MaterialsService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +151,8 @@
 			children = (
 				F1FBF1E01E9C1F7C00B9D49D /* MarkModel.h */,
 				F1FBF1E11E9C1F7C00B9D49D /* MarkModel.m */,
+				F1FBF1E91E9D154000B9D49D /* MaterialModel.h */,
+				F1FBF1EA1E9D154000B9D49D /* MaterialModel.m */,
 				F1FBF1E61E9CFA3400B9D49D /* ScheduleDayModel.h */,
 				F1FBF1E71E9CFA3400B9D49D /* ScheduleDayModel.m */,
 				F11ECD801E9B9E4600EC0126 /* UserModel.h */,
@@ -272,6 +280,8 @@
 			children = (
 				F1FBF1DD1E9C154500B9D49D /* ClassService.h */,
 				F1FBF1DE1E9C154500B9D49D /* ClassService.m */,
+				F1FBF1EC1E9D161400B9D49D /* MaterialsService.h */,
+				F1FBF1ED1E9D161400B9D49D /* MaterialsService.m */,
 				F1FBF1E31E9CDF6300B9D49D /* ScheduleService.h */,
 				F1FBF1E41E9CDF6300B9D49D /* ScheduleService.m */,
 				F15032771E9AC25A00BEB7F8 /* SubjectsService.h */,
@@ -421,10 +431,12 @@
 				F143A7271E9A9B67003B11D1 /* NoticesViewController.m in Sources */,
 				F15032791E9AC25A00BEB7F8 /* SubjectsService.m in Sources */,
 				F143A6E01E9A4E27003B11D1 /* AppDelegate.m in Sources */,
+				F1FBF1EE1E9D161400B9D49D /* MaterialsService.m in Sources */,
 				F1FBF1E21E9C1F7C00B9D49D /* MarkModel.m in Sources */,
 				F143A7241E9A96AD003B11D1 /* SubjectMaterialTableViewCell.m in Sources */,
 				F143A7141E9A71E6003B11D1 /* SubjectTableViewCell.m in Sources */,
 				F1FBF1DF1E9C154500B9D49D /* ClassService.m in Sources */,
+				F1FBF1EB1E9D154000B9D49D /* MaterialModel.m in Sources */,
 				F143A71B1E9A81F9003B11D1 /* ScheduleViewController.m in Sources */,
 				F15032751E9AC11D00BEB7F8 /* NetworkManager.m in Sources */,
 				F143A7181E9A79F1003B11D1 /* SubjectJournalViewController.m in Sources */,
