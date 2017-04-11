@@ -11,6 +11,9 @@
 
 @interface SubjectsService : NSObject
 
-- (void)getSubjectsOnSuccess:(void(^)(NSDictionary *subjects)) success;
+- (void)getAllSubjectsOnSuccess:(void(^)(NSDictionary *subjects)) success;
+
+- (void)getSubjectsWithKeys:(NSArray *) subjectsKeys
+                  onSuccess:(void(^)(NSArray *subjects)) success;
 
 @end

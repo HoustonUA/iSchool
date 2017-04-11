@@ -19,4 +19,6 @@
                      forClass:(NSString *) classId
                     onSuccess:(void(^)(NSString *teacherName, NSString *homework)) success;
 
+- (void)getSubjectsOfClass:(NSString *) classId
+                 onSuccess:(void(^)(NSArray *subjectsKeys)) success;
 @end

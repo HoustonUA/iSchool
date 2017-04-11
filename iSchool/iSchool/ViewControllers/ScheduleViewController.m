@@ -64,7 +64,7 @@ static NSString *const fromScheduleToSubjectInfoSegueIdentifier = @"fromSchedule
 
 - (void)getSubjectsWithCompletion:(void(^)()) completion {
     SubjectsService *service = [SubjectsService new];
-    [service getSubjectsOnSuccess:^(NSDictionary *subjects) {
+    [service getAllSubjectsOnSuccess:^(NSDictionary *subjects) {
         self.subjects = [[NSDictionary alloc] initWithDictionary:subjects];
         if(completion) {
             completion();

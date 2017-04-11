@@ -10,17 +10,33 @@
 
 @interface SubjectsService ()
 
-@property (strong, nonatomic) FIRDatabaseReference *ref;
+@property (strong, nonatomic) FIRDatabaseReference *databaseReference;
 
 @end
 
 @implementation SubjectsService
 
-- (void)getSubjectsOnSuccess:(void (^)(NSDictionary *))success {
-    self.ref = [[FIRDatabase database] reference];
-    [[self.ref child:@"subjects"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+- (void)getAllSubjectsOnSuccess:(void (^)(NSDictionary *))success {
+    self.databaseReference = [[FIRDatabase database] reference];
+    [[self.databaseReference child:@"subjects"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         NSDictionary *response = snapshot.value;
         success(response);
+    }];
+}
+
+- (void)getSubjectsWithKeys:(NSArray *) subjectsKeys
+                  onSuccess:(void(^)(NSArray *subjects)) success {
+    self.databaseReference = [[FIRDatabase database] reference];
+    
+    [[self.databaseReference child:@"subjects"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSMutableArray *subjects = [NSMutableArray array];
+        for (NSString *subjectKey in subjectsKeys) {
+            NSString *subjectName = [snapshot.value valueForKey:subjectKey];
+            [subjects addObject:subjectName];
+        }
+        success(subjects);
+    } withCancelBlock:^(NSError * _Nonnull error) {
+        
     }];
 }
 

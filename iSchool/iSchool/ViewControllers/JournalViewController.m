@@ -14,6 +14,7 @@
 #import "SubjectMaterialsViewController.h"
 #import "UserService.h"
 #import "UserModel.h"
+#import "ClassService.h"
 
 static NSString *const fromSubjectsListToSubjectJournalSegueIdentifier = @"fromSubjectsListToSubjectJournalSegueIdentifier";
 static NSString *const fromSubjectsToSubjectMaterialsSegueIdentifier = @"fromSubjectsToSubjectMaterialsSegueIdentifier";
@@ -21,7 +22,8 @@ static NSString *const fromSubjectsToSubjectMaterialsSegueIdentifier = @"fromSub
 @interface JournalViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSDictionary *subjects;
+@property (strong, nonatomic) NSArray *subjectsKeys;
+@property (strong, nonatomic) NSArray *subjects;
 @property (strong, nonatomic) NSString *nameOfSubject;
 @property (strong, nonatomic) NSString *selectedSubjectKey;
 
@@ -31,9 +33,7 @@ static NSString *const fromSubjectsToSubjectMaterialsSegueIdentifier = @"fromSub
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self getSubjectsWithCompletion:^{
-        [self.tableView reloadData];
-    }];
+    [self getSubjectsOfClass];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,10 +42,33 @@ static NSString *const fromSubjectsToSubjectMaterialsSegueIdentifier = @"fromSub
 
 #pragma mark - Networking
 
+- (void)getSubjectsOfClass {
+    dispatch_group_t serviceGroup = dispatch_group_create();
+    dispatch_group_enter(serviceGroup);
+    [self getSubjectsKeysOfClassWithCompletion:^{
+        dispatch_group_leave(serviceGroup);
+    }];
+    dispatch_group_notify(serviceGroup, dispatch_get_main_queue(), ^{
+        [self getSubjectsWithCompletion:^{
+            [self.tableView reloadData];
+        }];
+    });
+}
+
+- (void)getSubjectsKeysOfClassWithCompletion:(void(^)()) completion {
+    ClassService *service = [ClassService new];
+    [service getSubjectsOfClass:@"cid01" onSuccess:^(NSArray *subjectsKeys) {
+        self.subjectsKeys = [[NSArray alloc] initWithArray:subjectsKeys];
+        if(completion) {
+            completion();
+        }
+    }];
+}
+
 - (void)getSubjectsWithCompletion:(void(^)()) completion {
     SubjectsService *service = [SubjectsService new];
-    [service getSubjectsOnSuccess:^(NSDictionary *subjects) {
-        self.subjects = subjects;
+    [service getSubjectsWithKeys:self.subjectsKeys onSuccess:^(NSArray *subjects) {
+        self.subjects = [[NSArray alloc] initWithArray:subjects];
         if(completion) {
             completion();
         }
@@ -55,9 +78,9 @@ static NSString *const fromSubjectsToSubjectMaterialsSegueIdentifier = @"fromSub
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.nameOfSubject = [self.subjects.allValues objectAtIndex:indexPath.row];
+    self.nameOfSubject = [self.subjects objectAtIndex:indexPath.row];
     if(self.actionType == toSubjectViewController) {
-        self.selectedSubjectKey = [self.subjects.allKeys objectAtIndex:indexPath.row];
+        self.selectedSubjectKey = [self.subjectsKeys objectAtIndex:indexPath.row];
         [self performSegueWithIdentifier:fromSubjectsListToSubjectJournalSegueIdentifier sender:self];
     } else if(self.actionType == toSchoolMaterialsViewController) {
         [self performSegueWithIdentifier:fromSubjectsToSubjectMaterialsSegueIdentifier sender:self];
@@ -74,7 +97,7 @@ static NSString *const fromSubjectsToSubjectMaterialsSegueIdentifier = @"fromSub
     
     SubjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([JournalViewController class]) forIndexPath:indexPath];
     
-    [cell fillCellWithSubjectName:[self.subjects.allValues objectAtIndex:indexPath.row]];
+    [cell fillCellWithSubjectName:[self.subjects objectAtIndex:indexPath.row]];
     
     return cell;
 }

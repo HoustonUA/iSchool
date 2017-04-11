@@ -54,5 +54,16 @@
     }];
 }
 
+- (void)getSubjectsOfClass:(NSString *) classId
+                 onSuccess:(void(^)(NSArray *subjectsKeys)) success {
+    
+    self.databaseReference = [[FIRDatabase database] reference];
+    
+    [[[[self.databaseReference child:@"classes"] child:classId] child:@"subjects"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        success([snapshot.value allKeys]);
+    } withCancelBlock:^(NSError * _Nonnull error) {
+        
+    }];
+}
 
 @end
