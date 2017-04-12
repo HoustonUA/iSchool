@@ -116,4 +116,7 @@ static NSString *const fromSubjectsToSubjectMaterialsSegueIdentifier = @"fromSub
     }
 }
 
+- (IBAction)unwindToJournal:(UIStoryboardSegue *) segue {
+}
+
 @end

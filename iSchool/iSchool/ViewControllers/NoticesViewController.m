@@ -7,10 +7,15 @@
 //
 
 #import "NoticesViewController.h"
+#import "NoteModel.h"
 
 static NSString *const fromNoticesListToNoticeDetailsSegueIdentitifer = @"fromNoticesListToNoticeDetailsSegueIdentitifer";
 
 @interface NoticesViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) NSMutableArray *notes;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addNoticeAction;
 
 @end
 
@@ -27,14 +32,14 @@ static NSString *const fromNoticesListToNoticeDetailsSegueIdentitifer = @"fromNo
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.notes.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([NoticesViewController class]) forIndexPath:indexPath];
     
-    cell.textLabel.text = @"Hi allseuqwhejkhqwkjehlksjhdlkajshdlakjshdasdasdasdasdasdasl";
+    cell.textLabel.text = [[self.notes objectAtIndex:indexPath.row] title];
     
     return cell;
 }

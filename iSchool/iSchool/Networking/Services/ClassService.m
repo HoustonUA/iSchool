@@ -46,8 +46,13 @@
     self.databaseReference = [[FIRDatabase database] reference];
     
     [[[[[self.databaseReference child:@"classes"] child:classId] child:@"subjects"] child:subjectId] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSString *homework;
+        if([snapshot.value valueForKey:@"homework"] == [NSNull null]) {
+            homework = @"No homework";
+        } else {
+            homework = [snapshot.value valueForKey:@"homework"];
+        }
         NSString *teacherName = [snapshot.value valueForKey:@"teacher"];
-        NSString *homework = [snapshot.value valueForKey:@"homework"];
         success(teacherName, homework);
     } withCancelBlock:^(NSError * _Nonnull error) {
         

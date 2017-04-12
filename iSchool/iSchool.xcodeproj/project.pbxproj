@@ -36,6 +36,8 @@
 		F143A72C1E9AA996003B11D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F143A72B1E9AA996003B11D1 /* GoogleService-Info.plist */; };
 		F15032751E9AC11D00BEB7F8 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F15032741E9AC11D00BEB7F8 /* NetworkManager.m */; };
 		F15032791E9AC25A00BEB7F8 /* SubjectsService.m in Sources */ = {isa = PBXBuildFile; fileRef = F15032781E9AC25A00BEB7F8 /* SubjectsService.m */; };
+		F1DF6E671E9E69ED00973B34 /* NoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DF6E661E9E69ED00973B34 /* NoteModel.m */; };
+		F1EAB6641E9E21DB001EE746 /* DDIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EAB6631E9E21DB001EE746 /* DDIndicator.m */; };
 		F1FBF1DC1E9C02C600B9D49D /* MarkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FBF1DB1E9C02C600B9D49D /* MarkTableViewCell.m */; };
 		F1FBF1DF1E9C154500B9D49D /* ClassService.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FBF1DE1E9C154500B9D49D /* ClassService.m */; };
 		F1FBF1E21E9C1F7C00B9D49D /* MarkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FBF1E11E9C1F7C00B9D49D /* MarkModel.m */; };
@@ -101,6 +103,10 @@
 		F15032741E9AC11D00BEB7F8 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkManager.m; path = Networking/NetworkManager.m; sourceTree = "<group>"; };
 		F15032771E9AC25A00BEB7F8 /* SubjectsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectsService.h; path = Networking/Services/SubjectsService.h; sourceTree = "<group>"; };
 		F15032781E9AC25A00BEB7F8 /* SubjectsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectsService.m; path = Networking/Services/SubjectsService.m; sourceTree = "<group>"; };
+		F1DF6E651E9E69ED00973B34 /* NoteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteModel.h; path = Models/NoteModel.h; sourceTree = "<group>"; };
+		F1DF6E661E9E69ED00973B34 /* NoteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteModel.m; path = Models/NoteModel.m; sourceTree = "<group>"; };
+		F1EAB6621E9E21DB001EE746 /* DDIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDIndicator.h; sourceTree = "<group>"; };
+		F1EAB6631E9E21DB001EE746 /* DDIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDIndicator.m; sourceTree = "<group>"; };
 		F1FBF1DA1E9C02C600B9D49D /* MarkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkTableViewCell.h; path = ViewControllers/Cells/MarkTableViewCell.h; sourceTree = "<group>"; };
 		F1FBF1DB1E9C02C600B9D49D /* MarkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MarkTableViewCell.m; path = ViewControllers/Cells/MarkTableViewCell.m; sourceTree = "<group>"; };
 		F1FBF1DD1E9C154500B9D49D /* ClassService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassService.h; path = Networking/Services/ClassService.h; sourceTree = "<group>"; };
@@ -153,6 +159,8 @@
 				F1FBF1E11E9C1F7C00B9D49D /* MarkModel.m */,
 				F1FBF1E91E9D154000B9D49D /* MaterialModel.h */,
 				F1FBF1EA1E9D154000B9D49D /* MaterialModel.m */,
+				F1DF6E651E9E69ED00973B34 /* NoteModel.h */,
+				F1DF6E661E9E69ED00973B34 /* NoteModel.m */,
 				F1FBF1E61E9CFA3400B9D49D /* ScheduleDayModel.h */,
 				F1FBF1E71E9CFA3400B9D49D /* ScheduleDayModel.m */,
 				F11ECD801E9B9E4600EC0126 /* UserModel.h */,
@@ -194,6 +202,7 @@
 				F11ECD831E9BB4D000EC0126 /* Categories */,
 				F11ECD7F1E9B9E3400EC0126 /* Models */,
 				F15032721E9AC0E700BEB7F8 /* Networking */,
+				F1EAB6601E9E21A2001EE746 /* Utilities */,
 				F143A6F51E9A4F61003B11D1 /* ViewControllers */,
 				F143A6DE1E9A4E27003B11D1 /* AppDelegate.h */,
 				F143A6DF1E9A4E27003B11D1 /* AppDelegate.m */,
@@ -290,6 +299,23 @@
 				F11ECD7D1E9B9D9400EC0126 /* UserService.m */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		F1EAB6601E9E21A2001EE746 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F1EAB6611E9E21BE001EE746 /* CustomActivityIndicator */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		F1EAB6611E9E21BE001EE746 /* CustomActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				F1EAB6621E9E21DB001EE746 /* DDIndicator.h */,
+				F1EAB6631E9E21DB001EE746 /* DDIndicator.m */,
+			);
+			name = CustomActivityIndicator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -430,9 +456,11 @@
 				F11ECD7E1E9B9D9400EC0126 /* UserService.m in Sources */,
 				F143A7271E9A9B67003B11D1 /* NoticesViewController.m in Sources */,
 				F15032791E9AC25A00BEB7F8 /* SubjectsService.m in Sources */,
+				F1DF6E671E9E69ED00973B34 /* NoteModel.m in Sources */,
 				F143A6E01E9A4E27003B11D1 /* AppDelegate.m in Sources */,
 				F1FBF1EE1E9D161400B9D49D /* MaterialsService.m in Sources */,
 				F1FBF1E21E9C1F7C00B9D49D /* MarkModel.m in Sources */,
+				F1EAB6641E9E21DB001EE746 /* DDIndicator.m in Sources */,
 				F143A7241E9A96AD003B11D1 /* SubjectMaterialTableViewCell.m in Sources */,
 				F143A7141E9A71E6003B11D1 /* SubjectTableViewCell.m in Sources */,
 				F1FBF1DF1E9C154500B9D49D /* ClassService.m in Sources */,
@@ -567,6 +595,7 @@
 			baseConfigurationReference = 6396329339242E404DBBDE89 /* Pods-iSchool.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = QL67B5CVGR;
 				ENABLE_BITCODE = YES;
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
@@ -594,6 +623,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PI.iSchool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -602,6 +632,7 @@
 			baseConfigurationReference = 6ED6ECCE59737AB82A5D5080 /* Pods-iSchool.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = QL67B5CVGR;
 				ENABLE_BITCODE = YES;
 				GCC_PREFIX_HEADER = /Users/Houston/Developer/iSchool/iSchool/iSchool/PrefixHeader.pch;
@@ -610,6 +641,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PI.iSchool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

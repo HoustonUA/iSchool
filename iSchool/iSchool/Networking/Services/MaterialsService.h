@@ -11,6 +11,7 @@
 @interface MaterialsService : NSObject
 
 - (void)getMAterialsOfSubject:(NSString *) subjectId
-                    onSuccess:(void(^)(NSArray *materials)) success;
+                    onSuccess:(void(^)(NSArray *materials)) success
+             onEmptyMAterials:(void(^)()) emptyMaterials;
 
 @end

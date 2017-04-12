@@ -18,17 +18,22 @@
 
 @implementation MaterialsService
 
-- (void)getMAterialsOfSubject:(NSString *)subjectId onSuccess:(void (^)(NSArray *materials))success {
+- (void)getMAterialsOfSubject:(NSString *)subjectId onSuccess:(void (^)(NSArray *materials))success onEmptyMAterials:(void (^)())emptyMaterials {
     
     self.databaseReference = [[FIRDatabase database] reference];
     
     [[[self.databaseReference child:@"materials"] child:subjectId] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         NSMutableArray *materials = [NSMutableArray array];
-        for (NSDictionary *item in snapshot.value) {
-            MaterialModel *model = [EKMapper objectFromExternalRepresentation:item withMapping:[MaterialModel objectMapping]];
-            [materials addObject:model];
+        if(snapshot.value != [NSNull null]) {
+            for (NSDictionary *item in snapshot.value) {
+                MaterialModel *model = [EKMapper objectFromExternalRepresentation:item withMapping:[MaterialModel objectMapping]];
+                [materials addObject:model];
+            }
+            success(materials);
         }
-        success(materials);
+        else if(emptyMaterials) {
+            emptyMaterials();
+        }
     } withCancelBlock:^(NSError * _Nonnull error) {
         NSLog(@"%@", error);
     }];
