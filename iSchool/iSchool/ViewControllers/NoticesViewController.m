@@ -15,7 +15,7 @@ static NSString *const fromNoticesListToNoticeDetailsSegueIdentitifer = @"fromNo
 
 @property (strong, nonatomic) NSMutableArray *notes;
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *addNoticeAction;
+- (IBAction)addNoticeAction:(UIBarButtonItem *)sender;
 
 @end
 
@@ -58,4 +58,10 @@ static NSString *const fromNoticesListToNoticeDetailsSegueIdentitifer = @"fromNo
     
 }
 
+#pragma mark - Actions
+
+- (IBAction)addNoticeAction:(UIBarButtonItem *)sender {
+    ///////
+    
+}
 @end

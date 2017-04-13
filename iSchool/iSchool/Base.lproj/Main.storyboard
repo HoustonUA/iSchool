@@ -165,10 +165,12 @@
                     <navigationItem key="navigationItem" title="Notices" id="8OT-Qb-VuF">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="BCJ-Ca-fAW">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="addNoticeAction:" destination="RWK-aC-dNf" id="QDN-dk-xR4"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addNoticeAction" destination="BCJ-Ca-fAW" id="GtU-Ct-hOG"/>
                         <segue destination="PwM-l1-DES" kind="show" identifier="fromNoticesListToNoticeDetailsSegueIdentitifer" id="nmf-8q-MJY"/>
                     </connections>
                 </viewController>
