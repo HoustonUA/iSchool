@@ -59,7 +59,6 @@
 		F11ECD811E9B9E4600EC0126 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserModel.m; path = Models/UserModel.m; sourceTree = "<group>"; };
 		F11ECD841E9BB4F800EC0126 /* UIColor+CustomColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+CustomColors.h"; path = "Categories/UIColor+CustomColors.h"; sourceTree = "<group>"; };
 		F11ECD851E9BB4F800EC0126 /* UIColor+CustomColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+CustomColors.m"; path = "Categories/UIColor+CustomColors.m"; sourceTree = "<group>"; };
-		F11ECD871E9BB5AA00EC0126 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F11ECD881E9BB8D000EC0126 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = ViewControllers/ProfileViewController.h; sourceTree = "<group>"; };
 		F11ECD891E9BB8D000EC0126 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = ViewControllers/ProfileViewController.m; sourceTree = "<group>"; };
 		F143A6D81E9A4E27003B11D1 /* iSchool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSchool.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +120,7 @@
 		F1FBF1EA1E9D154000B9D49D /* MaterialModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MaterialModel.m; path = Models/MaterialModel.m; sourceTree = "<group>"; };
 		F1FBF1EC1E9D161400B9D49D /* MaterialsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MaterialsService.h; path = Networking/Services/MaterialsService.h; sourceTree = "<group>"; };
 		F1FBF1ED1E9D161400B9D49D /* MaterialsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MaterialsService.m; path = Networking/Services/MaterialsService.m; sourceTree = "<group>"; };
+		F3B48FCC1E9F7D0A003A1731 /* iSchool-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iSchool-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,8 +209,8 @@
 				F143A70C1E9A667C003B11D1 /* Constants.h */,
 				F143A70D1E9A667C003B11D1 /* Constants.m */,
 				F143A6E41E9A4E27003B11D1 /* Main.storyboard */,
-				F11ECD871E9BB5AA00EC0126 /* PrefixHeader.pch */,
 				F143A6EA1E9A4E27003B11D1 /* Assets.xcassets */,
+				F3B48FCC1E9F7D0A003A1731 /* iSchool-Prefix.pch */,
 				F143A6EC1E9A4E27003B11D1 /* LaunchScreen.storyboard */,
 				F143A72B1E9AA996003B11D1 /* GoogleService-Info.plist */,
 				F143A6EF1E9A4E27003B11D1 /* Info.plist */,
@@ -617,7 +617,8 @@
 					"\"${PODS_ROOT}/TwitterCore/iOS\"",
 					"\"${PODS_ROOT}/TwitterKit/iOS\"",
 				);
-				GCC_PREFIX_HEADER = /Users/Houston/Developer/iSchool/iSchool/iSchool/PrefixHeader.pch;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/iSchool/iSchool-Prefix.pch";
 				INFOPLIST_FILE = iSchool/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -635,7 +636,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = QL67B5CVGR;
 				ENABLE_BITCODE = YES;
-				GCC_PREFIX_HEADER = /Users/Houston/Developer/iSchool/iSchool/iSchool/PrefixHeader.pch;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/iSchool/iSchool-Prefix.pch";
 				INFOPLIST_FILE = iSchool/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
