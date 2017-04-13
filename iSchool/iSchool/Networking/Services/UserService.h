@@ -14,9 +14,13 @@
 @interface UserService : NSObject
 
 - (void)getPupilProfileInfoWithUserId:(NSString *) userId
-                           onSuccess:(void(^)(UserModel *userModel)) success;
+                            onSuccess:(void(^)(UserModel *userModel)) success;
 
 - (void)getTeacherProfileInfoWithUserId:(NSString *) userId
-                            onSuccess:(void(^)(TeacherModel *teacherModel)) success;
+                              onSuccess:(void(^)(TeacherModel *teacherModel)) success;
+
+- (void)addPupilProfileDetailsWithUserModel:(UserModel *) userModel
+                                  andUserId:(NSString *) userId
+                                  onSuccess:(void(^)()) success;
 
 @end

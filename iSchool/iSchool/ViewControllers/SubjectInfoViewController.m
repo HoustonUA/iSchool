@@ -61,25 +61,23 @@
     }];
     
     dispatch_group_notify(serviceGroup, dispatch_get_main_queue(), ^{
-        [self getMarkOfUser:self.userModel withCompletion:^{
+        [self getMarksModelsAndFill];
+    });
+}
+
+- (void)getMarksModelsAndFill {
+    dispatch_group_t serviceGroup = dispatch_group_create();
+    dispatch_group_enter(serviceGroup);
+    [self getMarkOfUser:self.userModel withCompletion:^{
+        dispatch_group_leave(serviceGroup);
+    }];
+    
+    dispatch_group_notify(serviceGroup, dispatch_get_main_queue(), ^{
+        [self getTeachersOfMarksWithCompletion:^{
             [self.tableView reloadData];
         }];
     });
 }
-
-//- (void)getMarksInfoSemaphore {
-//    
-//    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-//    [self getProfileInfoWithCompletion:^{
-//        dispatch_semaphore_signal(semaphore);
-//    }];
-//    
-//    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-//    
-//    [self getMarkOfUser:self.userModel withCompletion:^{
-//        [self.tableView reloadData];
-//    }];
-//}
 
 - (void)getProfileInfoWithCompletion:(void(^)()) completion {
     UserService *service = [UserService new];
@@ -105,8 +103,19 @@
     
 }
 
-- (void)getTeacherOfClass:(NSString *) classId withCompletion:(void(^)()) completion {
+- (void)getTeachersOfMarksWithCompletion:(void(^)()) completion {
     
+    UserService *service = [UserService new];
+    for (MarkModel *model in self.marksModels) {
+        [service getTeacherProfileInfoWithUserId:model.teacherId onSuccess:^(TeacherModel *teacherModel) {
+            model.teacherId = [NSString stringWithFormat:@"%@ %@ %@", teacherModel.surname, teacherModel.name, teacherModel.middlename];
+            if(model == self.marksModels.lastObject) {
+                if(completion) {
+                    completion();
+                }
+            }
+        }];
+    }
 }
 
 #pragma mark - Private

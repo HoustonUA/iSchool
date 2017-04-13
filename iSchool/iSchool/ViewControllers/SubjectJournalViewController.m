@@ -8,6 +8,7 @@
 
 #import "SubjectJournalViewController.h"
 #import "ClassService.h"
+#import "UserService.h"
 
 @interface SubjectJournalViewController ()
 
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *homeworkLabel;
 @property (weak, nonatomic) IBOutlet UITextView *homeworkTextView;
 @property (weak, nonatomic) IBOutlet UIView *homeworkLabelContainerView;
+@property (strong, nonatomic) NSString *teacherId;
 
 @end
 
@@ -24,8 +26,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self getHomework];
     [self setupUI];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self getHomeworkInfo];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,11 +41,37 @@
 
 #pragma mark - Networking
 
-- (void)getHomework {
+- (void)getHomeworkInfo {
+    dispatch_group_t serviceGroup = dispatch_group_create();
+    dispatch_group_enter(serviceGroup);
+    [self getHomeworkWithCompletion:^{
+        dispatch_group_leave(serviceGroup);
+    }];
+    
+    dispatch_group_notify(serviceGroup, dispatch_get_main_queue(), ^{
+        [self getTeachersOfHomeworkWithCompletion:nil];
+    });
+}
+
+- (void)getHomeworkWithCompletion:(void(^)()) completion {
     ClassService *service = [ClassService new];
     [service getHomeworkForSubject:[self.navigationItemTitle lowercaseString] forClass:self.classId onSuccess:^(NSString *teacherName, NSString *homework) {
-        self.teacherNameLabel.text = teacherName;
+        self.teacherId = teacherName;
         self.homeworkTextView.text = homework;
+        if(completion) {
+            completion();
+        }
+    }];
+}
+
+- (void)getTeachersOfHomeworkWithCompletion:(void(^)()) completion {
+    
+    UserService *service = [UserService new];
+    [service getTeacherProfileInfoWithUserId:self.teacherId onSuccess:^(TeacherModel *teacherModel) {
+        self.teacherNameLabel.text = [NSString stringWithFormat:@"%@ %@ %@", teacherModel.surname, teacherModel.name, teacherModel.middlename];
+        if(completion) {
+            completion();
+        }
     }];
 }
 

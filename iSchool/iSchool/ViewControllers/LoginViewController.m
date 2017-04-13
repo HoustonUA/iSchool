@@ -99,14 +99,14 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
         [self performSegueWithIdentifier:fromLoginToTeacherViewControllerSegueIdentifier sender:self];
     }
 }
-    
-    - (IBAction)registrationAction:(UIButton *)sender {
-        [[FIRAuth auth]
-         createUserWithEmail:self.loginTextField.text
-         password:self.passwordTextField.text
-         completion:^(FIRUser *_Nullable user,
-                      NSError *_Nullable error) {
-         }];
-    }
-    
-    @end
+
+- (IBAction)registrationAction:(UIButton *)sender {
+//    [[FIRAuth auth]
+//     createUserWithEmail:self.loginTextField.text
+//     password:self.passwordTextField.text
+//     completion:^(FIRUser *_Nullable user,
+//                  NSError *_Nullable error) {
+//     }];
+}
+
+@end
