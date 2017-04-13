@@ -25,12 +25,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
-    [self getMarks];
+    [self getMarksInfo];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-
+    
 }
 
 #pragma mark - UITableViewDelegate
@@ -52,7 +52,7 @@
 
 #pragma mark - Networking
 
-- (void)getMarks {
+- (void)getMarksInfo {
     
     dispatch_group_t serviceGroup = dispatch_group_create();
     dispatch_group_enter(serviceGroup);
@@ -67,10 +67,24 @@
     });
 }
 
+//- (void)getMarksInfoSemaphore {
+//    
+//    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+//    [self getProfileInfoWithCompletion:^{
+//        dispatch_semaphore_signal(semaphore);
+//    }];
+//    
+//    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+//    
+//    [self getMarkOfUser:self.userModel withCompletion:^{
+//        [self.tableView reloadData];
+//    }];
+//}
+
 - (void)getProfileInfoWithCompletion:(void(^)()) completion {
     UserService *service = [UserService new];
     NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
-    [service getUserProfileInfoWithUserId:userId onSuccess:^(UserModel *userModel) {
+    [service getPupilProfileInfoWithUserId:userId onSuccess:^(UserModel *userModel) {
         self.userModel = userModel;
         if(completion) {
             completion();
@@ -87,6 +101,11 @@
             completion();
         }
     }];
+    
+    
+}
+
+- (void)getTeacherOfClass:(NSString *) classId withCompletion:(void(^)()) completion {
     
 }
 

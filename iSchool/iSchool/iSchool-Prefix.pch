@@ -6,8 +6,8 @@
 //  Copyright © 2017 Pavel Ivanov. All rights reserved.
 //
 
-#ifndef PrefixHeader
-#define PrefixHeader
+#ifndef iSchool-Prefix
+#define iSchool-Prefix
 
 #import "UIColor+CustomColors.h"
 

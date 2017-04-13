@@ -52,22 +52,6 @@
 
 - (IBAction)downloadAction:(UIButton *)sender {
     NSURL *downloadUrl = [NSURL URLWithString:self.bookUrlString];
-    FIRStorage *storage = [FIRStorage storage];
-    FIRStorageReference *storageRef = [storage referenceForURL:self.bookUrlString];
-    NSURL *localURL = [NSURL URLWithString:@"path/to/image"];
-    
-    // Download to the local filesystem
-    FIRStorageDownloadTask *downloadTask = [storageRef writeToFile:localURL completion:^(NSURL *URL, NSError *error){
-        if (error != nil) {
-            NSLog(@"ERROOOOORRR: %@ %@", URL, error);
-        } else {
-            // Local file URL for "images/island.jpg" is returned
-        }
-    }];
-
-    [downloadTask observeStatus:FIRStorageTaskStatusSuccess handler:^(FIRStorageTaskSnapshot *snapshot) {
-        // Download completed successfully
-    }];
-    //[[UIApplication sharedApplication] openURL:downloadUrl];
+    [[UIApplication sharedApplication] openURL:downloadUrl];
 }
 @end

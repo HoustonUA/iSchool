@@ -11,7 +11,7 @@
 
 @interface MarkModel : NSObject <EKMappingProtocol>
 
-@property (strong, nonatomic) NSNumber *date;
+@property (strong, nonatomic) NSString *date;
 @property (strong, nonatomic) NSNumber *mark;
 @property (strong, nonatomic) NSString *teacherId;
 

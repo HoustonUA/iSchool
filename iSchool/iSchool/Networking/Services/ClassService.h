@@ -21,4 +21,8 @@
 
 - (void)getSubjectsOfClass:(NSString *) classId
                  onSuccess:(void(^)(NSArray *subjectsKeys)) success;
+
+- (void)getTeacherIdOfClass:(NSString *) classId
+                onSuccess:(void(^)(NSString *teacherId)) success;
+
 @end

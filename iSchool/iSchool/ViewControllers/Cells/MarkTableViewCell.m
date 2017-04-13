@@ -34,17 +34,25 @@
 #pragma mark - Public
 
 - (void)fillCellWithModel:(MarkModel *) model {
-    
-    self.dateLabel.text = [model.date stringValue];
+    //date format!1!
+    self.dateLabel.text = @"22.02.2020";
     self.markLabel.text = [model.mark stringValue];
     self.teacherNameLabel.text = model.teacherId;
 }
 
 #pragma mark - Private
 
+- (NSString *)formatDateWithString:(NSString *) date {
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"dd-MMM-yyyy";
+    NSDate *formattedDate = [dateFormatter dateFromString:date];
+    return [dateFormatter stringFromDate:formattedDate];
+}
+
 - (void)setupUI {
     self.backgroundColor = [UIColor lightGrayColor];
     self.containerView.backgroundColor = [UIColor primaryColor];
+    self.containerView.layer.cornerRadius = 10.f;
     self.containerView.layer.borderWidth = 1.f;
     self.containerView.layer.borderColor = [UIColor darkGrayColor].CGColor;
     self.topViewWithDate.backgroundColor = [UIColor mainColor];

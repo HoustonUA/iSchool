@@ -71,4 +71,15 @@
     }];
 }
 
+- (void)getTeacherIdOfClass:(NSString *)classId onSuccess:(void (^)(NSString *))success {
+    
+    self.databaseReference = [[FIRDatabase database] reference];
+    
+    [[[[self.databaseReference child:@"classes"] child:classId] child:@"classTeacher"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        success(snapshot.value);
+    } withCancelBlock:^(NSError * _Nonnull error) {
+        
+    }];
+}
+
 @end

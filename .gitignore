@@ -1110,3 +1110,17 @@ iSchool/Pods/Target Support Files/EasyMapping/EasyMapping-umbrella.h
 iSchool/Pods/Target Support Files/EasyMapping/EasyMapping.modulemap
 iSchool/Pods/Target Support Files/EasyMapping/EasyMapping.xcconfig
 iSchool/Pods/Target Support Files/EasyMapping/Info.plist
+iSchool/iSchool.xcodeproj/xcuserdata/pavloivanov.xcuserdatad/xcschemes/iSchool.xcscheme
+iSchool/iSchool.xcodeproj/xcuserdata/pavloivanov.xcuserdatad/xcschemes/xcschememanagement.plist
+iSchool/iSchool.xcworkspace/xcuserdata/pavloivanov.xcuserdatad/UserInterfaceState.xcuserstate
+iSchool/Pods/FirebaseUI/FirebaseUIFrameworks/FirebaseDatabaseUI/Frameworks/FirebaseDatabaseUI.framework/Headers/FUIDataSource.h
+iSchool/Pods/Pods.xcodeproj/xcuserdata/pavloivanov.xcuserdatad/xcschemes/Bolts.xcscheme
+iSchool/Pods/Pods.xcodeproj/xcuserdata/pavloivanov.xcuserdatad/xcschemes/EasyMapping.xcscheme
+iSchool/Pods/Pods.xcodeproj/xcuserdata/pavloivanov.xcuserdatad/xcschemes/FBSDKCoreKit.xcscheme
+iSchool/Pods/Pods.xcodeproj/xcuserdata/pavloivanov.xcuserdatad/xcschemes/FBSDKLoginKit.xcscheme
+iSchool/Pods/Pods.xcodeproj/xcuserdata/pavloivanov.xcuserdatad/xcschemes/GoogleToolboxForMac.xcscheme
+iSchool/Pods/Pods.xcodeproj/xcuserdata/pavloivanov.xcuserdatad/xcschemes/GTMOAuth2.xcscheme
+iSchool/Pods/Pods.xcodeproj/xcuserdata/pavloivanov.xcuserdatad/xcschemes/GTMSessionFetcher.xcscheme
+iSchool/Pods/Pods.xcodeproj/xcuserdata/pavloivanov.xcuserdatad/xcschemes/Pods-iSchool.xcscheme
+iSchool/Pods/Pods.xcodeproj/xcuserdata/pavloivanov.xcuserdatad/xcschemes/SDWebImage.xcscheme
+iSchool/Pods/Pods.xcodeproj/xcuserdata/pavloivanov.xcuserdatad/xcschemes/xcschememanagement.plist

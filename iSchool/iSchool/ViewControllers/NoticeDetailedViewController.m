@@ -10,28 +10,32 @@
 
 @interface NoticeDetailedViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextView *noticeContentTextView;
+@property (weak, nonatomic) IBOutlet UITextField *noticeTitleTextfield;
+
 @end
 
 @implementation NoticeDetailedViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setupUI];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma makr - Private
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setupUI {
+    self.view.backgroundColor = [UIColor primaryColor];
+    self.noticeContentTextView.layer.cornerRadius = 10.f;
+    self.noticeContentTextView.layer.borderWidth = 1.f;
+    self.noticeContentTextView.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    self.noticeTitleTextfield.layer.cornerRadius = 10.f;
+    self.noticeTitleTextfield.layer.borderWidth = 1.f;
+    self.noticeTitleTextfield.layer.borderColor = [UIColor darkGrayColor].CGColor;
 }
-*/
 
 @end
