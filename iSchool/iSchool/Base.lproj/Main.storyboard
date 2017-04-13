@@ -85,7 +85,7 @@
         <scene sceneID="Vf7-Ld-Stb">
             <objects>
                 <navigationController id="fb3-7a-C2I" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GBe-0Y-OuC">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="GBe-0Y-OuC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -850,9 +850,11 @@
                         <outlet property="parentPhoneTextField" destination="Qgw-jo-00b" id="N0s-su-Cq2"/>
                         <outlet property="phoneTextField" destination="9Po-yU-Iej" id="i1K-4w-1dd"/>
                         <outlet property="surnameTextField" destination="ztj-FQ-jm0" id="FOE-zh-DL1"/>
+                        <segue destination="map-oQ-HXR" kind="unwind" identifier="fromRegistrationDetailedToLoginSegueIdentifier" unwindAction="inwindToLogin:" id="Ova-hP-1VK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pKj-8p-aAb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="map-oQ-HXR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="334" y="-1380"/>
         </scene>

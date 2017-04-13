@@ -10,6 +10,8 @@
 #import "UserModel.h"
 #import "UserService.h"
 
+static NSString *const fromRegistrationDetailedToLoginSegueIdentifier = @"fromRegistrationDetailedToLoginSegueIdentifier";
+
 @interface RegistrationDetailsViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
@@ -51,10 +53,12 @@
 
 #pragma mark - Networking
 
-- (void)addUserInfoFromModel:(UserModel *) model {
+- (void)addUserInfoFromModel:(UserModel *) model withCOmpletion:(void(^)()) completion{
     UserService *service = [UserService new];
     [service addPupilProfileDetailsWithUserModel:model andUserId:self.userId onSuccess:^{
-        NSLog(@"All is ok");
+        if(completion) {
+            completion();
+        }
     }];
 }
 
@@ -75,6 +79,7 @@
     userModel.parentsPhone = self.parentPhoneTextField.text;
     userModel.phone = self.phoneTextField.text;
     
-    [self addUserInfoFromModel:userModel];
+    [self addUserInfoFromModel:userModel withCOmpletion:nil];
+    [self performSegueWithIdentifier:fromRegistrationDetailedToLoginSegueIdentifier sender:nil];
 }
 @end

@@ -62,6 +62,7 @@
                 @"parentsPhone" :   userModel.parentsPhone,
                 @"phone"        :   userModel.phone
                 }];
+    success();
 }
 
 @end
