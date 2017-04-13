@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "UserModel.h"
+#import "TeacherModel.h"
 @import Firebase;
 
 @interface UserService : NSObject
 
-- (void)getUserProfileInfoWithUserId:(NSString *) userId
+- (void)getPupilProfileInfoWithUserId:(NSString *) userId
                            onSuccess:(void(^)(UserModel *userModel)) success;
+
+- (void)getTeacherProfileInfoWithUserId:(NSString *) userId
+                            onSuccess:(void(^)(TeacherModel *teacherModel)) success;
 
 @end

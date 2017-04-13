@@ -48,8 +48,8 @@
 - (void)setupUI {
     self.navigationItem.title = [NSString stringWithFormat:@"%@ Journal", self.navigationItemTitle];
     self.homeworkTextView.layer.cornerRadius = 10.f;
-    self.homeworkTextView.layer.borderWidth = 3.f;
-    self.homeworkTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.homeworkTextView.layer.borderWidth = 1.f;
+    self.homeworkTextView.layer.borderColor = [UIColor darkGrayColor].CGColor;
     self.view.backgroundColor = [UIColor primaryColor];
     self.teacherLabel.backgroundColor = [UIColor clearColor];
     self.teacherNameLabel.backgroundColor = [UIColor clearColor];

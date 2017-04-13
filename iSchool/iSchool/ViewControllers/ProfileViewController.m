@@ -55,8 +55,8 @@
     self.profilePhotoImageView.layer.borderColor = [UIColor whiteColor].CGColor;
     self.detailsContainerView.backgroundColor = [UIColor whiteColor];
     self.detailsContainerView.layer.cornerRadius = 10.f;
-    self.detailsContainerView.layer.borderWidth = 4.f;
-    self.detailsContainerView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.detailsContainerView.layer.borderWidth = 1.f;
+    self.detailsContainerView.layer.borderColor = [UIColor darkGrayColor].CGColor;
 }
 
 - (void)fillViewWithModel:(UserModel *) model {
@@ -73,7 +73,7 @@
 - (void)getProfileDetailInfoWithCompletion:(void(^)(UserModel *userModel)) completion {
     UserService *service = [UserService new];
     NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
-    [service getUserProfileInfoWithUserId:userId onSuccess:^(UserModel *userModel) {
+    [service getPupilProfileInfoWithUserId:userId onSuccess:^(UserModel *userModel) {
         self.userModel = userModel;
         if(completion) {
             completion(userModel);

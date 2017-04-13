@@ -32,14 +32,16 @@ static NSString *const fromNoticesListToNoticeDetailsSegueIdentitifer = @"fromNo
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.notes.count;
+    //return self.notes.count;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([NoticesViewController class]) forIndexPath:indexPath];
     
-    cell.textLabel.text = [[self.notes objectAtIndex:indexPath.row] title];
+    //cell.textLabel.text = [[self.notes objectAtIndex:indexPath.row] title];
+    cell.textLabel.text = @"Hi.";
     
     return cell;
 }

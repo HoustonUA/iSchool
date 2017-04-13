@@ -16,11 +16,11 @@
 
 @implementation UserService
 
-- (void)getUserProfileInfoWithUserId:(NSString *) userId
+- (void)getPupilProfileInfoWithUserId:(NSString *) userId
                            onSuccess:(void(^)(UserModel *userModel)) success {
     
     self.ref = [[FIRDatabase database] reference];
-    [[[self.ref child:@"users"] child:userId] observeSingleEventOfType:FIRDataEventTypeValue
+    [[[[self.ref child:@"users"] child:@"pupils"]child:userId] observeSingleEventOfType:FIRDataEventTypeValue
                                                              withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
                                                                  UserModel *userModel = [EKMapper objectFromExternalRepresentation:snapshot.value withMapping:[UserModel objectMapping]];
                                                                  success(userModel);
@@ -29,6 +29,20 @@
                                                            NSLog(@"ERROR: %@", error);
                                                        }];
     
+}
+
+- (void)getTeacherProfileInfoWithUserId:(NSString *) userId
+                              onSuccess:(void(^)(TeacherModel *teacherModel)) success {
+    
+    self.ref = [[FIRDatabase database] reference];
+    [[[[self.ref child:@"users"] child:@"teachers"]child:userId] observeSingleEventOfType:FIRDataEventTypeValue
+                                                                              withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+                                                                                  TeacherModel *teacherModel = [EKMapper objectFromExternalRepresentation:snapshot.value withMapping:[TeacherModel objectMapping]];
+                                                                                  success(teacherModel);
+                                                                              }
+                                                                        withCancelBlock:^(NSError * _Nonnull error) {
+                                                                            NSLog(@"ERROR: %@", error);
+                                                                        }];
 }
 
 @end

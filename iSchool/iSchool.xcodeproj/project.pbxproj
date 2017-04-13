@@ -45,6 +45,7 @@
 		F1FBF1E81E9CFA3400B9D49D /* ScheduleDayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FBF1E71E9CFA3400B9D49D /* ScheduleDayModel.m */; };
 		F1FBF1EB1E9D154000B9D49D /* MaterialModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FBF1EA1E9D154000B9D49D /* MaterialModel.m */; };
 		F1FBF1EE1E9D161400B9D49D /* MaterialsService.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FBF1ED1E9D161400B9D49D /* MaterialsService.m */; };
+		F3B879AE1E9FD66600DFD0E0 /* TeacherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B879AD1E9FD66600DFD0E0 /* TeacherModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +122,8 @@
 		F1FBF1EC1E9D161400B9D49D /* MaterialsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MaterialsService.h; path = Networking/Services/MaterialsService.h; sourceTree = "<group>"; };
 		F1FBF1ED1E9D161400B9D49D /* MaterialsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MaterialsService.m; path = Networking/Services/MaterialsService.m; sourceTree = "<group>"; };
 		F3B48FCC1E9F7D0A003A1731 /* iSchool-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iSchool-Prefix.pch"; sourceTree = "<group>"; };
+		F3B879AC1E9FD66600DFD0E0 /* TeacherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeacherModel.h; path = Models/TeacherModel.h; sourceTree = "<group>"; };
+		F3B879AD1E9FD66600DFD0E0 /* TeacherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TeacherModel.m; path = Models/TeacherModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +166,8 @@
 				F1DF6E661E9E69ED00973B34 /* NoteModel.m */,
 				F1FBF1E61E9CFA3400B9D49D /* ScheduleDayModel.h */,
 				F1FBF1E71E9CFA3400B9D49D /* ScheduleDayModel.m */,
+				F3B879AC1E9FD66600DFD0E0 /* TeacherModel.h */,
+				F3B879AD1E9FD66600DFD0E0 /* TeacherModel.m */,
 				F11ECD801E9B9E4600EC0126 /* UserModel.h */,
 				F11ECD811E9B9E4600EC0126 /* UserModel.m */,
 			);
@@ -446,6 +451,7 @@
 				F11ECD7B1E9B798300EC0126 /* SubjectInfoViewController.m in Sources */,
 				F143A6F81E9A4F77003B11D1 /* LoginViewController.m in Sources */,
 				F11ECD821E9B9E4600EC0126 /* UserModel.m in Sources */,
+				F3B879AE1E9FD66600DFD0E0 /* TeacherModel.m in Sources */,
 				F143A7211E9A8FEB003B11D1 /* SubjectMaterialsViewController.m in Sources */,
 				F143A7021E9A5AAB003B11D1 /* SectionCollectionViewCell.m in Sources */,
 				F143A6FB1E9A4FDE003B11D1 /* PupilPanelViewController.m in Sources */,
