@@ -23,6 +23,12 @@
                  onSuccess:(void(^)(NSArray *subjectsKeys)) success;
 
 - (void)getTeacherIdOfClass:(NSString *) classId
-                onSuccess:(void(^)(NSString *teacherId)) success;
+                  onSuccess:(void(^)(NSString *teacherId)) success;
+
+- (void)getClassesOnSuccess:(void(^)(NSArray *classList)) success;
+
+- (void)addPupil:(NSString *) userId
+         toClass:(NSString *) classId
+      onSucccess:(void(^)()) success;
 
 @end

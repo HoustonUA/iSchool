@@ -82,4 +82,30 @@
     }];
 }
 
+- (void)getClassesOnSuccess:(void(^)(NSArray *classList)) success {
+    
+    self.databaseReference = [[FIRDatabase database] reference];
+    
+    [[self.databaseReference child:@"classList"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        success(snapshot.value);
+    } withCancelBlock:^(NSError * _Nonnull error) {
+        
+    }];
+}
+
+- (void)addPupil:(NSString *) userId
+         toClass:(NSString *) classId
+      onSucccess:(void(^)()) success {
+    
+//    self.databaseReference = [[FIRDatabase database] reference];
+//    NSString *key = [[[[self.databaseReference child:@"classes"] child:classId] child:@"pupils"] childByAutoId].key;
+//    NSDictionary *userUpdate = @{
+//                                 [NSString stringWithFormat:@"/classes/%@/pupils/%@/", classId, key] : userId
+//                                 };
+//    [self.databaseReference updateChildValues:userUpdate];
+    
+    
+    //[[[[self.databaseReference child:@"classes"] child:classId] child:@"pupils"] push];
+}
+
 @end
