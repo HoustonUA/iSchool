@@ -55,15 +55,11 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
     self.view.backgroundColor = [UIColor primaryColor];
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+#pragma mark - Navigation
+
+- (IBAction)inwindToLogin:(UIStoryboardSegue *) segue {
+    
+}
 
 #pragma mark - Actions
 
@@ -99,14 +95,14 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
         [self performSegueWithIdentifier:fromLoginToTeacherViewControllerSegueIdentifier sender:self];
     }
 }
-    
-    - (IBAction)registrationAction:(UIButton *)sender {
-        [[FIRAuth auth]
-         createUserWithEmail:self.loginTextField.text
-         password:self.passwordTextField.text
-         completion:^(FIRUser *_Nullable user,
-                      NSError *_Nullable error) {
-         }];
-    }
-    
-    @end
+
+- (IBAction)registrationAction:(UIButton *)sender {
+//    [[FIRAuth auth]
+//     createUserWithEmail:self.loginTextField.text
+//     password:self.passwordTextField.text
+//     completion:^(FIRUser *_Nullable user,
+//                  NSError *_Nullable error) {
+//     }];
+}
+
+@end
