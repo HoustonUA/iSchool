@@ -535,7 +535,14 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="Title" id="ICj-0H-HSz"/>
+                    <navigationItem key="navigationItem" title="Title" id="ICj-0H-HSz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fvJ-rg-U07">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="addMarkAction:" destination="gq1-oT-8qX" id="XGY-eB-r1d"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="navigationItem" destination="ICj-0H-HSz" id="eJm-ui-Ji0"/>
                         <outlet property="tableView" destination="UuJ-hw-WxL" id="Mf1-Y0-Hq0"/>

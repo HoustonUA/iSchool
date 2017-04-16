@@ -33,8 +33,8 @@
 #pragma mark - Public
 
 - (void)fillCellWithModel:(MarkModel *) model {
-    //date format!1!
-    self.dateLabel.text = @"22.02.2020";
+
+    self.dateLabel.text = model.date;
     self.markLabel.text = [model.mark stringValue];
     self.teacherNameLabel.text = model.teacherId;
     if(model.wasOnLesson) {

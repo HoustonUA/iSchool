@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+- (IBAction)addMarkAction:(UIBarButtonItem *)sender;
+
 @property (strong, nonatomic) NSArray *marksModels;
 
 @end
@@ -38,6 +40,22 @@
 
 - (void)setupUI {
     self.navigationItem.title = self.pupilName;
+}
+
+- (MarkModel *)createMarkModelWithMark:(NSNumber *) mark {
+    MarkModel *markModel = [MarkModel new];
+    markModel.mark = mark;
+    markModel.teacherId = [[NSUserDefaults standardUserDefaults] objectForKey:PUPIL_USER_ID];
+    markModel.wasOnLesson = TRUE;
+    markModel.date = [self getCurrentDate];
+    
+    return markModel;
+}
+
+- (NSString *) getCurrentDate {
+    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    return [dateFormatter stringFromDate:[NSDate date]];
 }
 
 #pragma mark - Networking
@@ -81,6 +99,13 @@
     }
 }
 
+- (void)addMarkWithModel:(MarkModel *) markModel withCompletion:(void(^)()) completion {
+    ClassService *service = [ClassService new];
+    [service addMarkWithModel:markModel forPupil:self.pupilUserId forSubject:self.subjectId fromClass:self.classId onSuccess:^{
+        [self.tableView reloadData];
+    }];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -95,14 +120,40 @@
     return cell;
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Actions
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)addMarkAction:(UIBarButtonItem *)sender {
+    [self showAlertWithMarkInput];
 }
-*/
+
+- (void)showAlertWithMarkInput {
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"Set Mark"
+                                                                              message: @"Input pupil mark"
+                                                                       preferredStyle:UIAlertControllerStyleAlert];
+    
+    __block UITextField *tempTextField;
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        tempTextField = textField;
+        textField.placeholder = @"Mark";
+        textField.textColor = [UIColor blueColor];
+        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        textField.borderStyle = UITextBorderStyleRoundedRect;
+        textField.textAlignment = NSTextAlignmentCenter;
+    }];
+
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        if(![tempTextField.text isEqualToString:@""]) {
+            NSNumber *mark = [NSNumber numberWithInteger:[tempTextField.text integerValue]];
+            MarkModel *model = [self createMarkModelWithMark:mark];
+            [self addMarkWithModel:model withCompletion:nil];
+        }
+    }]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 
 @end
