@@ -20,6 +20,7 @@
 - (IBAction)addMarkAction:(UIBarButtonItem *)sender;
 
 @property (strong, nonatomic) NSArray *marksModels;
+@property (assign, nonatomic) BOOL isOnLesson;
 
 @end
 
@@ -46,7 +47,7 @@
     MarkModel *markModel = [MarkModel new];
     markModel.mark = mark;
     markModel.teacherId = [[NSUserDefaults standardUserDefaults] objectForKey:PUPIL_USER_ID];
-    markModel.wasOnLesson = TRUE;
+    markModel.wasOnLesson = self.isOnLesson;
     markModel.date = [self getCurrentDate];
     
     return markModel;
@@ -54,8 +55,18 @@
 
 - (NSString *) getCurrentDate {
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
     return [dateFormatter stringFromDate:[NSDate date]];
+}
+
+- (UISwitch *)createSwitch {
+    UISwitch *switchOnAlert = [[UISwitch alloc] initWithFrame:CGRectMake(10, 10, 0, 0)];
+    switchOnAlert.on = true;
+    self.isOnLesson = true;
+    [switchOnAlert setOn:true animated:false];
+    [switchOnAlert addTarget:self action:@selector(switchValueDidChange:) forControlEvents:UIControlEventValueChanged];
+    
+    return switchOnAlert;
 }
 
 #pragma mark - Networking
@@ -126,6 +137,10 @@
     [self showAlertWithMarkInput];
 }
 
+- (void)switchValueDidChange:(UISwitch *) sender {
+    self.isOnLesson = sender.on;
+}
+
 - (void)showAlertWithMarkInput {
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"Set Mark"
                                                                               message: @"Input pupil mark"
@@ -140,18 +155,17 @@
         textField.borderStyle = UITextBorderStyleRoundedRect;
         textField.textAlignment = NSTextAlignmentCenter;
     }];
-
+    
     [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        if(![tempTextField.text isEqualToString:@""]) {
-            NSNumber *mark = [NSNumber numberWithInteger:[tempTextField.text integerValue]];
-            MarkModel *model = [self createMarkModelWithMark:mark];
-            [self addMarkWithModel:model withCompletion:nil];
-        }
+        NSNumber *mark = [NSNumber numberWithInteger:[tempTextField.text integerValue]];
+        MarkModel *model = [self createMarkModelWithMark:mark];
+        [self addMarkWithModel:model withCompletion:nil];
     }]];
     
     [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }]];
+    [alertController.view addSubview:[self createSwitch]];
     
     [self presentViewController:alertController animated:YES completion:nil];
 }

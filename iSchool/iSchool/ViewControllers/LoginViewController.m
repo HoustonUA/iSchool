@@ -82,7 +82,7 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
                                password:self.passwordTextField.text
                              completion:^(FIRUser *user, NSError *error) {
                                  if(!error) {
-//                                     [self performSegueWithIdentifier:fromLoginToPupilViewControllerSegueIdentifier sender:self];
+                                     //[self performSegueWithIdentifier:fromLoginToPupilViewControllerSegueIdentifier sender:self];
                                      [self performSegueWithIdentifier:fromLoginToTeacherViewControllerSegueIdentifier sender:self];
                                  } else {
                                      [self presentViewController:alertViewController animated:YES completion:nil];
