@@ -10,5 +10,6 @@
 #define iSchool-Prefix
 
 #import "UIColor+CustomColors.h"
+#import "Constants.h"
 
 #endif

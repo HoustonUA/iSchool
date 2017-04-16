@@ -31,4 +31,10 @@
          toClass:(NSString *) classId
       onSucccess:(void(^)()) success;
 
+- (void)getPupilsIdsFromClass:(NSString *) classId
+                   onSucccess:(void(^)(NSArray *pupilsIds)) success;
+
+- (void)getNameOfClass:(NSString *) classId
+             onSuccess:(void(^)(NSString *className)) success;
+
 @end

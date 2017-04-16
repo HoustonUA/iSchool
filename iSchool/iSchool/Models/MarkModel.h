@@ -14,5 +14,6 @@
 @property (strong, nonatomic) NSString *date;
 @property (strong, nonatomic) NSNumber *mark;
 @property (strong, nonatomic) NSString *teacherId;
+@property (assign, nonatomic) BOOL wasOnLesson;
 
 @end

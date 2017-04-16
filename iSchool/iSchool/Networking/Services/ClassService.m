@@ -97,15 +97,34 @@
          toClass:(NSString *) classId
       onSucccess:(void(^)()) success {
     
-//    self.databaseReference = [[FIRDatabase database] reference];
-//    NSString *key = [[[[self.databaseReference child:@"classes"] child:classId] child:@"pupils"] childByAutoId].key;
-//    NSDictionary *userUpdate = @{
-//                                 [NSString stringWithFormat:@"/classes/%@/pupils/%@/", classId, key] : userId
-//                                 };
-//    [self.databaseReference updateChildValues:userUpdate];
+    self.databaseReference = [[FIRDatabase database] reference];
+    NSString *key = [[[[self.databaseReference child:@"classes"] child:classId] child:@"pupils"] childByAutoId].key;
+    NSDictionary *userUpdate = @{
+                                 [NSString stringWithFormat:@"/classes/%@/pupils/%@/", classId, key] : userId
+                                 };
+    [self.databaseReference updateChildValues:userUpdate];
+}
+
+- (void)getPupilsIdsFromClass:(NSString *) classId
+                   onSucccess:(void(^)(NSArray *pupilsIds)) success {
     
+    self.databaseReference = [[FIRDatabase database] reference];
+    [[[[self.databaseReference child:@"classes"] child:classId] child:@"pupils"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        success([snapshot.value allValues]);
+    } withCancelBlock:^(NSError * _Nonnull error) {
+        
+    }];
+}
+
+- (void)getNameOfClass:(NSString *) classId
+             onSuccess:(void(^)(NSString *className)) success {
     
-    //[[[[self.databaseReference child:@"classes"] child:classId] child:@"pupils"] push];
+    self.databaseReference = [[FIRDatabase database] reference];
+    [[[[self.databaseReference child:@"classes"] child:classId] child:@"className"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        success(snapshot.value);
+    } withCancelBlock:^(NSError * _Nonnull error) {
+        
+    }];
 }
 
 @end
