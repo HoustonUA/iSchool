@@ -18,6 +18,8 @@
 
 @implementation ClassService
 
+#pragma mark - GET
+
 - (void)getMarkForUser:(NSString *) userId
              fromClass:(NSString *) classId
             forSubject:(NSString *) subjectId
@@ -28,7 +30,7 @@
     [[[[[[self.databaseReference child:@"classes"] child:classId] child:@"journal"] child:userId] child:subjectId] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         if(snapshot.value != [NSNull null]) {
             NSMutableArray *marks = [NSMutableArray array];
-            for (NSDictionary *item in snapshot.value) {
+            for (NSDictionary *item in [snapshot.value allValues]) {
                 MarkModel *markModel = [EKMapper objectFromExternalRepresentation:item withMapping:[MarkModel objectMapping]];
                 [marks addObject:markModel];
             }
@@ -93,6 +95,30 @@
     }];
 }
 
+- (void)getPupilsIdsFromClass:(NSString *) classId
+                   onSucccess:(void(^)(NSArray *pupilsIds)) success {
+    
+    self.databaseReference = [[FIRDatabase database] reference];
+    [[[[self.databaseReference child:@"classes"] child:classId] child:@"pupils"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        success([snapshot.value allValues]);
+    } withCancelBlock:^(NSError * _Nonnull error) {
+        
+    }];
+}
+
+- (void)getNameOfClass:(NSString *) classId
+             onSuccess:(void(^)(NSString *className)) success {
+    
+    self.databaseReference = [[FIRDatabase database] reference];
+    [[[[self.databaseReference child:@"classes"] child:classId] child:@"className"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        success(snapshot.value);
+    } withCancelBlock:^(NSError * _Nonnull error) {
+        
+    }];
+}
+
+#pragma mark - ADD
+
 - (void)addPupil:(NSString *) userId
          toClass:(NSString *) classId
       onSucccess:(void(^)()) success {
@@ -103,9 +129,25 @@
                                  [NSString stringWithFormat:@"/classes/%@/pupils/%@/", classId, key] : userId
                                  };
     [self.databaseReference updateChildValues:userUpdate];
+}
+
+- (void)addMarkWithModel:(MarkModel *) markModel
+                forPupil:(NSString *) pupilId
+              forSubject:(NSString *) subjectId
+               fromClass:(NSString *) classId
+               onSuccess:(void(^)()) success {
     
+    self.databaseReference = [[FIRDatabase database] reference];
     
-    //[[[[self.databaseReference child:@"classes"] child:classId] child:@"pupils"] push];
+    NSString *key = [[[[[[self.databaseReference child:@"classes"] child:classId]
+                        child:@"journal"] child:pupilId] child:subjectId] childByAutoId].key;
+    NSDictionary *markInfo = @{
+                               [NSString stringWithFormat:@"/classes/%@/journal/%@/%@/%@/date", classId, pupilId, subjectId, key]          :  markModel.date,
+                               [NSString stringWithFormat:@"/classes/%@/journal/%@/%@/%@/teacherId", classId, pupilId, subjectId, key]      :   markModel.teacherId,
+                               [NSString stringWithFormat:@"/classes/%@/journal/%@/%@/%@/mark", classId, pupilId, subjectId, key]           :   markModel.mark,
+                               [NSString stringWithFormat:@"/classes/%@/journal/%@/%@/%@/wasOnLesson", classId, pupilId, subjectId, key]    :   [NSNumber numberWithBool:markModel.wasOnLesson]
+                               };
+    [self.databaseReference updateChildValues:markInfo];
 }
 
 @end

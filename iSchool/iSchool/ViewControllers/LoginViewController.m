@@ -21,7 +21,6 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
 @property (strong, nonatomic) FIRAuth *handle;
 
 - (IBAction)loginAction:(UIButton *)sender;
-- (IBAction)registrationAction:(UIButton *)sender;
 
 @end
 
@@ -36,7 +35,7 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
     [self setupUI];
     self.handle = [[FIRAuth auth]
                    addAuthStateDidChangeListener:^(FIRAuth *_Nonnull auth, FIRUser *_Nullable user) {
-                       [[NSUserDefaults standardUserDefaults] setObject:user.uid forKey:@"userId"];
+                       [[NSUserDefaults standardUserDefaults] setObject:user.uid forKey:PUPIL_USER_ID];
                    }];
 }
 
@@ -83,7 +82,8 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
                                password:self.passwordTextField.text
                              completion:^(FIRUser *user, NSError *error) {
                                  if(!error) {
-                                     [self performSegueWithIdentifier:fromLoginToPupilViewControllerSegueIdentifier sender:self];
+                                     //[self performSegueWithIdentifier:fromLoginToPupilViewControllerSegueIdentifier sender:self];
+                                     [self performSegueWithIdentifier:fromLoginToTeacherViewControllerSegueIdentifier sender:self];
                                  } else {
                                      [self presentViewController:alertViewController animated:YES completion:nil];
                                  }
@@ -94,15 +94,6 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
     else {
         [self performSegueWithIdentifier:fromLoginToTeacherViewControllerSegueIdentifier sender:self];
     }
-}
-
-- (IBAction)registrationAction:(UIButton *)sender {
-//    [[FIRAuth auth]
-//     createUserWithEmail:self.loginTextField.text
-//     password:self.passwordTextField.text
-//     completion:^(FIRUser *_Nullable user,
-//                  NSError *_Nullable error) {
-//     }];
 }
 
 @end

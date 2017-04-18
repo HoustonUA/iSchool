@@ -9,6 +9,7 @@
 #import "PupilPanelViewController.h"
 #import "SectionCollectionViewCell.h"
 #import "JournalViewController.h"
+#import "UserService.h"
 
 typedef enum {
     Journal = 0,
@@ -25,6 +26,7 @@ static NSString *const fromMainPupilToJournalSegueUdentifier = @"fromMainPupilTo
 static NSString *const fromMainPupilToScheduleSegueIdentifier = @"fromMainPupilToScheduleSegueIdentifier";
 static NSString *const fromPupilMainPanelToNitocesSegueIdentifier = @"fromPupilMainPanelToNitocesSegueIdentifier";
 static NSString *const fromPupilMainPanelToProfileSegueIdentifier = @"fromPupilMainPanelToProfileSegueIdentifier";
+static NSString *const fromPupilPanelToPupilClassSegueIdentifier = @"fromPupilPanelToPupilClassSegueIdentifier";
 
 @interface PupilPanelViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
@@ -44,12 +46,23 @@ static NSString *const fromPupilMainPanelToProfileSegueIdentifier = @"fromPupilM
                                 @"Journal", @"Schedule", @"Materials", @"Notices",
                                 @"News", @"My Class", @"Settings", @"Parents"
                                 ];
-    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] valueForKey:@"userId"]);
+    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] valueForKey:PUPIL_USER_ID]);
     self.collectionView.backgroundColor = [UIColor primaryColor];
+    [self getProfileDetailInfoWithCompletion];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Networking
+
+- (void)getProfileDetailInfoWithCompletion {
+    UserService *service = [UserService new];
+    NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:PUPIL_USER_ID];
+    [service getPupilProfileInfoWithUserId:userId onSuccess:^(UserModel *userModel) {
+        [[NSUserDefaults standardUserDefaults] setObject:userModel.classId forKey:PUPIL_CLASS_ID];
+    }];
 }
 
 #pragma  mark - UICollectionViewDataSource
@@ -88,6 +101,7 @@ static NSString *const fromPupilMainPanelToProfileSegueIdentifier = @"fromPupilM
         case News:
             break;
         case MyClass:
+            [self performSegueWithIdentifier:fromPupilPanelToPupilClassSegueIdentifier sender:self];
             break;
         case Parents:
             break;

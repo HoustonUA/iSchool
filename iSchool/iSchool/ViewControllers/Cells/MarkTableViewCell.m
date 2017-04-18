@@ -17,7 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *markLabel;
 @property (weak, nonatomic) IBOutlet UILabel *teacherNameLabel;
 
-
 @end
 
 @implementation MarkTableViewCell
@@ -34,10 +33,15 @@
 #pragma mark - Public
 
 - (void)fillCellWithModel:(MarkModel *) model {
-    //date format!1!
-    self.dateLabel.text = @"22.02.2020";
+
+    self.dateLabel.text = model.date;
     self.markLabel.text = [model.mark stringValue];
     self.teacherNameLabel.text = model.teacherId;
+    if(model.wasOnLesson) {
+        self.markContainerView.layer.borderColor = [UIColor greenColor].CGColor;
+    } else {
+        self.markContainerView.layer.borderColor = [UIColor redColor].CGColor;
+    }
 }
 
 #pragma mark - Private
@@ -58,8 +62,7 @@
     self.topViewWithDate.backgroundColor = [UIColor mainColor];
     self.markContainerView.backgroundColor = [UIColor whiteColor];
     self.markContainerView.layer.cornerRadius = self.markContainerView.frame.size.width / 2;
-    self.markContainerView.layer.borderWidth = 2.f;
-    self.markContainerView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.markContainerView.layer.borderWidth = 4.f;
 }
 
 @end

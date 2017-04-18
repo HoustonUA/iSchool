@@ -9,6 +9,7 @@
 #import "ProfileViewController.h"
 #import "UserModel.h"
 #import "UserService.h"
+#import "ClassService.h"
 
 @interface ProfileViewController ()
 
@@ -34,6 +35,7 @@
     [self getProfileDetailInfoWithCompletion:^(UserModel *userModel) {
         [self fillViewWithModel:userModel];
     }];
+    [self getClassName];
     [self setupUI];
 }
 
@@ -61,7 +63,6 @@
 
 - (void)fillViewWithModel:(UserModel *) model {
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", model.surname, model.name];
-    self.classNameLabel.text = @"11A";
     self.phoneNumberLabel.text = model.phone;
     self.birthdayLabel.text = [model.birthday stringValue];
     self.parentLabel.text = model.parentOne;
@@ -69,6 +70,14 @@
 }
 
 #pragma mark - Networking
+
+- (void)getClassName {
+    ClassService *service = [ClassService new];
+    NSString *classId = [[NSUserDefaults standardUserDefaults] objectForKey:PUPIL_CLASS_ID];
+    [service getNameOfClass:classId onSuccess:^(NSString *className) {
+        self.classNameLabel.text = className;
+    }];
+}
 
 - (void)getProfileDetailInfoWithCompletion:(void(^)(UserModel *userModel)) completion {
     UserService *service = [UserService new];

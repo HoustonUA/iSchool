@@ -22,6 +22,8 @@ static NSString *const fromScheduleToSubjectInfoSegueIdentifier = @"fromSchedule
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *subjectsKeys;
 
+@property (strong, nonatomic) NSString *classId;
+
 @end
 
 @implementation ScheduleViewController
@@ -46,9 +48,10 @@ static NSString *const fromScheduleToSubjectInfoSegueIdentifier = @"fromSchedule
 #pragma mark - Networking
 
 - (void)getSchedule {
+    self.classId = [[NSUserDefaults standardUserDefaults] objectForKey:PUPIL_CLASS_ID];
     dispatch_group_t serviceGroup = dispatch_group_create();
     dispatch_group_enter(serviceGroup);
-    [self getScheduleOfClass:@"cid01" withCompletion:^{
+    [self getScheduleOfClass:self.classId withCompletion:^{
         dispatch_group_leave(serviceGroup);
     }];
     dispatch_group_notify(serviceGroup, dispatch_get_main_queue(), ^{
@@ -123,7 +126,7 @@ static NSString *const fromScheduleToSubjectInfoSegueIdentifier = @"fromSchedule
     if([segue.identifier isEqualToString:fromScheduleToSubjectInfoSegueIdentifier]) {
         SubjectJournalViewController *vc = (SubjectJournalViewController *)segue.destinationViewController;
         vc.navigationItemTitle = self.selectedSubject;
-        vc.classId = @"cid01";
+        vc.classId = self.classId;
     }
 }
 

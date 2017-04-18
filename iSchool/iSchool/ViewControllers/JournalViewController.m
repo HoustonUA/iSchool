@@ -57,7 +57,8 @@ static NSString *const fromSubjectsToSubjectMaterialsSegueIdentifier = @"fromSub
 
 - (void)getSubjectsKeysOfClassWithCompletion:(void(^)()) completion {
     ClassService *service = [ClassService new];
-    [service getSubjectsOfClass:@"cid01" onSuccess:^(NSArray *subjectsKeys) {
+    NSString *classId = [[NSUserDefaults standardUserDefaults] objectForKey:PUPIL_CLASS_ID];
+    [service getSubjectsOfClass:classId onSuccess:^(NSArray *subjectsKeys) {
         self.subjectsKeys = [[NSArray alloc] initWithArray:subjectsKeys];
         if(completion) {
             completion();

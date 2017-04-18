@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MarkModel.h"
 
 @interface ClassService : NSObject
 
@@ -30,5 +31,17 @@
 - (void)addPupil:(NSString *) userId
          toClass:(NSString *) classId
       onSucccess:(void(^)()) success;
+
+- (void)getPupilsIdsFromClass:(NSString *) classId
+                   onSucccess:(void(^)(NSArray *pupilsIds)) success;
+
+- (void)getNameOfClass:(NSString *) classId
+             onSuccess:(void(^)(NSString *className)) success;
+
+- (void)addMarkWithModel:(MarkModel *) markModel
+                forPupil:(NSString *) pupilId
+              forSubject:(NSString *) subjectId
+               fromClass:(NSString *) classId
+               onSuccess:(void(^)()) success;
 
 @end
