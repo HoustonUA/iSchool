@@ -97,12 +97,12 @@
          toClass:(NSString *) classId
       onSucccess:(void(^)()) success {
     
-//    self.databaseReference = [[FIRDatabase database] reference];
-//    NSString *key = [[[[self.databaseReference child:@"classes"] child:classId] child:@"pupils"] childByAutoId].key;
-//    NSDictionary *userUpdate = @{
-//                                 [NSString stringWithFormat:@"/classes/%@/pupils/%@/", classId, key] : userId
-//                                 };
-//    [self.databaseReference updateChildValues:userUpdate];
+    self.databaseReference = [[FIRDatabase database] reference];
+    NSString *key = [[[[self.databaseReference child:@"classes"] child:classId] child:@"pupils"] childByAutoId].key;
+    NSDictionary *userUpdate = @{
+                                 [NSString stringWithFormat:@"/classes/%@/pupils/%@/", classId, key] : userId
+                                 };
+    [self.databaseReference updateChildValues:userUpdate];
     
     
     //[[[[self.databaseReference child:@"classes"] child:classId] child:@"pupils"] push];
