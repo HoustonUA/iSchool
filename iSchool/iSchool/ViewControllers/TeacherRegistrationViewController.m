@@ -11,8 +11,10 @@
 #import "ClassService.h"
 #import "SubjectsService.h"
 #import "UserService.h"
+#import "CongratulationViewController.h"
 
 static NSString *const fromTeacherRegistrationToLoginSegueIdentifier = @"fromTeacherRegistrationToLoginSegueIdentifier";
+static NSString *const fromTeacherRegistrationToCongratulationsSegueIdentifier = @"fromTeacherRegistrationToCongratulationsSegueIdentifier";
 
 @interface TeacherRegistrationViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
 
@@ -35,6 +37,7 @@ static NSString *const fromTeacherRegistrationToLoginSegueIdentifier = @"fromTea
 @property (strong, nonatomic) UIPickerView *pickerView;
 @property (strong, nonatomic) UIToolbar *toolbar;
 @property (strong, nonatomic) NSString *selectedClassId;
+@property (strong, nonatomic) NSString *userName;
 
 @end
 
@@ -147,6 +150,7 @@ static NSString *const fromTeacherRegistrationToLoginSegueIdentifier = @"fromTea
 - (TeacherModel *)fillModel {
     TeacherModel *model = [TeacherModel new];
     model.name = self.nameTextField.text;
+    self.userName = self.nameTextField.text;
     model.surname = self.surnameTextField.text;
     model.middlename = self.middlenameTextField.text;
     model.phone = self.phoneTextField.text;
@@ -157,6 +161,15 @@ static NSString *const fromTeacherRegistrationToLoginSegueIdentifier = @"fromTea
     model.classId = self.selectedClassId;
     
     return model;
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:fromTeacherRegistrationToCongratulationsSegueIdentifier]) {
+        CongratulationViewController *vc = (CongratulationViewController *)segue.destinationViewController;
+        vc.userName = self.userName;
+    }
 }
 
 #pragma mark - Actions
@@ -170,7 +183,7 @@ static NSString *const fromTeacherRegistrationToLoginSegueIdentifier = @"fromTea
     
     [self addUserToUsersList];
     [self addTeacherToUsersFromModel:model];
-    [self performSegueWithIdentifier:fromTeacherRegistrationToLoginSegueIdentifier sender:nil];
+    [self performSegueWithIdentifier:fromTeacherRegistrationToCongratulationsSegueIdentifier sender:nil];
 }
 
 - (IBAction)isClassTeacherAction:(UISwitch *)sender {

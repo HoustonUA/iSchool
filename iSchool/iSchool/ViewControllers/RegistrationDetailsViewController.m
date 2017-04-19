@@ -10,6 +10,7 @@
 #import "UserModel.h"
 #import "UserService.h"
 #import "ClassService.h"
+#import "CongratulationViewController.h"
 
 typedef enum {
     Pupil = 0,
@@ -17,6 +18,7 @@ typedef enum {
 } PersonType;
 
 static NSString *const fromRegistrationDetailedToLoginSegueIdentifier = @"fromRegistrationDetailedToLoginSegueIdentifier";
+static NSString *const fromRegistrationToCongratulationSegueIdentifier = @"fromRegistrationToCongratulationSegueIdentifier";
 
 @interface RegistrationDetailsViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
 
@@ -33,6 +35,7 @@ static NSString *const fromRegistrationDetailedToLoginSegueIdentifier = @"fromRe
 @property (strong, nonatomic) UIPickerView *pickerView;
 @property (strong, nonatomic) UIToolbar *toolbar;
 @property (strong, nonatomic) NSString *selectedClassId;
+@property (strong, nonatomic) NSString *userName;
 
 @property (strong, nonatomic) NSDictionary *classList;
 
@@ -144,6 +147,7 @@ static NSString *const fromRegistrationDetailedToLoginSegueIdentifier = @"fromRe
 - (IBAction)confirmAction:(UIButton *)sender {
     UserModel *userModel = [UserModel new];
     userModel.name = self.nameTextField.text;
+    self.userName = self.nameTextField.text;
     userModel.surname = self.surnameTextField.text;
     userModel.middlename = self.middlenameTextField.text;
     userModel.birthday = [NSNumber numberWithInteger:[self.birthdayTextField.text integerValue]];
@@ -155,6 +159,16 @@ static NSString *const fromRegistrationDetailedToLoginSegueIdentifier = @"fromRe
     [self addUserInfoFromModel:userModel withCOmpletion:nil];
     [self addPupilToClass];
     [self addUserToUsersList];
-    [self performSegueWithIdentifier:fromRegistrationDetailedToLoginSegueIdentifier sender:nil];
+    [self performSegueWithIdentifier:fromRegistrationToCongratulationSegueIdentifier sender:nil];
 }
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:fromRegistrationToCongratulationSegueIdentifier]) {
+        CongratulationViewController *vc = (CongratulationViewController *)segue.destinationViewController;
+        vc.userName = self.userName;
+    }
+}
+
 @end

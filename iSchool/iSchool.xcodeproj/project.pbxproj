@@ -13,6 +13,7 @@
 		F11ECD821E9B9E4600EC0126 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F11ECD811E9B9E4600EC0126 /* UserModel.m */; };
 		F11ECD861E9BB4F800EC0126 /* UIColor+CustomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = F11ECD851E9BB4F800EC0126 /* UIColor+CustomColors.m */; };
 		F11ECD8A1E9BB8D000EC0126 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11ECD891E9BB8D000EC0126 /* ProfileViewController.m */; };
+		F126BA901EA7F17B00A9392C /* CongratulationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126BA8F1EA7F17B00A9392C /* CongratulationViewController.m */; };
 		F143A6DD1E9A4E27003B11D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F143A6DC1E9A4E27003B11D1 /* main.m */; };
 		F143A6E01E9A4E27003B11D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F143A6DF1E9A4E27003B11D1 /* AppDelegate.m */; };
 		F143A6E61E9A4E27003B11D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F143A6E41E9A4E27003B11D1 /* Main.storyboard */; };
@@ -72,6 +73,8 @@
 		F11ECD851E9BB4F800EC0126 /* UIColor+CustomColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+CustomColors.m"; path = "Categories/UIColor+CustomColors.m"; sourceTree = "<group>"; };
 		F11ECD881E9BB8D000EC0126 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = ViewControllers/ProfileViewController.h; sourceTree = "<group>"; };
 		F11ECD891E9BB8D000EC0126 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = ViewControllers/ProfileViewController.m; sourceTree = "<group>"; };
+		F126BA8E1EA7F17B00A9392C /* CongratulationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CongratulationViewController.h; path = ViewControllers/CongratulationViewController.h; sourceTree = "<group>"; };
+		F126BA8F1EA7F17B00A9392C /* CongratulationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CongratulationViewController.m; path = ViewControllers/CongratulationViewController.m; sourceTree = "<group>"; };
 		F143A6D81E9A4E27003B11D1 /* iSchool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSchool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F143A6DC1E9A4E27003B11D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F143A6DE1E9A4E27003B11D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -271,6 +274,8 @@
 				F143A6FF1E9A5508003B11D1 /* Cells */,
 				F18012591EA78DF400E80930 /* Pupil */,
 				F180125A1EA78E0200E80930 /* Teacher */,
+				F126BA8E1EA7F17B00A9392C /* CongratulationViewController.h */,
+				F126BA8F1EA7F17B00A9392C /* CongratulationViewController.m */,
 				F143A6F61E9A4F77003B11D1 /* LoginViewController.h */,
 				F143A6F71E9A4F77003B11D1 /* LoginViewController.m */,
 				F143A7281E9AA674003B11D1 /* NoticeDetailedViewController.h */,
@@ -524,6 +529,7 @@
 				F18012601EA7A2A800E80930 /* TeacherRegistrationViewController.m in Sources */,
 				F143A6FB1E9A4FDE003B11D1 /* PupilPanelViewController.m in Sources */,
 				F181EA891EA3E05800A95AC7 /* ClassPupilsViewController.m in Sources */,
+				F126BA901EA7F17B00A9392C /* CongratulationViewController.m in Sources */,
 				F143A70E1E9A667C003B11D1 /* Constants.m in Sources */,
 				F11ECD8A1E9BB8D000EC0126 /* ProfileViewController.m in Sources */,
 				F143A6E91E9A4E27003B11D1 /* iSchool.xcdatamodeld in Sources */,
