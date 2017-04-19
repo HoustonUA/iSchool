@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "UserService.h"
 @import Firebase;
 
 static NSString *const fromLoginToPupilViewControllerSegueIdentifier = @"fromLoginToPupilViewControllerSegueIdentifier";
@@ -17,6 +18,7 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
 
 @property (weak, nonatomic) IBOutlet UITextField *loginTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UIButton *signInButton;
 
 @property (strong, nonatomic) FIRAuth *handle;
 
@@ -52,6 +54,8 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
 
 - (void)setupUI {
     self.view.backgroundColor = [UIColor primaryColor];
+    self.signInButton.layer.cornerRadius = 5.f;
+    self.signInButton.backgroundColor = [UIColor customYellowColor];
 }
 
 #pragma mark - Navigation
@@ -82,18 +86,29 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
                                password:self.passwordTextField.text
                              completion:^(FIRUser *user, NSError *error) {
                                  if(!error) {
-                                     //[self performSegueWithIdentifier:fromLoginToPupilViewControllerSegueIdentifier sender:self];
-                                     [self performSegueWithIdentifier:fromLoginToTeacherViewControllerSegueIdentifier sender:self];
+                                     [self getUserTypeWithId:user.uid withCimpletion:^(NSString *userType) {
+                                         if([userType isEqualToString:@"pupil"]) {
+                                             [self performSegueWithIdentifier:fromLoginToPupilViewControllerSegueIdentifier sender:self];
+                                         } else if([userType isEqualToString:@"teacher"]) {
+                                             [self performSegueWithIdentifier:fromLoginToTeacherViewControllerSegueIdentifier sender:self];
+                                         }
+                                     }];
                                  } else {
                                      [self presentViewController:alertViewController animated:YES completion:nil];
                                  }
                              }];
-    } else if([inputText isEqualToString:@"pupil"]) {
-        
     }
-    else {
-        [self performSegueWithIdentifier:fromLoginToTeacherViewControllerSegueIdentifier sender:self];
-    }
+}
+
+#pragma mark - Networking
+
+- (void)getUserTypeWithId:(NSString *) userId withCimpletion:(void(^)(NSString *userType)) completion{
+    UserService *service = [UserService new];
+    [service getPersonTypeWithUserId:userId onSuccess:^(NSString *userType) {
+        if(completion) {
+            completion(userType);
+        }
+    }];
 }
 
 @end

@@ -23,4 +23,15 @@
                                   andUserId:(NSString *) userId
                                   onSuccess:(void(^)()) success;
 
+- (void)getPersonTypeWithUserId:(NSString *) userId
+                      onSuccess:(void(^)(NSString *userType)) success;
+
+- (void)addUserToUsersListWithId:(NSString *) userId
+                  withPersonType:(NSString *) personType
+                       onSuccess:(void(^)()) success;
+
+- (void)addTeacherProfileDetailsWithUserModel:(TeacherModel *) userModel
+                                    andUserId:(NSString *) userId
+                                    onSuccess:(void(^)()) success;
+
 @end

@@ -57,7 +57,7 @@ static NSString *const fromTeacherPanelToJournalsSegueIdentifier = @"fromTeacher
     return cell;
 }
 
-#pragma  mark - UICollectionViewDelegate
+#pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     

@@ -36,13 +36,13 @@
     
     self.ref = [[FIRDatabase database] reference];
     [[[[self.ref child:@"users"] child:@"teachers"] child:userId] observeSingleEventOfType:FIRDataEventTypeValue
-                                                                                withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-                                                                                    TeacherModel *teacherModel = [EKMapper objectFromExternalRepresentation:snapshot.value withMapping:[TeacherModel objectMapping]];
-                                                                                    success(teacherModel);
-                                                                                }
-                                                                          withCancelBlock:^(NSError * _Nonnull error) {
-                                                                              NSLog(@"ERROR: %@", error);
-                                                                          }];
+                                                                                 withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+                                                                                     TeacherModel *teacherModel = [EKMapper objectFromExternalRepresentation:snapshot.value withMapping:[TeacherModel objectMapping]];
+                                                                                     success(teacherModel);
+                                                                                 }
+                                                                           withCancelBlock:^(NSError * _Nonnull error) {
+                                                                               NSLog(@"ERROR: %@", error);
+                                                                           }];
 }
 
 - (void)addPupilProfileDetailsWithUserModel:(UserModel *) userModel
@@ -53,8 +53,8 @@
     
     [[[[self.ref child:@"users"] child:@"pupils"] child:userId]
      setValue:@{
-                @"name"  :   userModel.name,
-                @"surname"   :   userModel.surname,
+                @"name"         :   userModel.name,
+                @"surname"      :   userModel.surname,
                 @"middlename"   :   userModel.middlename,
                 @"birthday"     :   userModel.birthday,
                 @"classId"      :   userModel.classId,
@@ -64,5 +64,55 @@
                 }];
     success();
 }
+
+- (void)getPersonTypeWithUserId:(NSString *) userId
+                      onSuccess:(void(^)(NSString *userType)) success {
+    
+    self.ref = [[FIRDatabase database] reference];
+    
+    [[[self.ref child:@"usersList"] child:userId] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        success(snapshot.value);
+    }];
+}
+
+- (void)addUserToUsersListWithId:(NSString *) userId
+                  withPersonType:(NSString *) personType
+                       onSuccess:(void(^)()) success {
+    
+    self.ref = [[FIRDatabase database] reference];
+    
+    [[[self.ref child:@"usersList"] child:userId] setValue:personType];
+}
+
+- (void)addTeacherProfileDetailsWithUserModel:(TeacherModel *) userModel
+                                    andUserId:(NSString *) userId
+                                    onSuccess:(void(^)()) success {
+    
+    self.ref = [[FIRDatabase database] reference];
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc]
+                                   initWithDictionary:@{
+                                                        @"name"             :   userModel.name,
+                                                        @"surname"          :   userModel.surname,
+                                                        @"middlename"       :   userModel.middlename,
+                                                        @"birthday"         :   userModel.birthday,
+                                                        @"subjects"         :   userModel.subjects,
+                                                        @"isClassTeacher"   :   [NSNumber numberWithBool:userModel.isClassTeacher],
+                                                        @"phone"            :   userModel.phone
+                                                        }];
+    
+    if(userModel.classId) {
+        [params setObject:userModel.classId forKey:@"classId"];
+    } else {
+        [params setObject:@"No class" forKey:@"classId"];
+    }
+    
+    [[[[self.ref child:@"users"] child:@"teachers"] child:userId]
+     setValue:params];
+    if(success) {
+        success();
+    }
+}
+
 
 @end

@@ -41,8 +41,8 @@ static NSString *const fromClassesToClassSubjectsSegueIdentifier = @"fromClasses
     __block NSArray *lClassesIds;
     dispatch_group_t serviceGroup = dispatch_group_create();
     dispatch_group_enter(serviceGroup);
-    [self getListOfClassesIdsWithCompletion:^(NSArray *classesIds) {
-        lClassesIds = [[NSArray alloc] initWithArray:classesIds];
+    [self getListOfClassesIdsWithCompletion:^(NSDictionary *classesIds) {
+        lClassesIds = [[NSArray alloc] initWithArray:[classesIds allKeys]];
         dispatch_group_leave(serviceGroup);
     }];
     
@@ -54,11 +54,11 @@ static NSString *const fromClassesToClassSubjectsSegueIdentifier = @"fromClasses
     
 }
 
-- (void)getListOfClassesIdsWithCompletion:(void(^)(NSArray *classesIds)) completion {
+- (void)getListOfClassesIdsWithCompletion:(void(^)(NSDictionary *classesIds)) completion {
     
     ClassService *service = [ClassService new];
-    [service getClassesOnSuccess:^(NSArray *classList) {
-        self.classIds = [[NSArray alloc] initWithArray:classList];
+    [service getClassesOnSuccess:^(NSDictionary *classList) {
+        self.classIds = [[NSArray alloc] initWithArray:[classList allKeys]];
         if(completion) {
             completion(classList);
         }
