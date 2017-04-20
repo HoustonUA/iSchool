@@ -68,6 +68,15 @@ static NSString *const fromClassSubjectsToPupilsListSegueIdentifier = @"fromClas
     [self performSegueWithIdentifier:fromClassSubjectsToPupilsListSegueIdentifier sender:self];
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0.001)];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.001;
+}
+
+
 #pragma mark - Networking
 
 - (void)getSubjectsOfClass {
