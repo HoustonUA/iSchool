@@ -19,14 +19,17 @@
 
 - (void)getUserTypeWithActivationKey:(NSString *) key
                            onSuccess:(void(^)(NSString *userType)) success {
+    
     self.databaseReference = [[FIRDatabase database] reference];
     
     [[[self.databaseReference child:@"activationKeys"] child:key] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         if(![snapshot.value isEqual:[NSNull null]]) {
             success(snapshot.value);
         } else {
-            success(@"");
+            success(@"Error in regis");
         }
+    } withCancelBlock:^(NSError * _Nonnull error) {
+        NSLog(@"ERROR!!!: %@", error);
     }];
 }
 

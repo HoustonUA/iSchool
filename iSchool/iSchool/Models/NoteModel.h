@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Note;
 
 @interface NoteModel : NSObject
 
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *content;
+
+- (instancetype)initWithNoteManagedObject:(Note *)note;
 
 @end

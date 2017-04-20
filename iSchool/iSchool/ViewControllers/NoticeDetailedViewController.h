@@ -10,4 +10,6 @@
 
 @interface NoticeDetailedViewController : UIViewController
 
+@property (strong, nonatomic) NSManagedObjectModel *noteObject;
+
 @end

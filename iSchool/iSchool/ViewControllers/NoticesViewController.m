@@ -8,11 +8,14 @@
 
 #import "NoticesViewController.h"
 #import "NoteModel.h"
+#import "AppDelegate.h"
+#import "NoticeDetailedViewController.h"
 
 static NSString *const fromNoticesListToNoticeDetailsSegueIdentitifer = @"fromNoticesListToNoticeDetailsSegueIdentitifer";
 
 @interface NoticesViewController () <UITableViewDataSource, UITableViewDelegate>
 
+@property (assign, nonatomic) NSInteger selectedNoteIndex;
 @property (strong, nonatomic) NSMutableArray *notes;
 
 - (IBAction)addNoticeAction:(UIBarButtonItem *)sender;
@@ -25,6 +28,19 @@ static NSString *const fromNoticesListToNoticeDetailsSegueIdentitifer = @"fromNo
     [super viewDidLoad];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    __weak AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *managedContext = appDelegate.persistentContainer.viewContext;
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Note"];
+    NSError *error = nil;
+    self.notes = [[NSMutableArray alloc] initWithArray:[managedContext executeFetchRequest:fetchRequest error:&error]];
+    if(error) {
+        NSLog(@"Fetch error: %@", error);
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -32,16 +48,14 @@ static NSString *const fromNoticesListToNoticeDetailsSegueIdentitifer = @"fromNo
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //return self.notes.count;
-    return 1;
+    return self.notes.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([NoticesViewController class]) forIndexPath:indexPath];
     
-    //cell.textLabel.text = [[self.notes objectAtIndex:indexPath.row] title];
-    cell.textLabel.text = @"Hi.";
+    cell.textLabel.text = [[self.notes objectAtIndex:indexPath.row] title];
     
     return cell;
 }
@@ -50,20 +64,22 @@ static NSString *const fromNoticesListToNoticeDetailsSegueIdentitifer = @"fromNo
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    self.selectedNoteIndex = indexPath.row;
     [self performSegueWithIdentifier:fromNoticesListToNoticeDetailsSegueIdentitifer sender:self];
 }
 
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    
+    if([segue.identifier isEqualToString:fromNoticesListToNoticeDetailsSegueIdentitifer]) {
+        NoticeDetailedViewController *vc = (NoticeDetailedViewController *)segue.destinationViewController;
+        vc.noteObject = [self.notes objectAtIndex:self.selectedNoteIndex];
+    }
 }
 
 #pragma mark - Actions
 
 - (IBAction)addNoticeAction:(UIBarButtonItem *)sender {
-    ///////
-    
+    [self performSegueWithIdentifier:fromNoticesListToNoticeDetailsSegueIdentitifer sender:nil];
 }
 @end

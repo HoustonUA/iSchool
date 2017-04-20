@@ -735,6 +735,9 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="0.99195677042007446" green="0.99622899293899536" blue="0.99192315340042114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveAction:" destination="PwM-l1-DES" eventType="touchUpInside" id="CS9-5J-qdB"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notice title..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nQP-dA-Nak">
                                 <rect key="frame" x="10" y="8" width="355" height="30"/>
@@ -762,6 +765,7 @@
                     <connections>
                         <outlet property="noticeContentTextView" destination="TcN-fg-QEh" id="mTW-wx-Qmz"/>
                         <outlet property="noticeTitleTextfield" destination="nQP-dA-Nak" id="FC7-cI-Wb1"/>
+                        <outlet property="saveButton" destination="bh4-XV-0Nr" id="Kyh-uv-1BC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oPz-jj-LYg" userLabel="First Responder" sceneMemberID="firstResponder"/>
