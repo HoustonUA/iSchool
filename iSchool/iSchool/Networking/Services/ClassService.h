@@ -26,7 +26,7 @@
 - (void)getTeacherIdOfClass:(NSString *) classId
                   onSuccess:(void(^)(NSString *teacherId)) success;
 
-- (void)getClassesOnSuccess:(void(^)(NSArray *classList)) success;
+- (void)getClassesOnSuccess:(void(^)(NSDictionary *classList)) success;
 
 - (void)addPupil:(NSString *) userId
          toClass:(NSString *) classId
@@ -43,5 +43,9 @@
               forSubject:(NSString *) subjectId
                fromClass:(NSString *) classId
                onSuccess:(void(^)()) success;
+
+- (void)addClassTeacherWithUserId:(NSString *) userId
+                          toClass:(NSString *) classId
+                        onSuccess:(void(^)()) success;
 
 @end

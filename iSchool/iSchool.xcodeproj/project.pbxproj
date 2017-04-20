@@ -13,6 +13,7 @@
 		F11ECD821E9B9E4600EC0126 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F11ECD811E9B9E4600EC0126 /* UserModel.m */; };
 		F11ECD861E9BB4F800EC0126 /* UIColor+CustomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = F11ECD851E9BB4F800EC0126 /* UIColor+CustomColors.m */; };
 		F11ECD8A1E9BB8D000EC0126 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11ECD891E9BB8D000EC0126 /* ProfileViewController.m */; };
+		F126BA901EA7F17B00A9392C /* CongratulationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126BA8F1EA7F17B00A9392C /* CongratulationViewController.m */; };
 		F143A6DD1E9A4E27003B11D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F143A6DC1E9A4E27003B11D1 /* main.m */; };
 		F143A6E01E9A4E27003B11D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F143A6DF1E9A4E27003B11D1 /* AppDelegate.m */; };
 		F143A6E61E9A4E27003B11D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F143A6E41E9A4E27003B11D1 /* Main.storyboard */; };
@@ -36,6 +37,8 @@
 		F143A72C1E9AA996003B11D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F143A72B1E9AA996003B11D1 /* GoogleService-Info.plist */; };
 		F15032751E9AC11D00BEB7F8 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F15032741E9AC11D00BEB7F8 /* NetworkManager.m */; };
 		F15032791E9AC25A00BEB7F8 /* SubjectsService.m in Sources */ = {isa = PBXBuildFile; fileRef = F15032781E9AC25A00BEB7F8 /* SubjectsService.m */; };
+		F180125D1EA79A3E00E80930 /* RegistrationService.m in Sources */ = {isa = PBXBuildFile; fileRef = F180125C1EA79A3E00E80930 /* RegistrationService.m */; };
+		F18012601EA7A2A800E80930 /* TeacherRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F180125F1EA7A2A800E80930 /* TeacherRegistrationViewController.m */; };
 		F181EA7B1EA3921100A95AC7 /* PupilClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F181EA7A1EA3921100A95AC7 /* PupilClassViewController.m */; };
 		F181EA7E1EA3A5CC00A95AC7 /* ClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F181EA7D1EA3A5CC00A95AC7 /* ClassModel.m */; };
 		F181EA831EA3D04800A95AC7 /* ClassesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F181EA821EA3D04800A95AC7 /* ClassesListViewController.m */; };
@@ -70,6 +73,8 @@
 		F11ECD851E9BB4F800EC0126 /* UIColor+CustomColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+CustomColors.m"; path = "Categories/UIColor+CustomColors.m"; sourceTree = "<group>"; };
 		F11ECD881E9BB8D000EC0126 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = ViewControllers/ProfileViewController.h; sourceTree = "<group>"; };
 		F11ECD891E9BB8D000EC0126 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = ViewControllers/ProfileViewController.m; sourceTree = "<group>"; };
+		F126BA8E1EA7F17B00A9392C /* CongratulationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CongratulationViewController.h; path = ViewControllers/CongratulationViewController.h; sourceTree = "<group>"; };
+		F126BA8F1EA7F17B00A9392C /* CongratulationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CongratulationViewController.m; path = ViewControllers/CongratulationViewController.m; sourceTree = "<group>"; };
 		F143A6D81E9A4E27003B11D1 /* iSchool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSchool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F143A6DC1E9A4E27003B11D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F143A6DE1E9A4E27003B11D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -111,6 +116,10 @@
 		F15032741E9AC11D00BEB7F8 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkManager.m; path = Networking/NetworkManager.m; sourceTree = "<group>"; };
 		F15032771E9AC25A00BEB7F8 /* SubjectsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectsService.h; path = Networking/Services/SubjectsService.h; sourceTree = "<group>"; };
 		F15032781E9AC25A00BEB7F8 /* SubjectsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectsService.m; path = Networking/Services/SubjectsService.m; sourceTree = "<group>"; };
+		F180125B1EA79A3E00E80930 /* RegistrationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistrationService.h; path = Networking/Services/RegistrationService.h; sourceTree = "<group>"; };
+		F180125C1EA79A3E00E80930 /* RegistrationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistrationService.m; path = Networking/Services/RegistrationService.m; sourceTree = "<group>"; };
+		F180125E1EA7A2A800E80930 /* TeacherRegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeacherRegistrationViewController.h; path = ViewControllers/TeacherRegistrationViewController.h; sourceTree = "<group>"; };
+		F180125F1EA7A2A800E80930 /* TeacherRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TeacherRegistrationViewController.m; path = ViewControllers/TeacherRegistrationViewController.m; sourceTree = "<group>"; };
 		F181EA791EA3921100A95AC7 /* PupilClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PupilClassViewController.h; path = ViewControllers/PupilClassViewController.h; sourceTree = "<group>"; };
 		F181EA7A1EA3921100A95AC7 /* PupilClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PupilClassViewController.m; path = ViewControllers/PupilClassViewController.m; sourceTree = "<group>"; };
 		F181EA7C1EA3A5CC00A95AC7 /* ClassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassModel.h; path = Models/ClassModel.h; sourceTree = "<group>"; };
@@ -263,42 +272,24 @@
 			isa = PBXGroup;
 			children = (
 				F143A6FF1E9A5508003B11D1 /* Cells */,
-				F181EA811EA3D04800A95AC7 /* ClassesListViewController.h */,
-				F181EA821EA3D04800A95AC7 /* ClassesListViewController.m */,
-				F181EA871EA3E05800A95AC7 /* ClassPupilsViewController.h */,
-				F181EA881EA3E05800A95AC7 /* ClassPupilsViewController.m */,
-				F181EA841EA3D75A00A95AC7 /* ClassSubjectsViewController.h */,
-				F181EA851EA3D75A00A95AC7 /* ClassSubjectsViewController.m */,
-				F143A70F1E9A70D3003B11D1 /* JournalViewController.h */,
-				F143A7101E9A70D3003B11D1 /* JournalViewController.m */,
+				F18012591EA78DF400E80930 /* Pupil */,
+				F180125A1EA78E0200E80930 /* Teacher */,
+				F126BA8E1EA7F17B00A9392C /* CongratulationViewController.h */,
+				F126BA8F1EA7F17B00A9392C /* CongratulationViewController.m */,
 				F143A6F61E9A4F77003B11D1 /* LoginViewController.h */,
 				F143A6F71E9A4F77003B11D1 /* LoginViewController.m */,
 				F143A7281E9AA674003B11D1 /* NoticeDetailedViewController.h */,
 				F143A7291E9AA674003B11D1 /* NoticeDetailedViewController.m */,
 				F143A7251E9A9B67003B11D1 /* NoticesViewController.h */,
 				F143A7261E9A9B67003B11D1 /* NoticesViewController.m */,
-				F11ECD881E9BB8D000EC0126 /* ProfileViewController.h */,
-				F11ECD891E9BB8D000EC0126 /* ProfileViewController.m */,
-				F181EA791EA3921100A95AC7 /* PupilClassViewController.h */,
-				F181EA7A1EA3921100A95AC7 /* PupilClassViewController.m */,
-				F181EA8A1EA3EB9D00A95AC7 /* PupilMarksViewController.h */,
-				F181EA8B1EA3EB9D00A95AC7 /* PupilMarksViewController.m */,
-				F143A6F91E9A4FDE003B11D1 /* PupilPanelViewController.h */,
-				F143A6FA1E9A4FDE003B11D1 /* PupilPanelViewController.m */,
 				F1DF6E681EA01A7400973B34 /* RegistrationViewController.h */,
 				F1DF6E691EA01A7400973B34 /* RegistrationViewController.m */,
 				F1DF6E6B1EA01E8B00973B34 /* RegistrationDetailsViewController.h */,
 				F1DF6E6C1EA01E8B00973B34 /* RegistrationDetailsViewController.m */,
-				F143A7191E9A81F9003B11D1 /* ScheduleViewController.h */,
-				F143A71A1E9A81F9003B11D1 /* ScheduleViewController.m */,
-				F11ECD791E9B798300EC0126 /* SubjectInfoViewController.h */,
-				F11ECD7A1E9B798300EC0126 /* SubjectInfoViewController.m */,
-				F143A7161E9A79F1003B11D1 /* SubjectJournalViewController.h */,
-				F143A7171E9A79F1003B11D1 /* SubjectJournalViewController.m */,
 				F143A71F1E9A8FEB003B11D1 /* SubjectMaterialsViewController.h */,
 				F143A7201E9A8FEB003B11D1 /* SubjectMaterialsViewController.m */,
-				F143A6FC1E9A4FEE003B11D1 /* TeacherPanelViewController.h */,
-				F143A6FD1E9A4FEE003B11D1 /* TeacherPanelViewController.m */,
+				F180125E1EA7A2A800E80930 /* TeacherRegistrationViewController.h */,
+				F180125F1EA7A2A800E80930 /* TeacherRegistrationViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -336,6 +327,8 @@
 				F1FBF1DE1E9C154500B9D49D /* ClassService.m */,
 				F1FBF1EC1E9D161400B9D49D /* MaterialsService.h */,
 				F1FBF1ED1E9D161400B9D49D /* MaterialsService.m */,
+				F180125B1EA79A3E00E80930 /* RegistrationService.h */,
+				F180125C1EA79A3E00E80930 /* RegistrationService.m */,
 				F1FBF1E31E9CDF6300B9D49D /* ScheduleService.h */,
 				F1FBF1E41E9CDF6300B9D49D /* ScheduleService.m */,
 				F15032771E9AC25A00BEB7F8 /* SubjectsService.h */,
@@ -344,6 +337,44 @@
 				F11ECD7D1E9B9D9400EC0126 /* UserService.m */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		F18012591EA78DF400E80930 /* Pupil */ = {
+			isa = PBXGroup;
+			children = (
+				F143A70F1E9A70D3003B11D1 /* JournalViewController.h */,
+				F143A7101E9A70D3003B11D1 /* JournalViewController.m */,
+				F11ECD881E9BB8D000EC0126 /* ProfileViewController.h */,
+				F11ECD891E9BB8D000EC0126 /* ProfileViewController.m */,
+				F181EA791EA3921100A95AC7 /* PupilClassViewController.h */,
+				F181EA7A1EA3921100A95AC7 /* PupilClassViewController.m */,
+				F143A6F91E9A4FDE003B11D1 /* PupilPanelViewController.h */,
+				F143A6FA1E9A4FDE003B11D1 /* PupilPanelViewController.m */,
+				F143A7191E9A81F9003B11D1 /* ScheduleViewController.h */,
+				F143A71A1E9A81F9003B11D1 /* ScheduleViewController.m */,
+				F11ECD791E9B798300EC0126 /* SubjectInfoViewController.h */,
+				F11ECD7A1E9B798300EC0126 /* SubjectInfoViewController.m */,
+				F143A7161E9A79F1003B11D1 /* SubjectJournalViewController.h */,
+				F143A7171E9A79F1003B11D1 /* SubjectJournalViewController.m */,
+			);
+			name = Pupil;
+			sourceTree = "<group>";
+		};
+		F180125A1EA78E0200E80930 /* Teacher */ = {
+			isa = PBXGroup;
+			children = (
+				F181EA8A1EA3EB9D00A95AC7 /* PupilMarksViewController.h */,
+				F181EA8B1EA3EB9D00A95AC7 /* PupilMarksViewController.m */,
+				F181EA811EA3D04800A95AC7 /* ClassesListViewController.h */,
+				F181EA821EA3D04800A95AC7 /* ClassesListViewController.m */,
+				F181EA871EA3E05800A95AC7 /* ClassPupilsViewController.h */,
+				F181EA881EA3E05800A95AC7 /* ClassPupilsViewController.m */,
+				F181EA841EA3D75A00A95AC7 /* ClassSubjectsViewController.h */,
+				F181EA851EA3D75A00A95AC7 /* ClassSubjectsViewController.m */,
+				F143A6FC1E9A4FEE003B11D1 /* TeacherPanelViewController.h */,
+				F143A6FD1E9A4FEE003B11D1 /* TeacherPanelViewController.m */,
+			);
+			name = Teacher;
 			sourceTree = "<group>";
 		};
 		F1EAB6601E9E21A2001EE746 /* Utilities */ = {
@@ -495,8 +526,10 @@
 				F3B879AE1E9FD66600DFD0E0 /* TeacherModel.m in Sources */,
 				F143A7211E9A8FEB003B11D1 /* SubjectMaterialsViewController.m in Sources */,
 				F143A7021E9A5AAB003B11D1 /* SectionCollectionViewCell.m in Sources */,
+				F18012601EA7A2A800E80930 /* TeacherRegistrationViewController.m in Sources */,
 				F143A6FB1E9A4FDE003B11D1 /* PupilPanelViewController.m in Sources */,
 				F181EA891EA3E05800A95AC7 /* ClassPupilsViewController.m in Sources */,
+				F126BA901EA7F17B00A9392C /* CongratulationViewController.m in Sources */,
 				F143A70E1E9A667C003B11D1 /* Constants.m in Sources */,
 				F11ECD8A1E9BB8D000EC0126 /* ProfileViewController.m in Sources */,
 				F143A6E91E9A4E27003B11D1 /* iSchool.xcdatamodeld in Sources */,
@@ -528,6 +561,7 @@
 				F1FBF1E81E9CFA3400B9D49D /* ScheduleDayModel.m in Sources */,
 				F11ECD861E9BB4F800EC0126 /* UIColor+CustomColors.m in Sources */,
 				F181EA7E1EA3A5CC00A95AC7 /* ClassModel.m in Sources */,
+				F180125D1EA79A3E00E80930 /* RegistrationService.m in Sources */,
 				F143A6DD1E9A4E27003B11D1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

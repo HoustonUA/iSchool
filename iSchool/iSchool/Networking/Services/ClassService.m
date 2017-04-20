@@ -84,7 +84,7 @@
     }];
 }
 
-- (void)getClassesOnSuccess:(void(^)(NSArray *classList)) success {
+- (void)getClassesOnSuccess:(void(^)(NSDictionary *classList)) success {
     
     self.databaseReference = [[FIRDatabase database] reference];
     
@@ -148,6 +148,14 @@
                                [NSString stringWithFormat:@"/classes/%@/journal/%@/%@/%@/wasOnLesson", classId, pupilId, subjectId, key]    :   [NSNumber numberWithBool:markModel.wasOnLesson]
                                };
     [self.databaseReference updateChildValues:markInfo];
+}
+
+- (void)addClassTeacherWithUserId:(NSString *) userId
+                          toClass:(NSString *) classId
+                        onSuccess:(void(^)()) success {
+    
+    self.databaseReference = [[FIRDatabase database] reference];
+    [[[[self.databaseReference child:@"classes"] child:classId] child:@"classTeacher"] setValue:userId];
 }
 
 @end

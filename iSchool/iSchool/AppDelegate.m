@@ -56,6 +56,9 @@
 - (void)setupUI {
     [[UINavigationBar appearance] setBarTintColor:[UIColor mainColor]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{
+                                                           NSForegroundColorAttributeName : [UIColor whiteColor]
+                                                           }];
 }
 
 #pragma mark - Core Data stack

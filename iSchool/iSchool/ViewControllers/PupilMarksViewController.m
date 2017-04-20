@@ -154,6 +154,7 @@
         textField.clearButtonMode = UITextFieldViewModeWhileEditing;
         textField.borderStyle = UITextBorderStyleRoundedRect;
         textField.textAlignment = NSTextAlignmentCenter;
+        textField.keyboardType = UIKeyboardTypeNumberPad;
     }];
     
     [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {

@@ -10,8 +10,15 @@
 #import "UserModel.h"
 #import "UserService.h"
 #import "ClassService.h"
+#import "CongratulationViewController.h"
+
+typedef enum {
+    Pupil = 0,
+    Teacher
+} PersonType;
 
 static NSString *const fromRegistrationDetailedToLoginSegueIdentifier = @"fromRegistrationDetailedToLoginSegueIdentifier";
+static NSString *const fromRegistrationToCongratulationSegueIdentifier = @"fromRegistrationToCongratulationSegueIdentifier";
 
 @interface RegistrationDetailsViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
 
@@ -28,10 +35,10 @@ static NSString *const fromRegistrationDetailedToLoginSegueIdentifier = @"fromRe
 @property (strong, nonatomic) UIPickerView *pickerView;
 @property (strong, nonatomic) UIToolbar *toolbar;
 @property (strong, nonatomic) NSString *selectedClassId;
+@property (strong, nonatomic) NSString *userName;
 
-@property (strong, nonatomic) NSArray *classList;
+@property (strong, nonatomic) NSDictionary *classList;
 
-- (IBAction)selectRoleAction:(id)sender;
 - (IBAction)confirmAction:(UIButton *)sender;
 
 @end
@@ -50,16 +57,6 @@ static NSString *const fromRegistrationDetailedToLoginSegueIdentifier = @"fromRe
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 #pragma mark - Networking
 
 - (void)addUserInfoFromModel:(UserModel *) model withCOmpletion:(void(^)()) completion{
@@ -73,8 +70,8 @@ static NSString *const fromRegistrationDetailedToLoginSegueIdentifier = @"fromRe
 
 - (void)getClassList {
     ClassService *service = [ClassService new];
-    [service getClassesOnSuccess:^(NSArray *classList) {
-        self.classList = [[NSArray alloc] initWithArray:classList];
+    [service getClassesOnSuccess:^(NSDictionary *classList) {
+        self.classList = [[NSDictionary alloc] initWithDictionary:classList];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.pickerView reloadAllComponents];
         });
@@ -88,11 +85,19 @@ static NSString *const fromRegistrationDetailedToLoginSegueIdentifier = @"fromRe
     }];
 }
 
+- (void)addUserToUsersList {
+    UserService *service = [UserService new];
+    [service addUserToUsersListWithId:self.userId withPersonType:self.userType onSuccess:nil];
+}
+
 #pragma mark - Private
 
 - (void)setupUI {
     self.classTextField.inputView = self.pickerView;
     self.classTextField.inputAccessoryView = self.toolbar;
+    self.confirmButton.backgroundColor = [UIColor customYellowColor];
+    self.confirmButton.layer.cornerRadius = 5.f;
+    self.view.backgroundColor = [UIColor primaryColor];
 }
 
 - (void)setupPickerView {
@@ -110,7 +115,6 @@ static NSString *const fromRegistrationDetailedToLoginSegueIdentifier = @"fromRe
 }
 
 - (IBAction)doneAction:(id) sender {
-    self.selectedClassId = self.classTextField.text;
     [self.classTextField resignFirstResponder];
 }
 
@@ -126,26 +130,24 @@ static NSString *const fromRegistrationDetailedToLoginSegueIdentifier = @"fromRe
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return self.classList.count;
+    return [[self.classList allValues] count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [self.classList objectAtIndex:row];
+    return [[self.classList allValues] objectAtIndex:row];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    self.classTextField.text = [self.classList objectAtIndex:row];
+    self.selectedClassId = [[self.classList allKeys] objectAtIndex:row];
+    self.classTextField.text = [[self.classList allValues] objectAtIndex:row];
 }
 
 #pragma mark - Actions
 
-- (IBAction)selectRoleAction:(id)sender {
-    
-}
-
 - (IBAction)confirmAction:(UIButton *)sender {
     UserModel *userModel = [UserModel new];
     userModel.name = self.nameTextField.text;
+    self.userName = self.nameTextField.text;
     userModel.surname = self.surnameTextField.text;
     userModel.middlename = self.middlenameTextField.text;
     userModel.birthday = [NSNumber numberWithInteger:[self.birthdayTextField.text integerValue]];
@@ -156,6 +158,17 @@ static NSString *const fromRegistrationDetailedToLoginSegueIdentifier = @"fromRe
     
     [self addUserInfoFromModel:userModel withCOmpletion:nil];
     [self addPupilToClass];
-    [self performSegueWithIdentifier:fromRegistrationDetailedToLoginSegueIdentifier sender:nil];
+    [self addUserToUsersList];
+    [self performSegueWithIdentifier:fromRegistrationToCongratulationSegueIdentifier sender:nil];
 }
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:fromRegistrationToCongratulationSegueIdentifier]) {
+        CongratulationViewController *vc = (CongratulationViewController *)segue.destinationViewController;
+        vc.userName = self.userName;
+    }
+}
+
 @end
