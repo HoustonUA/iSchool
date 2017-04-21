@@ -245,8 +245,9 @@
 		F143A6DA1E9A4E27003B11D1 /* iSchool */ = {
 			isa = PBXGroup;
 			children = (
-				F3E9B0741EA8FD3000643953 /* Entities */,
+				F3E9B07B1EAA36F400643953 /* CoreDataProvider */,
 				F11ECD831E9BB4D000EC0126 /* Categories */,
+				F3E9B0741EA8FD3000643953 /* Entities */,
 				F11ECD7F1E9B9E3400EC0126 /* Models */,
 				F15032721E9AC0E700BEB7F8 /* Networking */,
 				F1EAB6601E9E21A2001EE746 /* Utilities */,
@@ -410,6 +411,13 @@
 				F3E9B0781EA8FD5000643953 /* Note+CoreDataProperties.m */,
 			);
 			name = Entities;
+			sourceTree = "<group>";
+		};
+		F3E9B07B1EAA36F400643953 /* CoreDataProvider */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CoreDataProvider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

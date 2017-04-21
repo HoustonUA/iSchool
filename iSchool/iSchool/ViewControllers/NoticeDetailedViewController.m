@@ -8,6 +8,7 @@
 
 #import "NoticeDetailedViewController.h"
 #import "AppDelegate.h"
+#import "Note+CoreDataClass.h"
 
 @interface NoticeDetailedViewController ()
 
@@ -51,10 +52,10 @@
 - (IBAction)saveAction:(UIButton *)sender {
     __weak AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     NSManagedObjectContext *managedContext = appDelegate.persistentContainer.viewContext;
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:managedContext];
-    NSManagedObject *note = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:managedContext];
-    [note setValue:self.noticeTitleTextfield.text forKey:@"title"];
-    [note setValue:self.noticeContentTextView.text forKey:@"content"];
+    
+    Note *note = [[Note alloc] initWithEntity:[Note entity] insertIntoManagedObjectContext:managedContext];
+    note.title = self.noticeTitleTextfield.text;
+    note.content = self.noticeContentTextView.text;
     NSError *error = nil;
     [managedContext save:&error];
     if(error) {

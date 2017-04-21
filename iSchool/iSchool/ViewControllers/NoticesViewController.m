@@ -10,6 +10,7 @@
 #import "NoteModel.h"
 #import "AppDelegate.h"
 #import "NoticeDetailedViewController.h"
+#import "Note+CoreDataClass.h"
 
 static NSString *const fromNoticesListToNoticeDetailsSegueIdentitifer = @"fromNoticesListToNoticeDetailsSegueIdentitifer";
 
@@ -33,9 +34,8 @@ static NSString *const fromNoticesListToNoticeDetailsSegueIdentitifer = @"fromNo
     
     __weak AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     NSManagedObjectContext *managedContext = appDelegate.persistentContainer.viewContext;
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Note"];
     NSError *error = nil;
-    self.notes = [[NSMutableArray alloc] initWithArray:[managedContext executeFetchRequest:fetchRequest error:&error]];
+    self.notes = [[NSMutableArray alloc] initWithArray:[managedContext executeFetchRequest:[Note fetchRequest] error:&error]];
     if(error) {
         NSLog(@"Fetch error: %@", error);
     }
@@ -55,7 +55,8 @@ static NSString *const fromNoticesListToNoticeDetailsSegueIdentitifer = @"fromNo
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([NoticesViewController class]) forIndexPath:indexPath];
     
-    cell.textLabel.text = [[self.notes objectAtIndex:indexPath.row] title];
+    Note *note = [self.notes objectAtIndex:indexPath.row];
+    cell.textLabel.text = note.title;
     
     return cell;
 }
