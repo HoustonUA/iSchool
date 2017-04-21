@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "NoteModel.h"
-
+@class NoteModel;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Note : NSManagedObject

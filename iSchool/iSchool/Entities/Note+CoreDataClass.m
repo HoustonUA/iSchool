@@ -7,6 +7,7 @@
 //
 
 #import "Note+CoreDataClass.h"
+#import "NoteModel.h"
 
 @implementation Note
 
