@@ -46,7 +46,7 @@ static NSString *const fromPupilPanelToPupilClassSegueIdentifier = @"fromPupilPa
                                 @"Journal", @"Schedule", @"Materials", @"Notices",
                                 @"News", @"My Class", @"Settings", @"Parents"
                                 ];
-    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] valueForKey:PUPIL_USER_ID]);
+    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] valueForKey:USER_ID]);
     self.collectionView.backgroundColor = [UIColor primaryColor];
     [self getProfileDetailInfoWithCompletion];
 }
@@ -59,7 +59,7 @@ static NSString *const fromPupilPanelToPupilClassSegueIdentifier = @"fromPupilPa
 
 - (void)getProfileDetailInfoWithCompletion {
     UserService *service = [UserService new];
-    NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:PUPIL_USER_ID];
+    NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:USER_ID];
     [service getPupilProfileInfoWithUserId:userId onSuccess:^(UserModel *userModel) {
         [[NSUserDefaults standardUserDefaults] setObject:userModel.classId forKey:PUPIL_CLASS_ID];
     }];

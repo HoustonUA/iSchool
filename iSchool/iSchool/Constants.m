@@ -12,6 +12,6 @@
 
 NSString * const MYObjectDidSomethingNotification = @"MYObjectDidSomethingNotification";
 NSString *const PUPIL_CLASS_ID = @"userClassId";
-NSString *const PUPIL_USER_ID = @"userId";
+NSString *const USER_ID = @"userId";
 
 @end

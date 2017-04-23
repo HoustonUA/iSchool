@@ -38,7 +38,7 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
     [self setupUI];
     self.handle = [[FIRAuth auth]
                    addAuthStateDidChangeListener:^(FIRAuth *_Nonnull auth, FIRUser *_Nullable user) {
-                       [[NSUserDefaults standardUserDefaults] setObject:user.uid forKey:PUPIL_USER_ID];
+                       [[NSUserDefaults standardUserDefaults] setObject:user.uid forKey:USER_ID];
                    }];
 }
 
@@ -48,7 +48,6 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma  mark - Private
@@ -73,7 +72,8 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
 
 - (IBAction)loginAction:(UIButton *)sender {
     
-    NSString *inputText = self.loginTextField.text;
+    NSString *loginString = self.loginTextField.text;
+    NSString *passwordString = self.passwordTextField.text;
     
     UIAlertController *alertViewController = [UIAlertController alertControllerWithTitle:@"Error" message:@"Invalid email or password" preferredStyle:UIAlertControllerStyleAlert];
     
@@ -82,7 +82,7 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
     }];
     [alertViewController addAction:okButtonAction];
     
-    if(![inputText isEqualToString:@""]) {
+    if(![loginString isEqualToString:@""] && ![passwordString isEqualToString:@""]) {
         [[FIRAuth auth] signInWithEmail:self.loginTextField.text
                                password:self.passwordTextField.text
                              completion:^(FIRUser *user, NSError *error) {
@@ -98,6 +98,9 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
                                      [self presentViewController:alertViewController animated:YES completion:nil];
                                  }
                              }];
+    } else {
+        //-----!!!!!
+        NSLog(@"Do alert with \"There are empty fields\"");
     }
 }
 

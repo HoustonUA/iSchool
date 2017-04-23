@@ -36,7 +36,7 @@ static NSString *const fromTeacherPanelToJournalsSegueIdentifier = @"fromTeacher
                                 @"Schedule", @"Journals", @"My Class", @"Materials",
                                 @"News", @"Settings"
                                 ];
-    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] valueForKey:PUPIL_USER_ID]);
+    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] valueForKey:USER_ID]);
     self.collectionView.backgroundColor = [UIColor primaryColor];}
 
 - (void)didReceiveMemoryWarning {

@@ -46,7 +46,7 @@
 - (MarkModel *)createMarkModelWithMark:(NSNumber *) mark {
     MarkModel *markModel = [MarkModel new];
     markModel.mark = mark;
-    markModel.teacherId = [[NSUserDefaults standardUserDefaults] objectForKey:PUPIL_USER_ID];
+    markModel.teacherId = [[NSUserDefaults standardUserDefaults] objectForKey:USER_ID];
     markModel.wasOnLesson = self.isOnLesson;
     markModel.date = [self getCurrentDate];
     
