@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+
 @class NoteModel;
 NS_ASSUME_NONNULL_BEGIN
 

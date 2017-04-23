@@ -18,6 +18,7 @@ static NSString *const fromNoticesListToNoticeDetailsSegueIdentitifer = @"fromNo
 
 @property (assign, nonatomic) NSInteger selectedNoteIndex;
 @property (strong, nonatomic) NSMutableArray *notes;
+@property (assign, nonatomic) BOOL isCreateNewNote;
 
 - (IBAction)addNoticeAction:(UIBarButtonItem *)sender;
 
@@ -27,6 +28,7 @@ static NSString *const fromNoticesListToNoticeDetailsSegueIdentitifer = @"fromNo
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.isCreateNewNote = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -74,13 +76,17 @@ static NSString *const fromNoticesListToNoticeDetailsSegueIdentitifer = @"fromNo
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:fromNoticesListToNoticeDetailsSegueIdentitifer]) {
         NoticeDetailedViewController *vc = (NoticeDetailedViewController *)segue.destinationViewController;
-        vc.noteObject = [self.notes objectAtIndex:self.selectedNoteIndex];
+        if([self.notes count] != 0 && !self.isCreateNewNote) {
+            vc.noteObject = [self.notes objectAtIndex:self.selectedNoteIndex];
+        }
+        self.isCreateNewNote = NO;
     }
 }
 
 #pragma mark - Actions
 
 - (IBAction)addNoticeAction:(UIBarButtonItem *)sender {
+    self.isCreateNewNote = YES;
     [self performSegueWithIdentifier:fromNoticesListToNoticeDetailsSegueIdentitifer sender:nil];
 }
 @end

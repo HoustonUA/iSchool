@@ -8,7 +8,6 @@
 
 #import "NoticeDetailedViewController.h"
 #import "AppDelegate.h"
-#import "Note+CoreDataClass.h"
 
 @interface NoticeDetailedViewController ()
 
@@ -25,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
+    [self fillView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,7 +46,10 @@
 }
 
 - (void)fillView {
-    //self.noticeTitleTextfield.text = self.noteObject.title;
+    if(self.noteObject != nil) {
+        self.noticeTitleTextfield.text = self.noteObject.title;
+        self.noticeContentTextView.text = self.noteObject.content;
+    }
 }
 
 - (IBAction)saveAction:(UIButton *)sender {

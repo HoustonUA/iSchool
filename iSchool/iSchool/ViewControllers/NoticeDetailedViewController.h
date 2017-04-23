@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Note+CoreDataClass.h"
 
 @interface NoticeDetailedViewController : UIViewController
 
-@property (strong, nonatomic) NSManagedObjectModel *noteObject;
+@property (strong, nonatomic) Note *noteObject;
 
 @end

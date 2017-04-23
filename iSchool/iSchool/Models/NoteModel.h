@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class Note;
+#import "Note+CoreDataProperties.h"
 
 @interface NoteModel : NSObject
 

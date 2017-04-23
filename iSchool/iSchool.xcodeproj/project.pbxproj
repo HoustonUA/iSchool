@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ED7A4E5226B4277A5C72BE1A /* Pods_iSchool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF58956B18DDF396405A49D /* Pods_iSchool.framework */; };
+		AAAE895C8CB7E1FC802F3D19 /* Pods_iSchool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4F9FD09979708E822FE857 /* Pods_iSchool.framework */; };
 		F11ECD7B1E9B798300EC0126 /* SubjectInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F11ECD7A1E9B798300EC0126 /* SubjectInfoViewController.m */; };
 		F11ECD7E1E9B9D9400EC0126 /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = F11ECD7D1E9B9D9400EC0126 /* UserService.m */; };
 		F11ECD821E9B9E4600EC0126 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F11ECD811E9B9E4600EC0126 /* UserModel.m */; };
@@ -62,9 +62,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E4F9FD09979708E822FE857 /* Pods_iSchool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iSchool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6396329339242E404DBBDE89 /* Pods-iSchool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iSchool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iSchool/Pods-iSchool.debug.xcconfig"; sourceTree = "<group>"; };
 		6ED6ECCE59737AB82A5D5080 /* Pods-iSchool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iSchool.release.xcconfig"; path = "Pods/Target Support Files/Pods-iSchool/Pods-iSchool.release.xcconfig"; sourceTree = "<group>"; };
-		9FF58956B18DDF396405A49D /* Pods_iSchool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iSchool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F11ECD791E9B798300EC0126 /* SubjectInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectInfoViewController.h; path = ViewControllers/SubjectInfoViewController.h; sourceTree = "<group>"; };
 		F11ECD7A1E9B798300EC0126 /* SubjectInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectInfoViewController.m; path = ViewControllers/SubjectInfoViewController.m; sourceTree = "<group>"; };
 		F11ECD7C1E9B9D9400EC0126 /* UserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserService.h; path = Networking/Services/UserService.h; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED7A4E5226B4277A5C72BE1A /* Pods_iSchool.framework in Frameworks */,
+				AAAE895C8CB7E1FC802F3D19 /* Pods_iSchool.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,7 +180,7 @@
 		2594CFDDDF8B015B9FD89302 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9FF58956B18DDF396405A49D /* Pods_iSchool.framework */,
+				4E4F9FD09979708E822FE857 /* Pods_iSchool.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -714,25 +714,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = QL67B5CVGR;
 				ENABLE_BITCODE = YES;
-				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
-					"$(inherited)",
-					"\"${PODS_ROOT}/Fabric/iOS\"",
-					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks\"",
-					"\"${PODS_ROOT}/FirebaseAuth/Frameworks\"",
-					"\"${PODS_ROOT}/FirebaseCore/Frameworks\"",
-					"\"${PODS_ROOT}/FirebaseDatabase/Frameworks\"",
-					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
-					"\"${PODS_ROOT}/FirebaseStorage/Frameworks\"",
-					"\"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseAuthUI/Frameworks\"",
-					"\"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseDatabaseUI/Frameworks\"",
-					"\"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseFacebookAuthUI/Frameworks\"",
-					"\"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseGoogleAuthUI/Frameworks\"",
-					"\"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseStorageUI/Frameworks\"",
-					"\"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseTwitterAuthUI/Frameworks\"",
-					"\"${PODS_ROOT}/GoogleSignIn/Frameworks\"",
-					"\"${PODS_ROOT}/TwitterCore/iOS\"",
-					"\"${PODS_ROOT}/TwitterKit/iOS\"",
-				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(inherited) \"${PODS_ROOT}/Fabric/iOS\" \"${PODS_ROOT}/FirebaseAnalytics/Frameworks\" \"${PODS_ROOT}/FirebaseAuth/Frameworks\" \"${PODS_ROOT}/FirebaseCore/Frameworks\" \"${PODS_ROOT}/FirebaseDatabase/Frameworks\" \"${PODS_ROOT}/FirebaseInstanceID/Frameworks\" \"${PODS_ROOT}/FirebaseStorage/Frameworks\" \"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseAuthUI/Frameworks\" \"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseDatabaseUI/Frameworks\" \"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseFacebookAuthUI/Frameworks\" \"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseGoogleAuthUI/Frameworks\" \"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseStorageUI/Frameworks\" \"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseTwitterAuthUI/Frameworks\" \"${PODS_ROOT}/GoogleSignIn/Frameworks\" \"${PODS_ROOT}/TwitterCore/iOS\" \"${PODS_ROOT}/TwitterKit/iOS\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/iSchool/iSchool-Prefix.pch";
 				INFOPLIST_FILE = iSchool/Info.plist;
