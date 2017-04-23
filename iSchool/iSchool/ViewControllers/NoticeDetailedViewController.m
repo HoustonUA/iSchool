@@ -35,10 +35,10 @@
 
 - (void)setupUI {
     self.view.backgroundColor = [UIColor primaryColor];
-    self.noticeContentTextView.layer.cornerRadius = 10.f;
+    self.noticeContentTextView.layer.cornerRadius = 5.f;
     self.noticeContentTextView.layer.borderWidth = 1.f;
     self.noticeContentTextView.layer.borderColor = [UIColor darkGrayColor].CGColor;
-    self.noticeTitleTextfield.layer.cornerRadius = 10.f;
+    self.noticeTitleTextfield.layer.cornerRadius = 5.f;
     self.noticeTitleTextfield.layer.borderWidth = 1.f;
     self.noticeTitleTextfield.layer.borderColor = [UIColor darkGrayColor].CGColor;
     self.saveButton.backgroundColor = [UIColor customYellowColor];

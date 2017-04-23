@@ -28,14 +28,14 @@
     self.databaseReference = [[FIRDatabase database] reference];
     
     [[[[[[self.databaseReference child:@"classes"] child:classId] child:@"journal"] child:userId] child:subjectId] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSMutableArray *marks = [NSMutableArray array];
         if(snapshot.value != [NSNull null]) {
-            NSMutableArray *marks = [NSMutableArray array];
             for (NSDictionary *item in [snapshot.value allValues]) {
                 MarkModel *markModel = [EKMapper objectFromExternalRepresentation:item withMapping:[MarkModel objectMapping]];
                 [marks addObject:markModel];
             }
-            success(marks);
         }
+        success(marks);
     } withCancelBlock:^(NSError * _Nonnull error) {
         NSLog(@"sakdlkajsd;");
     }];

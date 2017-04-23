@@ -11,6 +11,8 @@
 #import "ClassService.h"
 #import "UserService.h"
 
+static NSString *const fromMarksListToListOfsubjectsSegueIdentifier = @"fromMarksListToListOfsubjectsSegueIdentifier";
+
 @interface SubjectInfoViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
@@ -48,6 +50,24 @@
     [cell fillCellWithModel:[self.marksModels objectAtIndex:indexPath.row]];
     
     return cell;
+}
+
+#pragma mark - Private
+
+- (void)checkModels {
+    if([self.marksModels count] == 0) {
+        [self showAlert];
+    }
+}
+
+- (void)showAlert {
+    UIAlertController *alertViewController = [UIAlertController alertControllerWithTitle:@"No marks" message:@"You have no marks" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okButtonAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self performSegueWithIdentifier:fromMarksListToListOfsubjectsSegueIdentifier sender:nil];
+    }];
+    [alertViewController addAction:okButtonAction];
+    [self presentViewController:alertViewController animated:YES completion:nil];
 }
 
 #pragma mark - Networking
@@ -95,6 +115,7 @@
     NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
     [service getMarkForUser:userId fromClass:user.classId forSubject:self.selectedSubject onSuccess:^(NSMutableArray *marks) {
         self.marksModels = marks;
+        [self checkModels];
         if(completion) {
             completion();
         }

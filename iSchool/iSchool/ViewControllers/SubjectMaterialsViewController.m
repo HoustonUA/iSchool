@@ -38,6 +38,16 @@
     self.navItem.title = [NSString stringWithFormat:@"%@ Materials", self.navigationItemTitle];
 }
 
+- (void)showAlert {
+    UIAlertController *alertViewController = [UIAlertController alertControllerWithTitle:@"No materials" message:@"Subject have no materials" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okButtonAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self performSegueWithIdentifier:@"unwindToJournalSegueIdentifier" sender:nil];
+    }];
+    [alertViewController addAction:okButtonAction];
+    [self presentViewController:alertViewController animated:YES completion:nil];
+}
+
 #pragma mark - Networking
 
 - (void)getMaterialsOfSubjectWithCompletion:(void(^)()) completion {
@@ -49,13 +59,7 @@
             completion();
         }
     } onEmptyMAterials:^{
-        UIAlertController *alertViewController = [UIAlertController alertControllerWithTitle:@"No materials" message:@"Subject have no materials" preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *okButtonAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self performSegueWithIdentifier:@"unwindToJournalSegueIdentifier" sender:nil];
-        }];
-        [alertViewController addAction:okButtonAction];
-        [self presentViewController:alertViewController animated:YES completion:nil];
+        [self showAlert];
     }];
 }
 
