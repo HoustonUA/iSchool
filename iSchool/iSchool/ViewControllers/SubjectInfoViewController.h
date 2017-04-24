@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SubjectInfoViewController : UIViewController
+@interface SubjectInfoViewController : BaseViewController
 
 @property (strong, nonatomic) NSString *navigationItemTitle;
 @property (strong, nonatomic) NSString *selectedSubject;

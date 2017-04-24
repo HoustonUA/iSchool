@@ -26,12 +26,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self showLoader];
     [self setupUI];
+    [self getHomeworkInfo];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self getHomeworkInfo];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,7 +50,9 @@
     }];
     
     dispatch_group_notify(serviceGroup, dispatch_get_main_queue(), ^{
-        [self getTeachersOfHomeworkWithCompletion:nil];
+        [self getTeachersOfHomeworkWithCompletion:^{
+            [self hideLoader];
+        }];
     });
 }
 

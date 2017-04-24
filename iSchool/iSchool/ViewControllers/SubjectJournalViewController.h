@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SubjectJournalViewController : UIViewController
+@interface SubjectJournalViewController : BaseViewController
 
 @property (strong, nonatomic) NSString *navigationItemTitle;
 @property (strong, nonatomic) NSString *classId;

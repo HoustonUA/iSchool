@@ -32,8 +32,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self showLoader];
     [self getProfileDetailInfoWithCompletion:^(UserModel *userModel) {
         [self fillViewWithModel:userModel];
+        [self hideLoader];
     }];
     [self getClassName];
     [self setupUI];

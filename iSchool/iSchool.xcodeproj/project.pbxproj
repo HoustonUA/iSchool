@@ -48,6 +48,9 @@
 		F1DF6E671E9E69ED00973B34 /* NoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DF6E661E9E69ED00973B34 /* NoteModel.m */; };
 		F1DF6E6A1EA01A7400973B34 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DF6E691EA01A7400973B34 /* RegistrationViewController.m */; };
 		F1DF6E6D1EA01E8B00973B34 /* RegistrationDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DF6E6C1EA01E8B00973B34 /* RegistrationDetailsViewController.m */; };
+		F1E10BAC1EAE68B4000C0606 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E10BAB1EAE68B4000C0606 /* BaseViewController.m */; };
+		F1E10BB01EAE68EB000C0606 /* LoaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E10BAF1EAE68EB000C0606 /* LoaderView.m */; };
+		F1E10BB41EAE6925000C0606 /* LoaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1E10BB31EAE6925000C0606 /* LoaderView.xib */; };
 		F1EAB6641E9E21DB001EE746 /* DDIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EAB6631E9E21DB001EE746 /* DDIndicator.m */; };
 		F1FBF1DC1E9C02C600B9D49D /* MarkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FBF1DB1E9C02C600B9D49D /* MarkTableViewCell.m */; };
 		F1FBF1DF1E9C154500B9D49D /* ClassService.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FBF1DE1E9C154500B9D49D /* ClassService.m */; };
@@ -140,6 +143,11 @@
 		F1DF6E691EA01A7400973B34 /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistrationViewController.m; path = ViewControllers/RegistrationViewController.m; sourceTree = "<group>"; };
 		F1DF6E6B1EA01E8B00973B34 /* RegistrationDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistrationDetailsViewController.h; path = ViewControllers/RegistrationDetailsViewController.h; sourceTree = "<group>"; };
 		F1DF6E6C1EA01E8B00973B34 /* RegistrationDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistrationDetailsViewController.m; path = ViewControllers/RegistrationDetailsViewController.m; sourceTree = "<group>"; };
+		F1E10BAA1EAE68B4000C0606 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = ViewControllers/BaseViewController.h; sourceTree = "<group>"; };
+		F1E10BAB1EAE68B4000C0606 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = ViewControllers/BaseViewController.m; sourceTree = "<group>"; };
+		F1E10BAE1EAE68EB000C0606 /* LoaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoaderView.h; path = ViewControllers/Views/LoaderView.h; sourceTree = "<group>"; };
+		F1E10BAF1EAE68EB000C0606 /* LoaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoaderView.m; path = ViewControllers/Views/LoaderView.m; sourceTree = "<group>"; };
+		F1E10BB31EAE6925000C0606 /* LoaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoaderView.xib; sourceTree = "<group>"; };
 		F1EAB6621E9E21DB001EE746 /* DDIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDIndicator.h; sourceTree = "<group>"; };
 		F1EAB6631E9E21DB001EE746 /* DDIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDIndicator.m; sourceTree = "<group>"; };
 		F1FBF1DA1E9C02C600B9D49D /* MarkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkTableViewCell.h; path = ViewControllers/Cells/MarkTableViewCell.h; sourceTree = "<group>"; };
@@ -279,9 +287,12 @@
 		F143A6F51E9A4F61003B11D1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F1E10BAD1EAE68D4000C0606 /* Views */,
 				F143A6FF1E9A5508003B11D1 /* Cells */,
 				F18012591EA78DF400E80930 /* Pupil */,
 				F180125A1EA78E0200E80930 /* Teacher */,
+				F1E10BAA1EAE68B4000C0606 /* BaseViewController.h */,
+				F1E10BAB1EAE68B4000C0606 /* BaseViewController.m */,
 				F126BA8E1EA7F17B00A9392C /* CongratulationViewController.h */,
 				F126BA8F1EA7F17B00A9392C /* CongratulationViewController.m */,
 				F143A6F61E9A4F77003B11D1 /* LoginViewController.h */,
@@ -385,6 +396,16 @@
 			name = Teacher;
 			sourceTree = "<group>";
 		};
+		F1E10BAD1EAE68D4000C0606 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F1E10BAE1EAE68EB000C0606 /* LoaderView.h */,
+				F1E10BAF1EAE68EB000C0606 /* LoaderView.m */,
+				F1E10BB31EAE6925000C0606 /* LoaderView.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		F1EAB6601E9E21A2001EE746 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -483,6 +504,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F143A6EE1E9A4E27003B11D1 /* LaunchScreen.storyboard in Resources */,
+				F1E10BB41EAE6925000C0606 /* LoaderView.xib in Resources */,
 				F143A6EB1E9A4E27003B11D1 /* Assets.xcassets in Resources */,
 				F143A72C1E9AA996003B11D1 /* GoogleService-Info.plist in Resources */,
 				F143A7041E9A5B6B003B11D1 /* SectionCollectionViewCell.xib in Resources */,
@@ -556,6 +578,7 @@
 				F143A6FB1E9A4FDE003B11D1 /* PupilPanelViewController.m in Sources */,
 				F3E9B07A1EA8FD5000643953 /* Note+CoreDataProperties.m in Sources */,
 				F181EA891EA3E05800A95AC7 /* ClassPupilsViewController.m in Sources */,
+				F1E10BAC1EAE68B4000C0606 /* BaseViewController.m in Sources */,
 				F126BA901EA7F17B00A9392C /* CongratulationViewController.m in Sources */,
 				F143A70E1E9A667C003B11D1 /* Constants.m in Sources */,
 				F11ECD8A1E9BB8D000EC0126 /* ProfileViewController.m in Sources */,
@@ -585,6 +608,7 @@
 				F1FBF1E51E9CDF6300B9D49D /* ScheduleService.m in Sources */,
 				F1FBF1DC1E9C02C600B9D49D /* MarkTableViewCell.m in Sources */,
 				F1DF6E6A1EA01A7400973B34 /* RegistrationViewController.m in Sources */,
+				F1E10BB01EAE68EB000C0606 /* LoaderView.m in Sources */,
 				F143A6FE1E9A4FEE003B11D1 /* TeacherPanelViewController.m in Sources */,
 				F1FBF1E81E9CFA3400B9D49D /* ScheduleDayModel.m in Sources */,
 				F11ECD861E9BB4F800EC0126 /* UIColor+CustomColors.m in Sources */,
@@ -714,7 +738,25 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = QL67B5CVGR;
 				ENABLE_BITCODE = YES;
-				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(inherited) \"${PODS_ROOT}/Fabric/iOS\" \"${PODS_ROOT}/FirebaseAnalytics/Frameworks\" \"${PODS_ROOT}/FirebaseAuth/Frameworks\" \"${PODS_ROOT}/FirebaseCore/Frameworks\" \"${PODS_ROOT}/FirebaseDatabase/Frameworks\" \"${PODS_ROOT}/FirebaseInstanceID/Frameworks\" \"${PODS_ROOT}/FirebaseStorage/Frameworks\" \"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseAuthUI/Frameworks\" \"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseDatabaseUI/Frameworks\" \"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseFacebookAuthUI/Frameworks\" \"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseGoogleAuthUI/Frameworks\" \"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseStorageUI/Frameworks\" \"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseTwitterAuthUI/Frameworks\" \"${PODS_ROOT}/GoogleSignIn/Frameworks\" \"${PODS_ROOT}/TwitterCore/iOS\" \"${PODS_ROOT}/TwitterKit/iOS\"";
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Fabric/iOS\"",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseAuth/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseCore/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseDatabase/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseStorage/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseAuthUI/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseDatabaseUI/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseFacebookAuthUI/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseGoogleAuthUI/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseStorageUI/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseUI/FirebaseUIFrameworks/FirebaseTwitterAuthUI/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSignIn/Frameworks\"",
+					"\"${PODS_ROOT}/TwitterCore/iOS\"",
+					"\"${PODS_ROOT}/TwitterKit/iOS\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/iSchool/iSchool-Prefix.pch";
 				INFOPLIST_FILE = iSchool/Info.plist;

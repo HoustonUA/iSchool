@@ -96,7 +96,7 @@
         <scene sceneID="Vf7-Ld-Stb">
             <objects>
                 <navigationController id="fb3-7a-C2I" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GBe-0Y-OuC">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="GBe-0Y-OuC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -820,7 +820,14 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="iSchool" id="gsd-mn-41s">
+                        <barButtonItem key="leftBarButtonItem" title="Exit" id="lZO-mA-eo3">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="exitBarButtonAction:" destination="HeQ-zo-JWs" id="WGz-T3-Dl8"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="WW0-Zd-q78">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="profileBarButtonItem:" destination="HeQ-zo-JWs" id="Crx-A6-dCo"/>
                             </connections>

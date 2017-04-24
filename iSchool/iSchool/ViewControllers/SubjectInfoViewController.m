@@ -26,6 +26,7 @@ static NSString *const fromMarksListToListOfsubjectsSegueIdentifier = @"fromMark
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self showLoader];
     [self setupUI];
     [self getMarksInfo];
 }
@@ -56,18 +57,12 @@ static NSString *const fromMarksListToListOfsubjectsSegueIdentifier = @"fromMark
 
 - (void)checkModels {
     if([self.marksModels count] == 0) {
-        [self showAlert];
+        [self showAlertWithTitle:@"No marks"
+                     withMessage:@"You have no marks"
+       andOKActionWithCompletion:^{
+           [self performSegueWithIdentifier:fromMarksListToListOfsubjectsSegueIdentifier sender:nil];
+       }];
     }
-}
-
-- (void)showAlert {
-    UIAlertController *alertViewController = [UIAlertController alertControllerWithTitle:@"No marks" message:@"You have no marks" preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *okButtonAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self performSegueWithIdentifier:fromMarksListToListOfsubjectsSegueIdentifier sender:nil];
-    }];
-    [alertViewController addAction:okButtonAction];
-    [self presentViewController:alertViewController animated:YES completion:nil];
 }
 
 #pragma mark - Networking
@@ -95,6 +90,7 @@ static NSString *const fromMarksListToListOfsubjectsSegueIdentifier = @"fromMark
     dispatch_group_notify(serviceGroup, dispatch_get_main_queue(), ^{
         [self getTeachersOfMarksWithCompletion:^{
             [self.tableView reloadData];
+            [self hideLoader];
         }];
     });
 }

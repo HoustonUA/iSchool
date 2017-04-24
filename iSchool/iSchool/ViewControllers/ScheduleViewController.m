@@ -30,12 +30,7 @@ static NSString *const fromScheduleToSubjectInfoSegueIdentifier = @"fromSchedule
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    spinner.center = CGPointMake(self.view.bounds.size.width / 2, self.view.bounds.size.height / 2);
-    spinner.tag = 12;
-    spinner.backgroundColor = [UIColor blackColor];
-    [self.view addSubview:spinner];
-    [spinner startAnimating];
+    [self showLoader];
     self.subjectsKeys = [NSMutableArray array];
     self.daysInWeek = @[@"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday"];
     [self getSchedule];
@@ -57,7 +52,7 @@ static NSString *const fromScheduleToSubjectInfoSegueIdentifier = @"fromSchedule
     dispatch_group_notify(serviceGroup, dispatch_get_main_queue(), ^{
         [self getSubjectsWithCompletion:^{
             [self.tableView reloadData];
-            [[self.view viewWithTag:12] stopAnimating];
+            [self hideLoader];
         }];
     });
 }

@@ -30,11 +30,11 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //[self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     [self setupUI];
     self.handle = [[FIRAuth auth]
                    addAuthStateDidChangeListener:^(FIRAuth *_Nonnull auth, FIRUser *_Nullable user) {
@@ -43,6 +43,7 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     [[FIRAuth auth] removeAuthStateDidChangeListener:self.handle];
 }
 
@@ -72,15 +73,9 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
 
 - (IBAction)loginAction:(UIButton *)sender {
     
+    [self showLoader];
     NSString *loginString = self.loginTextField.text;
     NSString *passwordString = self.passwordTextField.text;
-    
-    UIAlertController *alertViewController = [UIAlertController alertControllerWithTitle:@"Error" message:@"Invalid email or password" preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *okButtonAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }];
-    [alertViewController addAction:okButtonAction];
     
     if(![loginString isEqualToString:@""] && ![passwordString isEqualToString:@""]) {
         [[FIRAuth auth] signInWithEmail:self.loginTextField.text
@@ -95,8 +90,10 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
                                          }
                                      }];
                                  } else {
-                                     [self presentViewController:alertViewController animated:YES completion:nil];
+                                     //[self presentViewController:alertViewController animated:YES completion:nil];
+                                     [self showAlertWithTitle:@"Error" withMessage:@"Invalid email or password" andOKActionWithCompletion:nil];
                                  }
+                                 [self hideLoader];
                              }];
     } else {
         //-----!!!!!

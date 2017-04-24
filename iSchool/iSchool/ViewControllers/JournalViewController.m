@@ -33,6 +33,7 @@ static NSString *const fromSubjectsToSubjectMaterialsSegueIdentifier = @"fromSub
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self showLoader];
     [self getSubjectsOfClass];
 }
 
@@ -51,6 +52,7 @@ static NSString *const fromSubjectsToSubjectMaterialsSegueIdentifier = @"fromSub
     dispatch_group_notify(serviceGroup, dispatch_get_main_queue(), ^{
         [self getSubjectsWithCompletion:^{
             [self.tableView reloadData];
+            [self hideLoader];
         }];
     });
 }

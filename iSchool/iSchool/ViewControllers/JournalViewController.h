@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
 typedef enum{
     toSubjectViewController = 0,
     toSchoolMaterialsViewController = 1
 }cellActionType;
 
-@interface JournalViewController : UIViewController
+@interface JournalViewController : BaseViewController
 
 @property (assign, nonatomic) cellActionType actionType;
 

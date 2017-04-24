@@ -35,6 +35,7 @@ static NSString *const fromPupilPanelToPupilClassSegueIdentifier = @"fromPupilPa
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 - (IBAction)profileBarButtonItem:(UIBarButtonItem *)sender;
+- (IBAction)exitBarButtonAction:(UIBarButtonItem *)sender;
 
 @end
 
@@ -143,5 +144,9 @@ static NSString *const fromPupilPanelToPupilClassSegueIdentifier = @"fromPupilPa
 
 - (IBAction)profileBarButtonItem:(UIBarButtonItem *)sender {
     [self performSegueWithIdentifier:fromPupilMainPanelToProfileSegueIdentifier sender:self];
+}
+
+- (IBAction)exitBarButtonAction:(UIBarButtonItem *)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 @end
