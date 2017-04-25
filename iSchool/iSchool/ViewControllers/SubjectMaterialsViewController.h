@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SubjectMaterialsViewController : UIViewController
+@interface SubjectMaterialsViewController : BaseViewController
 
 @property (strong, nonatomic) NSString *navigationItemTitle;
 @property (strong, nonatomic) NSString *subjectId;

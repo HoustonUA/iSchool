@@ -45,6 +45,7 @@
 		F181EA861EA3D75A00A95AC7 /* ClassSubjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F181EA851EA3D75A00A95AC7 /* ClassSubjectsViewController.m */; };
 		F181EA891EA3E05800A95AC7 /* ClassPupilsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F181EA881EA3E05800A95AC7 /* ClassPupilsViewController.m */; };
 		F181EA8C1EA3EB9D00A95AC7 /* PupilMarksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F181EA8B1EA3EB9D00A95AC7 /* PupilMarksViewController.m */; };
+		F1B5B1E91EAFAD1900E99776 /* SendSMSService.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B5B1E81EAFAD1900E99776 /* SendSMSService.m */; };
 		F1DF6E671E9E69ED00973B34 /* NoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DF6E661E9E69ED00973B34 /* NoteModel.m */; };
 		F1DF6E6A1EA01A7400973B34 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DF6E691EA01A7400973B34 /* RegistrationViewController.m */; };
 		F1DF6E6D1EA01E8B00973B34 /* RegistrationDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DF6E6C1EA01E8B00973B34 /* RegistrationDetailsViewController.m */; };
@@ -137,6 +138,8 @@
 		F181EA881EA3E05800A95AC7 /* ClassPupilsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassPupilsViewController.m; path = ViewControllers/ClassPupilsViewController.m; sourceTree = "<group>"; };
 		F181EA8A1EA3EB9D00A95AC7 /* PupilMarksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PupilMarksViewController.h; path = ViewControllers/PupilMarksViewController.h; sourceTree = "<group>"; };
 		F181EA8B1EA3EB9D00A95AC7 /* PupilMarksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PupilMarksViewController.m; path = ViewControllers/PupilMarksViewController.m; sourceTree = "<group>"; };
+		F1B5B1E71EAFAD1900E99776 /* SendSMSService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SendSMSService.h; path = Networking/Services/SendSMSService.h; sourceTree = "<group>"; };
+		F1B5B1E81EAFAD1900E99776 /* SendSMSService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SendSMSService.m; path = Networking/Services/SendSMSService.m; sourceTree = "<group>"; };
 		F1DF6E651E9E69ED00973B34 /* NoteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteModel.h; path = Models/NoteModel.h; sourceTree = "<group>"; };
 		F1DF6E661E9E69ED00973B34 /* NoteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteModel.m; path = Models/NoteModel.m; sourceTree = "<group>"; };
 		F1DF6E681EA01A7400973B34 /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistrationViewController.h; path = ViewControllers/RegistrationViewController.h; sourceTree = "<group>"; };
@@ -348,6 +351,8 @@
 				F1FBF1ED1E9D161400B9D49D /* MaterialsService.m */,
 				F180125B1EA79A3E00E80930 /* RegistrationService.h */,
 				F180125C1EA79A3E00E80930 /* RegistrationService.m */,
+				F1B5B1E71EAFAD1900E99776 /* SendSMSService.h */,
+				F1B5B1E81EAFAD1900E99776 /* SendSMSService.m */,
 				F1FBF1E31E9CDF6300B9D49D /* ScheduleService.h */,
 				F1FBF1E41E9CDF6300B9D49D /* ScheduleService.m */,
 				F15032771E9AC25A00BEB7F8 /* SubjectsService.h */,
@@ -605,6 +610,7 @@
 				F15032751E9AC11D00BEB7F8 /* NetworkManager.m in Sources */,
 				F143A7181E9A79F1003B11D1 /* SubjectJournalViewController.m in Sources */,
 				F143A7111E9A70D3003B11D1 /* JournalViewController.m in Sources */,
+				F1B5B1E91EAFAD1900E99776 /* SendSMSService.m in Sources */,
 				F1FBF1E51E9CDF6300B9D49D /* ScheduleService.m in Sources */,
 				F1FBF1DC1E9C02C600B9D49D /* MarkTableViewCell.m in Sources */,
 				F1DF6E6A1EA01A7400973B34 /* RegistrationViewController.m in Sources */,

@@ -22,9 +22,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self showLoader];
     [self setupUI];
     [self getMaterialsOfSubjectWithCompletion:^{
         [self.tableView reloadData];
+        [self hideLoader];
     }];
 }
 
@@ -38,16 +40,6 @@
     self.navItem.title = [NSString stringWithFormat:@"%@ Materials", self.navigationItemTitle];
 }
 
-- (void)showAlert {
-    UIAlertController *alertViewController = [UIAlertController alertControllerWithTitle:@"No materials" message:@"Subject have no materials" preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *okButtonAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self performSegueWithIdentifier:@"unwindToJournalSegueIdentifier" sender:nil];
-    }];
-    [alertViewController addAction:okButtonAction];
-    [self presentViewController:alertViewController animated:YES completion:nil];
-}
-
 #pragma mark - Networking
 
 - (void)getMaterialsOfSubjectWithCompletion:(void(^)()) completion {
@@ -59,7 +51,9 @@
             completion();
         }
     } onEmptyMAterials:^{
-        [self showAlert];
+        [self showAlertWithTitle:@"No materials" withMessage:@"Subject have no materials" andOKActionWithCompletion:^{
+            [self performSegueWithIdentifier:@"unwindToJournalSegueIdentifier" sender:nil];
+        }];
     }];
 }
 

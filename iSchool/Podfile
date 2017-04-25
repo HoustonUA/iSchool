@@ -10,6 +10,8 @@ pod 'Firebase/Auth'
 pod 'FirebaseUI'
 pod 'EasyMapping', '~> 0.15.0'
 pod 'SDWebImage', '~>3.8'
+pod 'TwilioSDK'
+pod 'AFNetworking', '~> 3.0'
   # Pods for iSchool
 
 end

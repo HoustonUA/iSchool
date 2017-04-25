@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-@import Firebase;
+#import "AFNetworking.h"
 
-@interface NetworkManager : NSObject
+@interface NetworkManager : AFHTTPSessionManager
 
 + (NetworkManager *)sharedManager;
 

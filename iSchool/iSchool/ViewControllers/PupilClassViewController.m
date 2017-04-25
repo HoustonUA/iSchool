@@ -25,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self showLoader];
     self.classPupils = [NSMutableArray array];
     self.classId = [[NSUserDefaults standardUserDefaults] objectForKey:PUPIL_CLASS_ID];
     [self setupUI];
@@ -35,7 +36,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Private
@@ -81,6 +81,7 @@
     [service getTeacherProfileInfoWithUserId:userId onSuccess:^(TeacherModel *teacherModel) {
         self.classTeacherNameLabel.text = [NSString stringWithFormat:@"%@ %@ %@",
                                            teacherModel.surname, teacherModel.name, teacherModel.middlename];
+        [self hideLoader];
     }];
 }
 

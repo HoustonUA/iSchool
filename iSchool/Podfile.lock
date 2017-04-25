@@ -1,4 +1,19 @@
 PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -92,20 +107,24 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - TwilioSDK (1.2.7)
   - TwitterCore (2.8.0):
     - Fabric
   - TwitterKit (2.8.1):
     - TwitterCore (>= 2.8)
 
 DEPENDENCIES:
+  - AFNetworking (~> 3.0)
   - EasyMapping (~> 0.15.0)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - FirebaseUI
   - SDWebImage (~> 3.8)
+  - TwilioSDK
 
 SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   EasyMapping: 1433e72eb5224445842ba6e4ca9363dbb8503998
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
@@ -124,9 +143,10 @@ SPEC CHECKSUMS:
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  TwilioSDK: d3982acf6880ddf3ce57c4444e021a71c5f35653
   TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
   TwitterKit: 3b6044a7320340326a4098f3e37aa1dbaeb94942
 
-PODFILE CHECKSUM: fd6b16af6bb55a1fa5121b0af870dfa27c9e8502
+PODFILE CHECKSUM: 91f6147cb74d3eb683b5093eb770613ece7a0f03
 
 COCOAPODS: 1.2.0
