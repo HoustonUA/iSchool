@@ -73,35 +73,38 @@ static NSString *const fromLoginToTeacherViewControllerSegueIdentifier = @"fromL
 }
 
 - (IBAction)loginAction:(UIButton *)sender {
-    SendSMSService *service = [SendSMSService new];
-    [service sendSMSToParentWithPhoneNumber:@"sdd" isChildInSchool:YES onSuccess:nil];
-//    NSString *loginString = self.loginTextField.text;
-//    NSString *passwordString = self.passwordTextField.text;
+//    SendSMSService *service = [SendSMSService new];
+//    //[service sendSMSToParentWithPhoneNumber:@"sdd" isChildInSchool:YES onSuccess:nil];
 //    
-//    if(![loginString isEqualToString:@""] && ![passwordString isEqualToString:@""]) {
-//        [self showLoader];
-//        [[FIRAuth auth] signInWithEmail:self.loginTextField.text
-//                               password:self.passwordTextField.text
-//                             completion:^(FIRUser *user, NSError *error) {
-//                                 if(!error) {
-//                                     [self getUserTypeWithId:user.uid withCimpletion:^(NSString *userType) {
-//                                         if([userType isEqualToString:@"pupil"]) {
-//                                             [self performSegueWithIdentifier:fromLoginToPupilViewControllerSegueIdentifier sender:self];
-//                                         } else if([userType isEqualToString:@"teacher"]) {
-//                                             [self performSegueWithIdentifier:fromLoginToTeacherViewControllerSegueIdentifier sender:self];
-//                                         }
-//                                     }];
-//                                 } else if([[error.userInfo objectForKey:@"error_name"] isEqualToString:@"ERROR_NETWORK_REQUEST_FAILED"]){
-//                                     NSLog(@"Error Login: %@", error);
-//                                     [self showAlertWithTitle:@"Error" withMessage:@"No network connection" andOKActionWithCompletion:nil];
-//                                 } else {
-//                                     [self showAlertWithTitle:@"Error" withMessage:@"Invalid email or password" andOKActionWithCompletion:nil];
-//                                 }
-//                                 [self hideLoader];
-//                             }];
-//    } else {
-//        [self showAlertWithTitle:@"Error" withMessage:@"There are empty fields" andOKActionWithCompletion:nil];
-//    }
+//    [service addNewOutgoingCallerIDWithNumber:@"" onSuccess:nil];
+    
+    NSString *loginString = self.loginTextField.text;
+    NSString *passwordString = self.passwordTextField.text;
+    
+    if(![loginString isEqualToString:@""] && ![passwordString isEqualToString:@""]) {
+        [self showLoader];
+        [[FIRAuth auth] signInWithEmail:self.loginTextField.text
+                               password:self.passwordTextField.text
+                             completion:^(FIRUser *user, NSError *error) {
+                                 if(!error) {
+                                     [self getUserTypeWithId:user.uid withCimpletion:^(NSString *userType) {
+                                         if([userType isEqualToString:@"pupil"]) {
+                                             [self performSegueWithIdentifier:fromLoginToPupilViewControllerSegueIdentifier sender:self];
+                                         } else if([userType isEqualToString:@"teacher"]) {
+                                             [self performSegueWithIdentifier:fromLoginToTeacherViewControllerSegueIdentifier sender:self];
+                                         }
+                                     }];
+                                 } else if([[error.userInfo objectForKey:@"error_name"] isEqualToString:@"ERROR_NETWORK_REQUEST_FAILED"]){
+                                     NSLog(@"Error Login: %@", error);
+                                     [self showAlertWithTitle:@"Error" withMessage:@"No network connection" andOKActionWithCompletion:nil];
+                                 } else {
+                                     [self showAlertWithTitle:@"Error" withMessage:@"Invalid email or password" andOKActionWithCompletion:nil];
+                                 }
+                                 [self hideLoader];
+                             }];
+    } else {
+        [self showAlertWithTitle:@"Error" withMessage:@"There are empty fields" andOKActionWithCompletion:nil];
+    }
 }
 
 #pragma mark - Networking

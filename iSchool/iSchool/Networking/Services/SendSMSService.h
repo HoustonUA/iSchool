@@ -14,4 +14,6 @@
                        isChildInSchool:(BOOL) isInSchool
                              onSuccess:(void(^)()) success;
 
+- (void)addNewOutgoingCallerIDWithNumber:(NSString *) number
+                               onSuccess:(void(^)()) success;
 @end

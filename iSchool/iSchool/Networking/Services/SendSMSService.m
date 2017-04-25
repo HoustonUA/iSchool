@@ -10,6 +10,9 @@
 #import "NetworkManager.h"
 #import "AFNetworking.h"
 
+static NSString *const twilioSID = @"AC676985c948d6aa025b8d2548d6be9e95";
+static NSString *const twilioSecret = @"d32478f4030249ac7d99d26f4923a52c";
+
 @implementation SendSMSService
 
 - (void)sendSMSToParentWithPhoneNumber:(NSString *) number
@@ -20,10 +23,11 @@
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/xml"];
     
-    NSString *twilioSID = @"AC676985c948d6aa025b8d2548d6be9e95";
-    NSString *twilioSecret = @"d32478f4030249ac7d99d26f4923a52c";
+    [manager.requestSerializer setValue:@"accountSid" forHTTPHeaderField:twilioSID];
+    [manager.requestSerializer setValue:@"authToken" forHTTPHeaderField:twilioSecret];
+    
     NSString *fromNumber = @"+13343848524";
-    NSString *toNumber = @"+380673128998";//number;
+    NSString *toNumber = @"+380931486130";//number;
     NSString *message;
     
     isInSchool = YES;//TEMP
@@ -47,6 +51,28 @@
         NSLog(@"%@", responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"Error in SMS:%@", error);
+    }];
+}
+
+- (void)addNewOutgoingCallerIDWithNumber:(NSString *) number
+                               onSuccess:(void(^)()) success {
+
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/xml"];
+    
+    NSString *urlstring = [NSString stringWithFormat:@"https://%@:%@@api.twilio.com/2010-04-01/Accounts/%@/OutgoingCallerIds", twilioSID, twilioSecret, twilioSID];
+
+    NSString *userNumber = @"+380931486130";//number;
+    
+    NSDictionary *params = @{
+                             @"PhoneNumber" :   userNumber
+                             };
+    
+    [manager POST:urlstring parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"OKEY: %@", responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"ERROR ADD: %@", error);
     }];
 }
 
