@@ -46,6 +46,14 @@ static NSString *const twilioSecret = @"d32478f4030249ac7d99d26f4923a52c";
     NSString *urlString = [NSString
                            stringWithFormat:@"https://%@:%@@api.twilio.com/2010-04-01/Accounts/%@/SMS/Messages/",
                            twilioSID, twilioSecret, twilioSID];
+//    NSDictionary *param = @{
+//                            @"username" :   @"HoustonUA",
+//                            @"password" :   @"151250197",
+//                            @"message"  :   @"Ho+Pasha",
+//                            @"msisdn"   :   @"380931925967"
+//                            };
+    
+    //NSString *urlString = [NSString stringWithFormat:@"https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0"];
     
     [manager POST:urlString parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@", responseObject);
@@ -68,11 +76,15 @@ static NSString *const twilioSecret = @"d32478f4030249ac7d99d26f4923a52c";
     NSDictionary *params = @{
                              @"PhoneNumber" :   userNumber
                              };
-    
+ 
     [manager POST:urlstring parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"OKEY: %@", responseObject);
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"ERROR ADD: %@", error);
+        //NSLog(@"ERROR ADD: %@",  [error.userInfo valueForKey:@"com.alamofire.serialization.response.error.data"]);
+        NSData *errorData = [NSData dataWithData:[error.userInfo valueForKey:@"com.alamofire.serialization.response.error.data"]];
+        NSString *dataString = [[NSString alloc] initWithData:errorData encoding:NSUTF8StringEncoding];
+        NSLog(@"ERROR: %@", dataString);
     }];
 }
 

@@ -145,9 +145,12 @@
                                [NSString stringWithFormat:@"/classes/%@/journal/%@/%@/%@/date", classId, pupilId, subjectId, key]          :  markModel.date,
                                [NSString stringWithFormat:@"/classes/%@/journal/%@/%@/%@/teacherId", classId, pupilId, subjectId, key]      :   markModel.teacherId,
                                [NSString stringWithFormat:@"/classes/%@/journal/%@/%@/%@/mark", classId, pupilId, subjectId, key]           :   markModel.mark,
-                               [NSString stringWithFormat:@"/classes/%@/journal/%@/%@/%@/wasOnLesson", classId, pupilId, subjectId, key]    :   [NSNumber numberWithBool:markModel.wasOnLesson]
+                               [NSString stringWithFormat:@"/classes/%@/journal/%@/%@/%@/wasOnLesson", classId, pupilId, subjectId, key]    :   markModel.wasOnLesson,
+                               [NSString stringWithFormat:@"/classes/%@/journal/%@/%@/%@/typeOfMark", classId, pupilId, subjectId, key]    :   markModel.typeOfMark,
+                               [NSString stringWithFormat:@"/classes/%@/journal/%@/%@/%@/markDescription", classId, pupilId, subjectId, key]    :   markModel.markDescription
                                };
     [self.databaseReference updateChildValues:markInfo];
+    success();
 }
 
 - (void)addClassTeacherWithUserId:(NSString *) userId

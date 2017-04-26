@@ -10,7 +10,6 @@
 
 @implementation Constants
 
-NSString * const MYObjectDidSomethingNotification = @"MYObjectDidSomethingNotification";
 NSString *const PUPIL_CLASS_ID = @"userClassId";
 NSString *const USER_ID = @"userId";
 

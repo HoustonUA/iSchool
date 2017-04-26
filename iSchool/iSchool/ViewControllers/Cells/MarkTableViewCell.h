@@ -9,7 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "MarkModel.h"
 
+@protocol MarkTableViewCellDelegate <NSObject>
+
+- (void)alertDidTappedOkButton:(UIAlertController *) alertController;
+
+@end
+
 @interface MarkTableViewCell : UITableViewCell
+
+@property (weak, nonatomic) id <MarkTableViewCellDelegate> delegate;
 
 - (void)fillCellWithModel:(MarkModel *) model;
 

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PupilMarksViewController : UIViewController
+@interface PupilMarksViewController : BaseViewController
 
 @property (strong, nonatomic) NSString *classId;
 @property (strong, nonatomic) NSString *pupilUserId;

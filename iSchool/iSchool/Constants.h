@@ -10,7 +10,6 @@
 
 @interface Constants : NSObject
 
-extern NSArray * const sectionsNamesArray;
 extern NSString *const PUPIL_CLASS_ID;
 extern NSString *const USER_ID;
 

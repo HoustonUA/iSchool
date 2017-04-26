@@ -46,6 +46,7 @@
 		F181EA891EA3E05800A95AC7 /* ClassPupilsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F181EA881EA3E05800A95AC7 /* ClassPupilsViewController.m */; };
 		F181EA8C1EA3EB9D00A95AC7 /* PupilMarksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F181EA8B1EA3EB9D00A95AC7 /* PupilMarksViewController.m */; };
 		F1B5B1E91EAFAD1900E99776 /* SendSMSService.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B5B1E81EAFAD1900E99776 /* SendSMSService.m */; };
+		F1B5B1EC1EB0CB3B00E99776 /* AddMarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B5B1EB1EB0CB3B00E99776 /* AddMarkViewController.m */; };
 		F1DF6E671E9E69ED00973B34 /* NoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DF6E661E9E69ED00973B34 /* NoteModel.m */; };
 		F1DF6E6A1EA01A7400973B34 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DF6E691EA01A7400973B34 /* RegistrationViewController.m */; };
 		F1DF6E6D1EA01E8B00973B34 /* RegistrationDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DF6E6C1EA01E8B00973B34 /* RegistrationDetailsViewController.m */; };
@@ -140,6 +141,8 @@
 		F181EA8B1EA3EB9D00A95AC7 /* PupilMarksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PupilMarksViewController.m; path = ViewControllers/PupilMarksViewController.m; sourceTree = "<group>"; };
 		F1B5B1E71EAFAD1900E99776 /* SendSMSService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SendSMSService.h; path = Networking/Services/SendSMSService.h; sourceTree = "<group>"; };
 		F1B5B1E81EAFAD1900E99776 /* SendSMSService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SendSMSService.m; path = Networking/Services/SendSMSService.m; sourceTree = "<group>"; };
+		F1B5B1EA1EB0CB3B00E99776 /* AddMarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddMarkViewController.h; path = ViewControllers/AddMarkViewController.h; sourceTree = "<group>"; };
+		F1B5B1EB1EB0CB3B00E99776 /* AddMarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddMarkViewController.m; path = ViewControllers/AddMarkViewController.m; sourceTree = "<group>"; };
 		F1DF6E651E9E69ED00973B34 /* NoteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteModel.h; path = Models/NoteModel.h; sourceTree = "<group>"; };
 		F1DF6E661E9E69ED00973B34 /* NoteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteModel.m; path = Models/NoteModel.m; sourceTree = "<group>"; };
 		F1DF6E681EA01A7400973B34 /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistrationViewController.h; path = ViewControllers/RegistrationViewController.h; sourceTree = "<group>"; };
@@ -387,6 +390,8 @@
 		F180125A1EA78E0200E80930 /* Teacher */ = {
 			isa = PBXGroup;
 			children = (
+				F1B5B1EA1EB0CB3B00E99776 /* AddMarkViewController.h */,
+				F1B5B1EB1EB0CB3B00E99776 /* AddMarkViewController.m */,
 				F181EA8A1EA3EB9D00A95AC7 /* PupilMarksViewController.h */,
 				F181EA8B1EA3EB9D00A95AC7 /* PupilMarksViewController.m */,
 				F181EA811EA3D04800A95AC7 /* ClassesListViewController.h */,
@@ -619,6 +624,7 @@
 				F1FBF1E81E9CFA3400B9D49D /* ScheduleDayModel.m in Sources */,
 				F11ECD861E9BB4F800EC0126 /* UIColor+CustomColors.m in Sources */,
 				F181EA7E1EA3A5CC00A95AC7 /* ClassModel.m in Sources */,
+				F1B5B1EC1EB0CB3B00E99776 /* AddMarkViewController.m in Sources */,
 				F180125D1EA79A3E00E80930 /* RegistrationService.m in Sources */,
 				F143A6DD1E9A4E27003B11D1 /* main.m in Sources */,
 			);

@@ -11,8 +11,11 @@
 #import "MarkModel.h"
 #import "UserService.h"
 #import "MarkTableViewCell.h"
+#import "AddMarkViewController.h"
 
-@interface PupilMarksViewController () <UITabBarDelegate, UITableViewDataSource>
+static NSString *const fromMarksToMarkAddSegueIdentifier = @"fromMarksToMarkAddSegueIdentifier";
+
+@interface PupilMarksViewController () <UITabBarDelegate, UITableViewDataSource, MarkTableViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -20,7 +23,6 @@
 - (IBAction)addMarkAction:(UIBarButtonItem *)sender;
 
 @property (strong, nonatomic) NSArray *marksModels;
-@property (assign, nonatomic) BOOL isOnLesson;
 
 @end
 
@@ -37,36 +39,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+#pragma mark - MarkTableViewCellDelegate
+
+- (void)alertDidTappedOkButton:(UIAlertController *)alertController {
+    [self presentViewController:alertController animated:YES completion:^{
+        
+    }];
+}
+
 #pragma mark - Private
 
 - (void)setupUI {
     self.navigationItem.title = self.pupilName;
-}
-
-- (MarkModel *)createMarkModelWithMark:(NSNumber *) mark {
-    MarkModel *markModel = [MarkModel new];
-    markModel.mark = mark;
-    markModel.teacherId = [[NSUserDefaults standardUserDefaults] objectForKey:USER_ID];
-    markModel.wasOnLesson = self.isOnLesson;
-    markModel.date = [self getCurrentDate];
-    
-    return markModel;
-}
-
-- (NSString *) getCurrentDate {
-    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
-    return [dateFormatter stringFromDate:[NSDate date]];
-}
-
-- (UISwitch *)createSwitch {
-    UISwitch *switchOnAlert = [[UISwitch alloc] initWithFrame:CGRectMake(10, 10, 0, 0)];
-    switchOnAlert.on = true;
-    self.isOnLesson = true;
-    [switchOnAlert setOn:true animated:false];
-    [switchOnAlert addTarget:self action:@selector(switchValueDidChange:) forControlEvents:UIControlEventValueChanged];
-    
-    return switchOnAlert;
 }
 
 #pragma mark - Networking
@@ -110,13 +98,6 @@
     }
 }
 
-- (void)addMarkWithModel:(MarkModel *) markModel withCompletion:(void(^)()) completion {
-    ClassService *service = [ClassService new];
-    [service addMarkWithModel:markModel forPupil:self.pupilUserId forSubject:self.subjectId fromClass:self.classId onSuccess:^{
-        [self.tableView reloadData];
-    }];
-}
-
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -125,50 +106,31 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MarkTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MarkTableViewCell class]) forIndexPath:indexPath];
-    
+    cell.delegate = self;
     [cell fillCellWithModel:[self.marksModels objectAtIndex:indexPath.row]];
     
     return cell;
 }
 
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:fromMarksToMarkAddSegueIdentifier]) {
+        AddMarkViewController *vc = (AddMarkViewController *)segue.destinationViewController;
+        vc.pupilUserId = self.pupilUserId;
+        vc.subjectId = self.subjectId;
+        vc.classId = self.classId;
+    }
+}
+
+- (IBAction)unwindToPupilMarks:(UIStoryboardSegue *) segue {
+    [self getMarksModels];    
+}
+
 #pragma mark - Actions
 
 - (IBAction)addMarkAction:(UIBarButtonItem *)sender {
-    [self showAlertWithMarkInput];
-}
-
-- (void)switchValueDidChange:(UISwitch *) sender {
-    self.isOnLesson = sender.on;
-}
-
-- (void)showAlertWithMarkInput {
-    UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"Set Mark"
-                                                                              message: @"Input pupil mark"
-                                                                       preferredStyle:UIAlertControllerStyleAlert];
-    
-    __block UITextField *tempTextField;
-    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        tempTextField = textField;
-        textField.placeholder = @"Mark";
-        textField.textColor = [UIColor blueColor];
-        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        textField.borderStyle = UITextBorderStyleRoundedRect;
-        textField.textAlignment = NSTextAlignmentCenter;
-        textField.keyboardType = UIKeyboardTypeNumberPad;
-    }];
-    
-    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        NSNumber *mark = [NSNumber numberWithInteger:[tempTextField.text integerValue]];
-        MarkModel *model = [self createMarkModelWithMark:mark];
-        [self addMarkWithModel:model withCompletion:nil];
-    }]];
-    
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }]];
-    [alertController.view addSubview:[self createSwitch]];
-    
-    [self presentViewController:alertController animated:YES completion:nil];
+    [self performSegueWithIdentifier:fromMarksToMarkAddSegueIdentifier sender:nil];
 }
 
 @end
