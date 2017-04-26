@@ -100,6 +100,8 @@ static NSString *const fromRegistrationToCongratulationSegueIdentifier = @"fromR
     self.view.backgroundColor = [UIColor primaryColor];
 }
 
+#pragma mark - PickerView
+
 - (void)setupPickerView {
     self.pickerView = [[UIPickerView alloc] init];
     self.pickerView.dataSource = self;
@@ -122,8 +124,6 @@ static NSString *const fromRegistrationToCongratulationSegueIdentifier = @"fromR
     self.classTextField.text = @"";
     [self.classTextField resignFirstResponder];
 }
-
-#pragma mark - PickerView
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 1;

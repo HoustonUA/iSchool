@@ -12,7 +12,7 @@
 
 static NSString *const fromAddMarkToPupilMarksSegueIdentifier = @"fromAddMarkToPupilMarksSegueIdentifier";
 
-@interface AddMarkViewController ()
+@interface AddMarkViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITextField *markTextField;
 @property (weak, nonatomic) IBOutlet UITextField *markTypeTextField;
@@ -26,7 +26,10 @@ static NSString *const fromAddMarkToPupilMarksSegueIdentifier = @"fromAddMarkToP
 - (IBAction)actionEditingChangedMark:(UITextField *)sender;
 
 @property (strong, nonatomic) NSArray *stateOfPupilPresent;
+@property (strong, nonatomic) NSArray *typeOfMark;
 @property (strong, nonatomic) NSString *isOnLesson;
+@property (strong, nonatomic) UIPickerView *pickerView;
+@property (strong, nonatomic) UIToolbar *toolbar;
 
 @end
 
@@ -35,18 +38,23 @@ static NSString *const fromAddMarkToPupilMarksSegueIdentifier = @"fromAddMarkToP
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.stateOfPupilPresent = @[@"Present", @"Absent", @"Late"];
+    self.typeOfMark = @[@"In Class (verbally)", @"In Class (writing)", @"Homework",
+                        @"Dictation", @"Independent Work", @"Individual Work",
+                        @"Lab", @"Composition", @"Control Work", @"Mark By The Topic", @"Semester Mark"];
     self.isOnLesson = [self.stateOfPupilPresent objectAtIndex:0];
+    [self setupPickerView];
     [self setupUI];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Private
 
 - (void)setupUI {
+    self.markTypeTextField.inputView = self.pickerView;
+    self.markTypeTextField.inputAccessoryView = self.toolbar;
     self.markTypeTextField.enabled = NO;
     self.view.backgroundColor = [UIColor primaryColor];
     self.submitButton.backgroundColor = [UIColor customYellowColor];
@@ -82,6 +90,49 @@ static NSString *const fromAddMarkToPupilMarksSegueIdentifier = @"fromAddMarkToP
         [self performSegueWithIdentifier:fromAddMarkToPupilMarksSegueIdentifier sender:nil];
     }];
 }
+
+#pragma mark - PickerView
+
+- (void)setupPickerView {
+    self.pickerView = [[UIPickerView alloc] init];
+    self.pickerView.dataSource = self;
+    self.pickerView.delegate = self;
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+    toolbar.userInteractionEnabled = YES;
+    UIBarButtonItem *doneBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)];
+    UIBarButtonItem *cancelBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAction:)];
+    UIBarButtonItem *spaceBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    toolbar.items = @[cancelBarButtonItem, spaceBarButtonItem, doneBarButtonItem];
+    self.toolbar = toolbar;
+}
+
+- (IBAction)doneAction:(id) sender {
+    [self.markTypeTextField resignFirstResponder];
+}
+
+- (void)cancelAction:(id) sender {
+    self.markTypeTextField.text = @"";
+    [self.markTypeTextField resignFirstResponder];
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return [self.typeOfMark count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return [self.typeOfMark objectAtIndex:row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    self.markTypeTextField.text = [self.typeOfMark objectAtIndex:row];
+}
+
+#pragma mark - Actions
 
 - (IBAction)submitButtonAction:(UIButton *)sender {
     MarkModel *model = [self createMarkModelWithMark:[NSNumber numberWithInteger:[self.markTextField.text integerValue]]];
