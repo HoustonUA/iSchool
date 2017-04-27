@@ -18,7 +18,9 @@
 @interface MarkTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) id <MarkTableViewCellDelegate> delegate;
+@property (strong, nonatomic) UIColor *colorOfCell;
 
 - (void)fillCellWithModel:(MarkModel *) model;
+- (void)setupUI;
 
 @end

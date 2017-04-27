@@ -29,7 +29,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self setupUI];
+    self.colorOfCell = [UIColor primaryColor];
+    //[self setupUI];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -56,18 +57,9 @@
 
 #pragma mark - Private
 
-- (NSString *)formatDateWithString:(NSString *) date {
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"dd-MMM-yyyy";
-    NSDate *formattedDate = [dateFormatter dateFromString:date];
-    return [dateFormatter stringFromDate:formattedDate];
-}
-
 - (void)setupUI {
     self.backgroundColor = [UIColor lightGrayColor];
-    self.containerView.backgroundColor = [UIColor primaryColor];
-    self.containerView.layer.cornerRadius = 5.f;
-    self.containerView.layer.borderWidth = 1.f;
+    self.containerView.backgroundColor = self.colorOfCell;
     self.containerView.layer.borderColor = [UIColor darkGrayColor].CGColor;
     self.topViewWithDate.backgroundColor = [UIColor mainColor];
     self.markContainerView.backgroundColor = [UIColor whiteColor];
@@ -78,9 +70,7 @@
 - (UIAlertController *)createAlertController {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Description" message:self.markDescription preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-
-    }];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
     
     [alertController addAction:okAction];
     

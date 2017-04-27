@@ -23,6 +23,7 @@ static NSString *const fromMarksToMarkAddSegueIdentifier = @"fromMarksToMarkAddS
 - (IBAction)addMarkAction:(UIBarButtonItem *)sender;
 
 @property (strong, nonatomic) NSArray *marksModels;
+@property (strong, nonatomic) NSArray *cellColors;
 
 @end
 
@@ -30,6 +31,9 @@ static NSString *const fromMarksToMarkAddSegueIdentifier = @"fromMarksToMarkAddS
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIColor *customRedColor = [UIColor colorWithRed:219.f/255.f green:78.f/255.f blue:77.f/255.f alpha:1.0];
+    UIColor *customBlueColor = [UIColor colorWithRed:102.f/255.f green:142.f/255.f blue:255.f/255.f alpha:1.0];
+    self.cellColors = @[customRedColor, customBlueColor, [UIColor customYellowColor], [UIColor primaryColor], [UIColor orangeColor]];
     [self setupUI];
     [self getMarksModels];
 }
@@ -107,6 +111,12 @@ static NSString *const fromMarksToMarkAddSegueIdentifier = @"fromMarksToMarkAddS
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MarkTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MarkTableViewCell class]) forIndexPath:indexPath];
     cell.delegate = self;
+    NSInteger temp = indexPath.row % 10;
+    if(temp != 0 && temp >= 5) {
+        temp -= 5;
+    }
+    cell.colorOfCell = [self.cellColors objectAtIndex:temp];
+    [cell setupUI];
     [cell fillCellWithModel:[self.marksModels objectAtIndex:indexPath.row]];
     
     return cell;
