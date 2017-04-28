@@ -13,12 +13,13 @@
 
 static NSString *const fromMarksListToListOfsubjectsSegueIdentifier = @"fromMarksListToListOfsubjectsSegueIdentifier";
 
-@interface SubjectInfoViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface SubjectInfoViewController () <UITableViewDelegate, UITableViewDataSource, MarkTableViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 @property (strong, nonatomic) UserModel *userModel;
 @property (strong, nonatomic) NSArray *marksModels;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *cellColors;
 
 @end
 
@@ -26,6 +27,9 @@ static NSString *const fromMarksListToListOfsubjectsSegueIdentifier = @"fromMark
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIColor *customRedColor = [UIColor colorWithRed:219.f/255.f green:78.f/255.f blue:77.f/255.f alpha:1.0];
+    UIColor *customBlueColor = [UIColor colorWithRed:102.f/255.f green:142.f/255.f blue:255.f/255.f alpha:1.0];
+    self.cellColors = @[customRedColor, customBlueColor, [UIColor customYellowColor], [UIColor primaryColor], [UIColor orangeColor]];
     [self showLoader];
     [self setupUI];
     [self getMarksInfo];
@@ -36,7 +40,20 @@ static NSString *const fromMarksListToListOfsubjectsSegueIdentifier = @"fromMark
     
 }
 
+#pragma mark - MarkTableViewCellDelegate
+
+- (void)alertDidTappedOkButton:(UIAlertController *)alertController {
+    [self presentViewController:alertController animated:YES completion:^{
+        
+    }];
+}
+
 #pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.tableView.estimatedRowHeight = 140.f;
+    return 140.f;
+}
 
 #pragma mark - UITableViewDataSource
 
@@ -47,7 +64,13 @@ static NSString *const fromMarksListToListOfsubjectsSegueIdentifier = @"fromMark
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MarkTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MarkTableViewCell class]) forIndexPath:indexPath];
-    
+    cell.delegate = self;
+    NSInteger temp = indexPath.row % 10;
+    if(temp != 0 && temp >= 5) {
+        temp -= 5;
+    }
+    cell.colorOfCell = [self.cellColors objectAtIndex:temp];
+    [cell setupUI];
     [cell fillCellWithModel:[self.marksModels objectAtIndex:indexPath.row]];
     
     return cell;
