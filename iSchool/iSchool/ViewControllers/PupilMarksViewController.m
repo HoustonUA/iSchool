@@ -15,7 +15,7 @@
 
 static NSString *const fromMarksToMarkAddSegueIdentifier = @"fromMarksToMarkAddSegueIdentifier";
 
-@interface PupilMarksViewController () <UITabBarDelegate, UITableViewDataSource, MarkTableViewCellDelegate>
+@interface PupilMarksViewController () <UITabBarDelegate, UITableViewDataSource, UITableViewDelegate, MarkTableViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -100,6 +100,13 @@ static NSString *const fromMarksToMarkAddSegueIdentifier = @"fromMarksToMarkAddS
             }
         }];
     }
+}
+
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.tableView.estimatedRowHeight = 140.f;
+    return 140.f;
 }
 
 #pragma mark - UITableViewDataSource

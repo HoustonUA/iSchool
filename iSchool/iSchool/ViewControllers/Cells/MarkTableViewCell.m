@@ -30,7 +30,13 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.colorOfCell = [UIColor primaryColor];
-    //[self setupUI];
+    self.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.layer.shadowOffset = CGSizeMake(4.0f, 0);
+    self.layer.shadowOpacity = 0.7f;
+    self.layer.shadowRadius = 4.0f;
+    //[self.layer setShadowPath:[UIBezierPath bezierPathWithRect:self.bounds].CGPath];
+    self.layer.masksToBounds = false;
+    [self layoutIfNeeded];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
