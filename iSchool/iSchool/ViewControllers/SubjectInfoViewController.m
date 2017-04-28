@@ -139,8 +139,6 @@ static NSString *const fromMarksListToListOfsubjectsSegueIdentifier = @"fromMark
             completion();
         }
     }];
-    
-    
 }
 
 - (void)getTeachersOfMarksWithCompletion:(void(^)()) completion {

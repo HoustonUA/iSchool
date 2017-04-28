@@ -61,6 +61,7 @@
 		F1FBF1E81E9CFA3400B9D49D /* ScheduleDayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FBF1E71E9CFA3400B9D49D /* ScheduleDayModel.m */; };
 		F1FBF1EB1E9D154000B9D49D /* MaterialModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FBF1EA1E9D154000B9D49D /* MaterialModel.m */; };
 		F1FBF1EE1E9D161400B9D49D /* MaterialsService.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FBF1ED1E9D161400B9D49D /* MaterialsService.m */; };
+		F300C1371EB36059005B0FBD /* ParentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F300C1361EB36059005B0FBD /* ParentsViewController.m */; };
 		F3B879AE1E9FD66600DFD0E0 /* TeacherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B879AD1E9FD66600DFD0E0 /* TeacherModel.m */; };
 		F3E9B0791EA8FD5000643953 /* Note+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E9B0761EA8FD5000643953 /* Note+CoreDataClass.m */; };
 		F3E9B07A1EA8FD5000643953 /* Note+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E9B0781EA8FD5000643953 /* Note+CoreDataProperties.m */; };
@@ -170,6 +171,8 @@
 		F1FBF1EA1E9D154000B9D49D /* MaterialModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MaterialModel.m; path = Models/MaterialModel.m; sourceTree = "<group>"; };
 		F1FBF1EC1E9D161400B9D49D /* MaterialsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MaterialsService.h; path = Networking/Services/MaterialsService.h; sourceTree = "<group>"; };
 		F1FBF1ED1E9D161400B9D49D /* MaterialsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MaterialsService.m; path = Networking/Services/MaterialsService.m; sourceTree = "<group>"; };
+		F300C1351EB36059005B0FBD /* ParentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParentsViewController.h; path = ViewControllers/ParentsViewController.h; sourceTree = "<group>"; };
+		F300C1361EB36059005B0FBD /* ParentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParentsViewController.m; path = ViewControllers/ParentsViewController.m; sourceTree = "<group>"; };
 		F3B48FCC1E9F7D0A003A1731 /* iSchool-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iSchool-Prefix.pch"; sourceTree = "<group>"; };
 		F3B879AC1E9FD66600DFD0E0 /* TeacherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeacherModel.h; path = Models/TeacherModel.h; sourceTree = "<group>"; };
 		F3B879AD1E9FD66600DFD0E0 /* TeacherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TeacherModel.m; path = Models/TeacherModel.m; sourceTree = "<group>"; };
@@ -371,6 +374,8 @@
 			children = (
 				F143A70F1E9A70D3003B11D1 /* JournalViewController.h */,
 				F143A7101E9A70D3003B11D1 /* JournalViewController.m */,
+				F300C1351EB36059005B0FBD /* ParentsViewController.h */,
+				F300C1361EB36059005B0FBD /* ParentsViewController.m */,
 				F11ECD881E9BB8D000EC0126 /* ProfileViewController.h */,
 				F11ECD891E9BB8D000EC0126 /* ProfileViewController.m */,
 				F181EA791EA3921100A95AC7 /* PupilClassViewController.h */,
@@ -592,6 +597,7 @@
 				F126BA901EA7F17B00A9392C /* CongratulationViewController.m in Sources */,
 				F143A70E1E9A667C003B11D1 /* Constants.m in Sources */,
 				F11ECD8A1E9BB8D000EC0126 /* ProfileViewController.m in Sources */,
+				F300C1371EB36059005B0FBD /* ParentsViewController.m in Sources */,
 				F143A6E91E9A4E27003B11D1 /* iSchool.xcdatamodeld in Sources */,
 				F143A72A1E9AA674003B11D1 /* NoticeDetailedViewController.m in Sources */,
 				F181EA8C1EA3EB9D00A95AC7 /* PupilMarksViewController.m in Sources */,

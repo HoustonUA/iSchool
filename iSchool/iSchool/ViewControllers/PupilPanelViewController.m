@@ -18,8 +18,8 @@ typedef enum {
     Notices,
     News,
     MyClass,
-    Parents,
-    Settings
+    Settings,
+    Parents
 }SectionName;
 
 static NSString *const fromMainPupilToJournalSegueUdentifier = @"fromMainPupilToJournalSegueUdentifier";
@@ -27,11 +27,14 @@ static NSString *const fromMainPupilToScheduleSegueIdentifier = @"fromMainPupilT
 static NSString *const fromPupilMainPanelToNitocesSegueIdentifier = @"fromPupilMainPanelToNitocesSegueIdentifier";
 static NSString *const fromPupilMainPanelToProfileSegueIdentifier = @"fromPupilMainPanelToProfileSegueIdentifier";
 static NSString *const fromPupilPanelToPupilClassSegueIdentifier = @"fromPupilPanelToPupilClassSegueIdentifier";
+static NSString *const fromPupilPanelToParentsSegueIdentifier = @"fromPupilPanelToParentsSegueIdentifier";
 
 @interface PupilPanelViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) NSArray *sectionsNamesArray;
 @property (assign, nonatomic) cellActionType lActionType;
+@property (strong, nonatomic) __block NSString *parentPassword;
+
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 - (IBAction)profileBarButtonItem:(UIBarButtonItem *)sender;
@@ -66,6 +69,16 @@ static NSString *const fromPupilPanelToPupilClassSegueIdentifier = @"fromPupilPa
     }];
 }
 
+- (void)getParentPasswordWithCompletion:(void(^)(NSString *password)) completion {
+    UserService *service = [UserService new];
+    NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:USER_ID];
+    [service getParentPasswordOfPupilWithUserId:userId onSuccess:^(NSString *password) {
+        if(completion) {
+            completion(password);
+        }
+    }];
+}
+
 #pragma  mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -83,7 +96,7 @@ static NSString *const fromPupilPanelToPupilClassSegueIdentifier = @"fromPupilPa
 #pragma  mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     switch (indexPath.row) {
         case Journal:
             self.lActionType = toSubjectViewController;
@@ -104,28 +117,59 @@ static NSString *const fromPupilPanelToPupilClassSegueIdentifier = @"fromPupilPa
         case MyClass:
             [self performSegueWithIdentifier:fromPupilPanelToPupilClassSegueIdentifier sender:self];
             break;
-        case Parents:
-            break;
         case Settings:
             break;
-        default:
+        case Parents:
+            [self showAlertWithPasswordTextFieldWithCompletion:^{
+                [self performSegueWithIdentifier:fromPupilPanelToParentsSegueIdentifier sender:nil];
+            }];
             break;
     }
+}
+
+#pragma mark - Private
+
+- (void)showAlertWithPasswordTextFieldWithCompletion:(void(^)()) completion {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Parent" message:@"Enter a password" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *submit = [UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * action) {
+                                                       if (alertController.textFields.count > 0) {
+                                                           UITextField *textField = [alertController.textFields firstObject];
+                                                           [self getParentPasswordWithCompletion:^(NSString *password) {
+                                                               if([password isEqualToString:textField.text]) {
+                                                                   if(completion) {
+                                                                       completion();
+                                                                   }
+                                                               } else {
+                                                                   [self showAlertWithTitle:@"Error" withMessage:@"Invalid password" andOKActionWithCompletion:nil];
+                                                               }
+                                                           }];
+                                                           
+                                                       }
+                                                   }];
+    
+    [alertController addAction:submit];
+    
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Password";
+    }];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    CGFloat width = self.view.bounds.size.width / 2 - 40;
-    CGFloat height = (width * 3) / 4;
+    CGFloat width = self.view.bounds.size.width / 2 - 15;
+    CGFloat height = self.view.bounds.size.height / 4 - 20;
     
     return CGSizeMake(width, height);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     
-    return UIEdgeInsetsMake(25, 20, 10, 20);
+    return UIEdgeInsetsMake(10, 10, 10, 10);
 }
 
 #pragma mark - Navigation

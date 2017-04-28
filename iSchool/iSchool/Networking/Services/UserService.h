@@ -34,4 +34,7 @@
                                     andUserId:(NSString *) userId
                                     onSuccess:(void(^)()) success;
 
+- (void)getParentPasswordOfPupilWithUserId:(NSString *) userId
+                                 onSuccess:(void(^)(NSString *password)) success;
+
 @end

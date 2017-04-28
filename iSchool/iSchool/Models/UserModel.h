@@ -19,5 +19,6 @@
 @property (strong, nonatomic) NSString *parentsPhone;
 @property (strong, nonatomic) NSString *phone;
 @property (strong, nonatomic) NSString *surname;
+@property (strong, nonatomic) NSString *parentPassword;
 
 @end

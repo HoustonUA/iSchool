@@ -114,5 +114,15 @@
     }
 }
 
+- (void)getParentPasswordOfPupilWithUserId:(NSString *) userId
+                                 onSuccess:(void(^)(NSString *password)) success {
+    
+    self.ref = [[FIRDatabase database] reference];
+    [[[[[self.ref child:@"users"] child:@"pupils"] child:userId] child:@"parentPassword"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        success(snapshot.value);
+    } withCancelBlock:^(NSError * _Nonnull error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
 
 @end

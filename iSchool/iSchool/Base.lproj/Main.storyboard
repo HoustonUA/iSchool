@@ -242,7 +242,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SectionCollectionViewCell" id="dVN-Ue-0Rm" customClass="SectionCollectionViewCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" reuseIdentifier="SectionCollectionViewCell" id="dVN-Ue-0Rm" customClass="SectionCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -800,7 +800,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="lZt-MM-wDt">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="lZt-MM-wDt">
                                 <rect key="frame" x="0.0" y="191" width="375" height="476"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
@@ -843,6 +843,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yqd-1D-v1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2173.5999999999999" y="526.6866566716642"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="eOF-HN-hQD">
+            <objects>
+                <viewController id="7dg-Hr-aWo" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iDv-VN-99e"/>
+                        <viewControllerLayoutGuide type="bottom" id="SaY-A9-47I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7Tm-Qy-B2w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DVh-rA-nRy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3121" y="527"/>
         </scene>
         <!--Notice-->
         <scene sceneID="aC2-EG-wb4">
@@ -975,6 +993,7 @@
                         <segue destination="RWK-aC-dNf" kind="show" identifier="fromPupilMainPanelToNitocesSegueIdentifier" id="N9U-QD-KDl"/>
                         <segue destination="VOr-2s-E8t" kind="show" identifier="fromPupilMainPanelToProfileSegueIdentifier" id="Svs-Sh-Dml"/>
                         <segue destination="bId-oL-8P5" kind="show" identifier="fromPupilPanelToPupilClassSegueIdentifier" id="O2V-s4-CGm"/>
+                        <segue destination="7dg-Hr-aWo" kind="show" identifier="fromPupilPanelToParentsSegueIdentifier" id="eLJ-oE-EzU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BWV-ki-49m" userLabel="First Responder" sceneMemberID="firstResponder"/>

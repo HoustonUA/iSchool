@@ -13,7 +13,7 @@
 + (EKObjectMapping *)objectMapping {
     return [EKObjectMapping mappingForClass:self withBlock:^(EKObjectMapping *mapping) {
         [mapping mapPropertiesFromArray:@[@"birthday", @"classId", @"middlename", @"name", @"parentOne",
-                                          @"parentsPhone", @"phone", @"surname"]];
+                                          @"parentsPhone", @"phone", @"surname", @"parentPassword"]];
     }];
 }
 

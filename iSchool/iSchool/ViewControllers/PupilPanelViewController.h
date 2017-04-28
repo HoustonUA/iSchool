@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PupilPanelViewController : UIViewController
+@interface PupilPanelViewController : BaseViewController
 
 @end
