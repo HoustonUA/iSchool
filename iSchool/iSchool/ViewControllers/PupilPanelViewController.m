@@ -148,7 +148,10 @@ static NSString *const fromPupilPanelToParentsSegueIdentifier = @"fromPupilPanel
                                                        }
                                                    }];
     
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    
     [alertController addAction:submit];
+    [alertController addAction:cancelAction];
     
     [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         textField.placeholder = @"Password";
